@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Settings;
-use App\Staticinvestment;
-use App\Transfer;
-use Illuminate\Http\Request;
-use App\User;
+use Mail;
 use App\Plan;
-use App\Investment;
-use App\Transaction;
+use App\Stat;
+use App\User;
 use App\Payout;
 use App\Deposit;
+use App\Settings;
+use App\Transfer;
 use App\CreditCard;
-use App\Http\Controllers\Globals as Util;
+use App\Investment;
+use App\Transaction;
 use App\Mail\Messaging;
+use App\Staticinvestment;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\In;
-use Mail;
-use App\Stat;
+use App\Http\Controllers\Globals as Util;
 
 class AdminController extends Controller
 {
@@ -924,6 +925,75 @@ class AdminController extends Controller
     public function deleteInvestment($id){
         Staticinvestment::findOrFail($id)->delete();
         return redirect()->back()->with('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong><i class="lni-checkmark"></i> Success!</strong> Investment has been deleted.<button type="button" class="close" data-dismiss="alert" aria-lSource Sans Pro="Close"><span aria-hidden="true">&times;</span></button></div>');
+    }
+
+    public function viewProperty(){
+        $plan = Plan::latest()->paginate(12);
+        return view('admin.properties', [ 'plans' => $plan ]);
+    }
+
+    public function addProperty(){
+        
+        return view('admin.addProperty');
+
+    }
+
+    public function editProperty($id){
+        $plan = Plan::where('id', $id)->first();
+
+        return view('admin.addProperty', [ 'edit' => true, 'plan' => $plan ]);
+    }
+
+    // Property Create
+
+    public function createProperty(Request $req){
+
+        $plan = new Plan;
+
+        $plan->name = $req->name;
+        $plan->location = $req->location;
+        $plan->price = $req->price;
+        $plan->type = $req->type;
+        
+        if ($req->file('img')) {
+            $files = $req->file('img');
+            $destinationPath = 'uploads';
+            $residenceImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $residenceImage);
+            
+            $plan->property_img = $destinationPath."/".$residenceImage;
+        }
+
+        $plan->save();
+
+        return view('admin.properties');
+    }
+
+    public function updateProperty(Request $req, $id){
+        $plan = Plan::findOrFail($id);
+
+        $plan->name = $req->name;
+        $plan->location = $req->location;
+        $plan->price = $req->price;
+        $plan->type = $req->type;
+        
+        if ($req->hasfile('img')) {
+            $files = $req->file('img');
+            $destinationPath = 'uploads';
+            $residenceImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $residenceImage);
+            
+            $plan->property_img = $destinationPath."/".$residenceImage;
+        }
+
+        $plan->update();
+
+        return redirect()->back()->with('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong><i class="lni-checkmark"></i> Success!</strong> Property has been updated.<button type="button" class="close" data-dismiss="alert" aria-lSource Sans Pro="Close"><span aria-hidden="true">&times;</span></button></div>');
+    }
+
+    public function destroyProperty($id){
+        Plan::findOrFail($id)->delete();
+        return redirect()->back()->with('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong><i class="lni-checkmark"></i> Success!</strong> Property has been deleted.<button type="button" class="close" data-dismiss="alert" aria-lSource Sans Pro="Close"><span aria-hidden="true">&times;</span></button></div>');
     }
 
 }

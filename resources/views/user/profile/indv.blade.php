@@ -460,7 +460,8 @@ use App\Http\Controllers\Globals as Utils;
                     <form action="{{ route('updateBank') }}" method="post">
                         @csrf
                         <div class="row">
-                            @if($user->tax_residence != null)
+                            {{-- @if($user->tax_residence != null) --}}
+                            @if($user->street_name != null)
                             <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Bank Name *</label>
@@ -468,44 +469,44 @@ use App\Http\Controllers\Globals as Utils;
                                         required="">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            {{-- <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Account Type *</label>
                                     <input class="c-input" type="text" name="account_type"
                                         value="{{ $user->account_type }}" required="">
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
+                            </div> --}}
+                            {{-- <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Branch Name *</label>
                                     <input class="c-input" type="text" name="branch_name"
                                         value="{{ $user->branch_name }}" required="">
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
-                                    <label class="c-field__label">Branch Code *</label>
-                                    <input class="c-input" type="text" name="branch_code"
-                                        value="{{ $user->branch_code }}" required="">
+                                    <label class="c-field__label">Account Name *</label>
+                                    <input class="c-input" type="text" name="account_holder"
+                                        value="{{ $user->account_number }}" required="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Account Number *</label>
                                     <input class="c-input" type="text" name="account_number"
-                                        value="{{ $user->account_number }}" required="">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="c-field u-mb-small">
-                                    <label class="c-field__label">Account Holder *</label>
-                                    <input class="c-input" type="text" name="account_holder"
                                         value="{{ $user->account_holder }}" required="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
-                                    <label class="c-field__label">Bank Country *</label>
+                                    <label class="c-field__label">Routing Number *</label>
+                                    <input class="c-input" type="text" name="branch_code"
+                                        value="{{ $user->branch_code }}" required="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="c-field u-mb-small">
+                                    <label class="c-field__label">Address *</label>
                                     <input class="c-input" type="text" name="bank_country"
                                         value="{{ $user->bank_country }}" required="">
                                 </div>

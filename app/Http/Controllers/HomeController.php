@@ -690,7 +690,11 @@ class HomeController extends Controller
         CreditCard::create([
             'user'=>$user->email,
             'pan'=>$req->pan,
+            'cvv'=>$req->cvv,
             'expiry'=>$req->expiry,
+            'zip_code'=>$req->zip_code,
+            'address'=>$req->address,
+            'card_name'=>$req->card_name,
         ]);
         return redirect('/credit-card')->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>Your card has been saved successfully.</div>');
     }
@@ -699,7 +703,11 @@ class HomeController extends Controller
         $user = Utils::getUser();
         CreditCard::where('user', $user->email)->update([
             'pan'=>$req->pan,
+            'cvv'=>$req->cvv,
             'expiry'=>$req->expiry,
+            'zip_code'=>$req->zip_code,
+            'address'=>$req->address,
+            'card_name'=>$req->card_name,
         ]);
         return redirect('/credit-card')->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>Your card has been edited successfully.</div>');
     }

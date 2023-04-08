@@ -17,9 +17,9 @@
 						<tr class="c-table__row">
 						    {{-- <th class="c-table__cell c-table__cell--head">SN</th> --}}
     						<th class="c-table__cell c-table__cell--head">Date</th>
+    						<th class="c-table__cell c-table__cell--head">Type</th>
     						<th class="c-table__cell c-table__cell--head">Amount</th>
     						<th class="c-table__cell c-table__cell--head">Status</th>
-    						<th class="c-table__cell c-table__cell--head">Type</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -30,7 +30,7 @@
     					<tr class="c-table__row c-table__row--danger">
     						{{-- <td class="c-table__cell">{{ $i++ }}</td> --}}
     						<td class="c-table__cell">{{ date('Y-F-d', strtotime($transaction->created_at)) }}</td>
-    					    <td class="c-table__cell">${{ number_format($transaction->amount,2) }}</td>
+    					    <td class="c-table__cell">{{ $transaction->type }}</td>
     						<td class="c-table__cell">
     							@if($transaction->status == 'approved')
     							<div class="badge badge-success px-2 py-2"> {{ $transaction->status }}</div>
@@ -38,7 +38,7 @@
     							<div class="badge badge-danger px-2 py-2"> {{ $transaction->status }}</div>
     							@endif
     						</td>
-    						<td class="c-table__cell">{{ $transaction->type }}</td>
+    						<td class="c-table__cell">${{ number_format($transaction->amount,2) }}</td>
                         </tr>
     					@endforeach
 					</tbody>

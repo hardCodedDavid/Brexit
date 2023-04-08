@@ -2,14 +2,14 @@
 
 @section('title', __('My statement history'))
 @section('statements', __('is-active'))
-@section('page', __('My Statement'))
+@section('page', __('Investment History'))
 
 @section('content')
 <div class="row">
     <div class="col-lg-12">
 		<div class="c-card c-card--responsive u-mb-medium">
 			<div class="c-card__header c-card__header--transparent o-line">
-			    <h5><small>My Statement</small></h5>
+			    <h5><small>Investment History</small></h5>
 			</div>
 			<div class="c-table-responsive@desktop">
 				<table class="c-table c-table--zebra u-mb-small" id="datatable2">

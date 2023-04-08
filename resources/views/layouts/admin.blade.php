@@ -117,6 +117,14 @@ $me = Utils::getAdmin();
                             </a>
                         </li>
                         <li class="menu">
+                            <a href="/admin/property" data-active="@yield('property')" aria-expanded="false" class="dropdown-toggle">
+                                <div class="">
+                                    <i class="lni-home"></i>
+                                    <span>Property</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="menu">
                             <a href="/admin/static" data-active="@yield('static')" aria-expanded="false" class="dropdown-toggle">
                                 <div class="">
                                     <i class="lni-pie-chart"></i>

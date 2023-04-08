@@ -134,4 +134,11 @@ Route::group(['prefix' => 'admin','middleware' => 'assign.guard:admin,admin/logi
     Route::get('/transfers/{id}/decline', 'AdminController@declineTransfer');
     Route::get('/transfers/{id}/delete', 'AdminController@deleteTransfer');
 
+    Route::get('/property', 'AdminController@viewProperty')->name('viewProperty');
+    Route::get('/property/add', 'AdminController@addProperty')->name('addProperty');
+    Route::post('/property/create', 'AdminController@createProperty')->name('createProperty');
+    Route::get('/property/{id}/edit', 'AdminController@editProperty')->name('editProperty');
+    Route::post('/property/{id}/update', 'AdminController@updateProperty')->name('updateProperty');
+    Route::get('/property/{id}/delete', 'AdminController@destroyProperty')->name('deleteProperty');
+
 });

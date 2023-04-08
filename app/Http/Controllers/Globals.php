@@ -34,6 +34,7 @@ class Globals extends Controller
     }
 
     public static function getPlan($slug){
+    	// return Plan::where('id', $slug)->first();
     	return Plan::where('slug', $slug)->first();
     }
 

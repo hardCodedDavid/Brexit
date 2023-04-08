@@ -11,7 +11,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-12">
+    {{-- <div class="col-lg-12">
         <div class="accordion">
             <div class="u-flex u-justify-end">
                 <!-- <a> -->
@@ -70,10 +70,10 @@
             </div>
             </a>
         </div>
-    </div>
+    </div> --}}
 
     <div class="col-lg-2">
-		<a class="c-btn c-btn--danger c-btn--fullwidth" href="/deposit/add" role="button" aria-haspopup="true" aria-expanded="false">Add Deposits</a>
+		<a class="c-btn c-btn--danger c-btn--fullwidth" href="/deposit/add" role="button" aria-haspopup="true" aria-expanded="false">Deposits Now</a>
 		<br><br>
 	</div>
     <div class="col-lg-12">

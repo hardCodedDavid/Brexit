@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes(['verify' => true]);
+
+Route::get('/', 'StaticController@index')->name('home');
+Route::get('/about', 'StaticController@about')->name('about');
+Route::get('/faq', 'StaticController@faq')->name('faq');
+Route::get('/how-it-works', 'StaticController@howItWorks')->name('how-it-works');
+Route::get('/properties', 'StaticController@list')->name('listProperty');
+
 Route::get('/accounts/generate', 'HomeController@generateAccountNumberForUsers');
 Route::get('/register', 'Auth\RegisterController@accountType')->name('account.type');
 Route::post('/register/indv', 'Auth\RegisterController@AddIndvAccount')->name('register.indv');
@@ -22,7 +29,7 @@ Route::post('/register/cprbdy', 'Auth\RegisterController@AddCprbdyAccount')->nam
 Route::post('/register/othrs', 'Auth\RegisterController@AddOthrsAccount')->name('register.othrs');
 
 Route::group(['middleware' => 'auth.checkProfileCompleteness'], function(){
-    Route::get('/', 'HomeController@index')->name('home');
+    // Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index');
     Route::get('/profile', 'HomeController@profile');
 

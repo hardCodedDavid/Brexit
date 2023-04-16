@@ -37,9 +37,13 @@
                                             <a class="nav-link dropdown-toggle" href="#">Learn</a>
                                             <ul class="dropdown-menu">
                                                 <li> <a class="dropdown-item" href="{{ route('how-it-works') }}">How it works</a></li>
-                                                {{-- <li> <a class="dropdown-item" href="help-faq.html">Single Property</a></li>
-                                                <li> <a class="dropdown-item" href="learning-centre.html">Learning centre</a></li>
-                                                <li> <a class="dropdown-item" href="contact-us.html">Contact us</a></li> --}}
+                                                <li> <a class="dropdown-item" href="{{ route('contact') }}">Contact Us</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('vacation') }}">Vacation Rental</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('historical') }}">Historical Performance</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('stakeholder') }}">Stakeholder Commitment</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('sellHome') }}">Sell Your Home</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('learning') }}">Learning Center</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('web') }}">Web 3 Properties</a></li>
                                             </ul>
                                         </li>
                                     </li>
@@ -49,8 +53,13 @@
                                         </li> -->
                                     </ul>
                                     <a href="#" class="btn">|</a>
-                                    <a href="{{ route('login') }}" class="btn">Login</a>
-                                    <a href="{{ route('account.type') }}" class="btn btn-primary add-listing-btn">Register</a>
+                                    @if(!auth()->user())
+                                        <a href="{{ route('login') }}" class="btn">Login</a>
+                                        <a href="{{ route('account.type') }}" class="btn btn-primary add-listing-btn">Register</a>
+                                    @else
+                                        <a href="{{ route('home') }}" class="btn btn-primary add-listing-btn">Dashboard</a>
+                                    @endif
+                                    
                                 </div>
                             </nav>
                         </div>

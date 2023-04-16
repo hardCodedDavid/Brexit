@@ -33,4 +33,39 @@ class StaticController extends Controller
         
         return view('static.properties', [ 'plans' => $plan ]);
     }
+
+    public function contact() 
+    {
+        return view('static.contact');
+    }
+
+    public function historical() 
+    {
+        return view('static.historical');
+    }
+    
+    public function stakeholder() 
+    {
+        return view('static.stakeholder');
+    }
+
+    public function sell() 
+    {
+        return view('static.sell-home');
+    }
+
+    public function learning() 
+    {
+        return view('static.learning');
+    }
+
+    public function web() 
+    {
+        return view('static.web3');
+    }
+
+    public function vacation() 
+    {
+        return view('static.vacation');
+    }
 }

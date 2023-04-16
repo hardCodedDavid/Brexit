@@ -11,7 +11,7 @@
 @include('components.header')
 
         <!--============== Page title Start ==============-->
-        <div class="full-row py-5">
+        <div class="full-row py-5" style="margin-top: 30px;">
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -420,11 +420,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row row-cols-1 g-4">
+                        <div class="row row-cols-xl-2 row-cols-lg-1 row-cols-md-2 row-cols-1 g-4">
                         @foreach($plans as $property)
                             <div class="col">
                                 <!-- Property Grid -->
-                                <div class="property-list-2 p-2 bg-white property-block border transation-this hover-shadow">
+                                <div class="property-grid-1 property-block bg-white transation-this hover-shadow">
                                     <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
                                         <div class="cata position-absolute"><span class="sale bg-secondary text-white">{{ $property->type }}</span></div>
                                         {{-- <div class="owl-carousel single-carusel dot-disable nav-between-in"> --}}
@@ -439,7 +439,7 @@
                                             <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
                                         </ul>
                                     </div>
-                                    <div class="property_text px-3">
+                                    <div class="property_text p-3">
                                         <span class="listing-price">${{ number_format($property->price, 2) }}<small> ( Monthly )</small></span>
                                         <h5 class="listing-title"><a href="property-single-v1.html">{{ $property->name }}</a></h5>
                                          <span class="listing-location"><i class="fas fa-map-marker-alt"></i> {{ $property->location }}</span>
@@ -452,7 +452,7 @@
                                         <p>Beautiful house for residence, very charming green view aroung the building.  <a href="#" class="btn-link">More Info...</a></p>
                                         <div class="d-flex align-items-center post-meta mt-2">
                                             <div class="agent">
-                                                <a href="#" class="btn btn-primary">Invest Now <i class="fas fa-arrow-right-long me-1"></i></a>
+                                                <a href="/invest-noww/invest/{{ $property->slug }}" class="btn btn-primary">Invest Now <i class="fas fa-arrow-right-long me-1"></i></a>
 
                                             </div>
                                             <div class="post-date ms-auto"><span>{{ date('Y-F-d', strtotime($property->created_at)) }}</span></div>
@@ -485,124 +485,6 @@
         </div>
         <!--============== Property Grid View End ==============-->
         
-
-        <!--============== Footer Section Start ==============-->
-        <footer class="full-row p-0 text-dark footer-two">
-            <div class="full-row">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="footer-widget mb-5">
-                                <h3 class="widget-title mb-4 font-400">Over 10000 Customers Already Connected</h3>
-                                <p>Libero consectetuer fames montes habitasse lorem hendrerit dictumst sit blandit. Commodo justo. Blandit lobortis metus et. Dignissim netus netus convallis hendrerit. Molestie penatibus litora cubilia etiam.</p>
-                                <div class="footer-widget media-widget mt-5">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="row row-cols-sm-3 row-cols-1">
-                                <div class="col">
-                                    <div class="footer-widget footer-nav mb-5">
-                                        <h4 class="widget-title mb-4">Learn More</h4>
-                                        <ul>
-                                            <li><a href="#">Privacy statement</a></li>
-                                            <li><a href="#">Modern slavery statement</a></li>
-                                            <li><a href="#">Perrys past & present</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="footer-widget footer-nav mb-5">
-                                        <h4 class="widget-title mb-4">About Special Service</h4>
-                                        <ul>
-                                            <li><a href="#">Power Steering</a></li>
-                                            <li><a href="#">Engine Overhaul</a></li>
-                                            <li><a href="#">Tyre Balancing</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="footer-widget footer-nav mb-5">
-                                        <h4 class="widget-title mb-4">Invest</h4>
-                                        <ul>
-                                            <li><a href="properties.html">Properties</a></li>
-                                            <li><a href="#">Download app</a></li>
-                                            <li><a href="#">Careers</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="footer-widget footer-nav mb-5">
-                                        <h4 class="widget-title mb-4">Learn</h4>
-                                        <ul>
-                                            <li><a href="how-it-works.html">How it Works</a></li>
-                                            <li><a href="help-faq.html">Help & FAQ</a></li>
-                                            <li><a href="learning-centre.html">Learning Centre</a></li>
-                                            <li><a href="contact-us.html">Contact Us</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="footer-widget footer-nav mb-5">
-                                        <h4 class="widget-title mb-4">About</h4>
-                                        <ul>
-                                            <li><a href="about-us.html">About Us</a></li>
-                                            <li><a href="vacation-rentals.html">Vacation Rentals</a></li>
-                                            <li><a href="web-3-properties.html">Web3 Properties</a></li>
-                                            <li><a href="historical-performance.html">Historical Performance</a></li>
-                                            <li><a href="stakeholder-commitments.html">Stakeholder Commitments</a></li>
-                                            <li><a href="sell-your-home.html">Sell Your Home</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="text-light font-200">Vantage Horizon, Inc. ("Vantage Horizon") operates the VantageHorizon.com All securities related activity is conducted through RERA  Group LLC (“RERA”), a registered broker-dealer and member of FINRA/SIPC, located at 525 Green Place, Woodmere, NY 11598.<br>
-                        You should speak with your financial advisor, accountant and/or attorney when evaluating any offering. Neither Vantage Horizon nor RERA makes any recommendations or provides advice about investments, and no communication, through this Site or in any other medium, should be construed as a recommendation for any security offered on or off this Site.<br>
-                        Vantage Horizon is conducting public offerings pursuant to Regulation A, as amended, through the Site. Past performance is no guarantee of future results. Investments such as those on the Vantage Horizon platform are speculative and involve substantial risks to consider before investing, outlined in the respective offering materials and including, but not limited to, illiquidity, lack of diversification and complete loss of capital. Key risks include, but are not limited to, limited operating history, limited diversification, risk of asset damage or theft and lack of voting rights. Also, the adverse economic effects of the COVID-19 pandemic are unknown and could materially impact this investment. An investment in an offering constitutes only an investment in a particular series and not in Vantage Horizon or the underlying asset(s). Investors should carefully review the risks located in the respective offering materials for a more comprehensive discussion of risk.<br>
-                        From time to time, Vantage Horizon will seek to qualify additional series offerings of securities under regulation A. For offerings that have not yet been qualified, no money or other consideration is being solicited and, if sent in response, will not be accepted. No offer to buy securities of a particular offering can be accepted, and no part of the purchase price can be received, until an offering statement filed with the Securities and Exchange Commission (the "SEC") relating to that series has been qualified by the SEC. Any such offer may be withdrawn or revoked, without obligation or commitment of any kind, at any time before notice of acceptance given after the date of qualification by the SEC. An indication of interest involves no obligation or commitment of any kind.<br>
-                        Investment overviews contained herein contain summaries of the purpose and the principal business terms of the investment opportunities. Such summaries are intended for informational purposes only and do not purport to be complete, and each is qualified in its entirety by reference to the more-detailed discussions contained in the respective offering circular filed with the SEC.
-                        </span>
-                        <span class="text-light font-200">The Site may make forward-looking statements. Potential investors should not rely on any forward-looking statements regarding any investment opportunity, which is based on our beliefs and information currently available to us. The words “anticipate,” “believe,” “expect,” “aim,” “potential,” “design,” “target,” “intend,” “may,” “might,” “plan,” “estimate,” “project,” “projection,” “should,” “will,” “would,” “result” and similar expressions identify forward-looking statements. Such statements are subject to risks, uncertainties, and assumptions and are not guarantees of future performance, which may be affected by known and unknown risks, trends, uncertainties, and factors that are beyond our control. These risks could result in the loss of your investment.</span>
-                        <span class="text-light font-200">See the offering materials for detailed information.<br>
-                        Vantage Horizon does not offer refunds after an investment has been made. Please review the relevant offering materials and subscription documentation for more information.<br>
-                        An active trading market for any series of Vantage Horizon interests may not develop or be sustained. If an active public trading market for Vantage Horizon series interests does not develop or is not sustained, it may be difficult or impossible for you to resell your interests at any price. Even if an active market does develop, the market price could decline below the amount you paid for your interests. There is no assurance that the Vantage Horizon platform will provide an active market for resales of Vantage Horizon series interests. Further, without the Vantage Horizon platform, it may be difficult or impossible for you to dispose of your interests. If the market develops for any series of Vantage Horizon interests, the market price of such interests could fluctuate significantly for many reasons, including reasons unrelated to performance, the underlying assets or any series, such as reports by industry analysts, investor perceptions or announcements by competitors regarding their own performance, as well as general economic and industry conditions.
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <!--============== Copyright Section Start ==============-->
-            <div class="copyright-border text-secondary">
-                <div class="container py-4">
-                    <div class="row row-cols-lg-2 row-cols-1">
-                        <div class="col">
-                            <span>Copyright © 2022 Uniland All right reserved</span>
-                        </div>
-                        <div class="col">
-                            <ul class="line-menu float-lg-end list-color-secondary">
-                                <li><a href="terms-and-condition.html">Terms and Condition</a></li>
-                                <li>|</li>
-                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                <li>|</li>
-                                <li><a href="#">Site Map</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--============== Copyright Section End ==============-->
-        </footer>
-
-        <!-- Scroll to top -->
-        <div class="scroll-top-vertical xs-mx-none" id="scroll">Go Top <i class="ms-2 fa-solid fa-arrow-right-long"></i></div>
-        <!-- End Scroll To top -->
-        <!--============== Footer Section End ==============-->
-
-        <!-- Scroll to top -->
-        <div class="scroll-top-vertical xs-mx-none" id="scroll">Go Top <i class="ms-2 fa-solid fa-arrow-right-long"></i></div>
-        <!-- End Scroll To top -->
 
     </div>
 @endsection

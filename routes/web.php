@@ -20,6 +20,13 @@ Route::get('/about', 'StaticController@about')->name('about');
 Route::get('/faq', 'StaticController@faq')->name('faq');
 Route::get('/how-it-works', 'StaticController@howItWorks')->name('how-it-works');
 Route::get('/properties', 'StaticController@list')->name('listProperty');
+Route::get('/contact-us', 'StaticController@contact')->name('contact');
+Route::get('/vacation-rentals', 'StaticController@vacation')->name('vacation');
+Route::get('/historical-performance', 'StaticController@historical')->name('historical');
+Route::get('/stakeholder-commitment', 'StaticController@stakeholder')->name('stakeholder');
+Route::get('/sell-your-home', 'StaticController@sell')->name('sellHome');
+Route::get('/learning-centre', 'StaticController@learning')->name('learning');
+Route::get('/web-3-properties', 'StaticController@web')->name('web');
 
 Route::get('/accounts/generate', 'HomeController@generateAccountNumberForUsers');
 Route::get('/register', 'Auth\RegisterController@accountType')->name('account.type');
@@ -29,8 +36,8 @@ Route::post('/register/cprbdy', 'Auth\RegisterController@AddCprbdyAccount')->nam
 Route::post('/register/othrs', 'Auth\RegisterController@AddOthrsAccount')->name('register.othrs');
 
 Route::group(['middleware' => 'auth.checkProfileCompleteness'], function(){
-    // Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/home', 'HomeController@index');
+    Route::get('/home', 'HomeController@index')->name('home');
+    // Route::get('/home', 'HomeController@index');
     Route::get('/profile', 'HomeController@profile');
 
     Route::get('/invest-noww', 'HomeController@investPlan');

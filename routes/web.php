@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', 'StaticController@index')->name('home');
+Route::get('/', 'StaticController@index')->name('index');
 Route::get('/about', 'StaticController@about')->name('about');
 Route::get('/faq', 'StaticController@faq')->name('faq');
 Route::get('/how-it-works', 'StaticController@howItWorks')->name('how-it-works');

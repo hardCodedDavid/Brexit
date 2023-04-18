@@ -61,7 +61,8 @@ Route::group(['middleware' => 'auth.checkProfileCompleteness'], function(){
     Route::get('/transfer', 'HomeController@transfer');
     Route::post('/transfer', 'HomeController@transferPost')->name('transfer');
     Route::get('/transfer-transactions', 'HomeController@transferTransactions');
-
+    Route::get('/portfolio-manager', 'HomeController@portfolioManager');
+    Route::post('/portfolio/manager', 'HomeController@portfolio')->name('portfolio');
 });
 
 Route::get('/edit_profile', 'HomeController@editProfile');

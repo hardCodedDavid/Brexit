@@ -50,7 +50,15 @@ $me = Utils::getUser();
                 <ul class="c-sidebar__list">
                     <li class="c-sidebar__item">
                         <a class="c-sidebar__link @yield('investnow')" href="/invest-noww">
-                        <svg class="u-mr-xsmall" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11 20H6q-.425 0-.713-.288T5 19v-7H3.3q-.35 0-.475-.325t.15-.55l8.35-7.525q.275-.275.675-.275t.675.275L16 6.6V5q0-.425.288-.713T17 4h1q.425 0 .713.288T19 5v4.3l2.025 1.825q.275.225.15.55T20.7 12H19v7q0 .425-.288.713T18 20h-5v-6h-2v6Zm-4-2h2v-5q0-.425.288-.713T10 12h4q.425 0 .713.288T15 13v5h2v-7.8l-5-4.5l-5 4.5V18Zm3-7.975h4q0-.8-.6-1.313T12 8.2q-.8 0-1.4.513t-.6 1.312ZM10 12h4h-4Z"/></svg>All Properties
+                        <svg class="u-mr-xsmall" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M11 20H6q-.425 0-.713-.288T5 19v-7H3.3q-.35 0-.475-.325t.15-.55l8.35-7.525q.275-.275.675-.275t.675.275L16 6.6V5q0-.425.288-.713T17 4h1q.425 0 .713.288T19 5v4.3l2.025 1.825q.275.225.15.55T20.7 12H19v7q0 .425-.288.713T18 20h-5v-6h-2v6Zm-4-2h2v-5q0-.425.288-.713T10 12h4q.425 0 .713.288T15 13v5h2v-7.8l-5-4.5l-5 4.5V18Zm3-7.975h4q0-.8-.6-1.313T12 8.2q-.8 0-1.4.513t-.6 1.312ZM10 12h4h-4Z"/></svg>
+                        All Properties
+                        </a>
+                    </li>
+                    <li class="c-sidebar__item">
+                        <a class="c-sidebar__link @yield('portfolio')" href="/portfolio-manager">
+                        <svg class="u-mr-xsmall" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="18" height="10" x="3" y="11" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4m-4 5h0m8 0h0"/></g></svg>
+                        Add Portfolio Manager
                         </a>
                     </li>
                     <li class="c-sidebar__item">
@@ -167,7 +175,7 @@ $me = Utils::getUser();
                         <a href="">
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
-                                    <h6 class="c-state-card__number u-h3">BREXITS Unit Trust</h6>
+                                    <h6 class="c-state-card__number u-h3">Individual</h6>
                                     <p class="c-state-card__meta">Your funds to invest <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('brexist-trust-funds'),2) }}</span></p>
                                 </div>
                             </div>
@@ -177,7 +185,7 @@ $me = Utils::getUser();
                         <a href="">
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
-                                    <h6 class="c-state-card__number u-h3">Tax Free Savings Account</h6>
+                                    <h6 class="c-state-card__number u-h3">Entity</h6>
                                     <p class="c-state-card__meta">Your funds to invest <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('tax-free-savings-account'),2) }}</span></p>
                                 </div>
                             </div>
@@ -187,7 +195,7 @@ $me = Utils::getUser();
                         <a href="">
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
-                                    <h6 class="u-h3 c-state-card__number">Offshore Account </h6>
+                                    <h6 class="u-h3 c-state-card__number">Retirement</h6>
                                     <p class="c-state-card__meta">Your funds to invest <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('offshore-account'),2) }}</span></p>
                                 </div>
                             </div>

@@ -775,4 +775,20 @@ class HomeController extends Controller
         exit;
     }
 
+    public function portfolioManager() {
+        return view('user.portfolio');
+    }
+
+    public function portfolio() {
+            $title= ' ';
+            $name = auth()->user()->firstname.' '.auth()->user()->surname;
+            $content = auth()->user()->firstname.' '.auth()->user()->surname. ' has requested for a profile manager';
+            $button = false;
+            $button_text = '';
+            $subject = "Portfolio Manager";
+        Mail::to('sannidavidsmart@gmail.com')->send(new Messaging($title,$name,$content,$button,$button_text,$subject));
+        
+        return redirect('/portfolio-manager')->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>Your request has been submitted and being reviewed, please do not initiate another request</div>');
+    }
+
 }

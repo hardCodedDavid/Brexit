@@ -36,7 +36,7 @@ $me = Utils::getUser();
         <div class="o-page__sidebar js-page-sidebar">
             <div class="c-sidebar">
                 <a class="c-sidebar__brand" href="/home">
-                <img class="c-sidebar__brand-img" src="{{ asset('static/assets/images/logo/logo2.png') }}" alt="Logo">
+                <img class="c-sidebar__brand-img" src="{{ asset('static/assets/images/logo/Vantage-horizon-logo-large.png') }}" alt="Logo">
                 </a>
                 <h4 class="c-sidebar__title">Overview</h4>
                 <ul class="c-sidebar__list">

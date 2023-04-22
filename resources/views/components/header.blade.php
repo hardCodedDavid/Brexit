@@ -5,7 +5,7 @@
                     <div class="row">
                         <div class="col">
                             <nav class="navbar navbar-expand-lg nav-secondary nav-primary-hover nav-line-active">
-                                <a class="navbar-brand" href="{{ route('index') }}"><img class="nav-logo" src="{{ asset('static/assets/images/logo/logo2.png') }}" alt="Image not found !"></a>
+                                <a class="navbar-brand" href="{{ route('index') }}"><img class="nav-logo" src="{{ asset('static/assets/images/logo/Vantage-horizon-logo-large.png') }}" alt="Image not found !"></a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon flaticon-menu flat-small text-primary"></span>
                                   </button>

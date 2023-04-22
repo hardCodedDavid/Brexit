@@ -12,8 +12,12 @@
 		        @csrf
 		        <div class="c-field u-mb-small">
 		            <label class="c-field__label">From </label>
-		            <input class="c-input" type="text" value="{{ ucwords($plan->name) }}" readonly="">
-		            <input type="hidden" name="plan" class="form-control" value="{{ $plan->slug }}">
+		            <select class="c-input" class="form-control" name="plan" required="">
+                        <option value="">Please select...</option>
+						@foreach($plans as $plan)
+							<option value="{{ $plan->slug }}">{{ $plan->name }}</option>
+						@endforeach
+                    </select>
 		        </div>
                 <div class="c-field u-mb-small">
                     <label class="c-field__label">Payment Method</label>

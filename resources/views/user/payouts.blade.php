@@ -7,7 +7,7 @@
 @section('content')
 <div class="row">
 	<div class="col-lg-2">
-		<a class="c-btn c-btn--danger c-btn--fullwidth" href="/withdrawals/add" role="button" aria-haspopup="true" aria-expanded="false">Request Withdrawals</a>
+		<a class="c-btn c-btn--danger c-btn--fullwidth" href="{{ route('addWithdrawal') }}" role="button" aria-haspopup="true" aria-expanded="false">Request Withdrawals</a>
 		<br><br>
 	</div>
 	<div class="col-lg-12">

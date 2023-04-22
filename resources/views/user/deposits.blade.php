@@ -44,36 +44,36 @@
 
             </div>
 
-        <a href="">
-            <div class="u-flex u-justify-end">
-                <a class="c-btn--small c-btn c-btn--success copy" id="bitcoin-click">Click to Copy</a>
+            <a href="">
+                <div class="u-flex u-justify-end">
+                    <a class="c-btn--small c-btn c-btn--success copy" id="bitcoin-click">Click to Copy</a>
 
-            </div>
-            <div class="c-state-card" data-mh="state-cards">
-
-
-
-                <div class="c-dropdown dropdown">
-                    <a  class="c-avatar c-avatar--xsmall has-dropdown dropdown-toggle" href="#" id="dropdwonMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="title"><i class="fa fa-bitcoin u-text-danger u-mr-xsmall"></i><strong>Bitcoin</strong></span>
-                    </a>
+                </div>
+                <div class="c-state-card" data-mh="state-cards">
 
 
-                    <div class="c-dropdown__menu dropdown-menu dropdown-menu-left">
-                        <div class="expansion-panel-body-content">
-                            <p>{{$settings->bitcoin}}<br></p>
+
+                    <div class="c-dropdown dropdown">
+                        <a style="padding: 30px 0px 30px 0px"  class="c-avatar c-avatar--xsmall has-dropdown dropdown-toggle" href="#" id="dropdwonMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="title"><i class="fa fa-bitcoin u-text-danger u-mr-xsmall"></i><strong>Bitcoin</strong></span>
+                        </a>
+
+
+                        <div class="c-dropdown__menu dropdown-menu dropdown-menu-left">
+                            <div class="expansion-panel-body-content">
+                                <p>{{$settings->bitcoin}}<br></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <input style="opacity: 0" id="bitcoin-copy" value="Bitcoin Address: {{$settings->bitcoin}}">
+                    <input style="opacity: 0" id="bitcoin-copy" value="Bitcoin Address: {{$settings->bitcoin}}">
 
-            </div>
-            </a>
+                </div>
+                </a>
         </div>
     </div> --}}
 
     <div class="col-lg-2">
-		<a class="c-btn c-btn--danger c-btn--fullwidth" href="/deposit/add" role="button" aria-haspopup="true" aria-expanded="false">Deposits Now</a>
+		<a class="c-btn c-btn--danger c-btn--fullwidth" href="{{ route('makeDeposit') }}" role="button" aria-haspopup="true" aria-expanded="false">Deposits Now</a>
 		<br><br>
 	</div>
     <div class="col-lg-12">

@@ -996,4 +996,17 @@ class AdminController extends Controller
         return redirect()->back()->with('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong><i class="lni-checkmark"></i> Success!</strong> Property has been deleted.<button type="button" class="close" data-dismiss="alert" aria-lSource Sans Pro="Close"><span aria-hidden="true">&times;</span></button></div>');
     }
 
+    public function portfolio() {
+        $users = User::whereIn('portfolio_manager', [1, 2])->get();
+        
+        return view('admin.portfolio', ['users'=>$users]);
+    }
+
+    public function portfolioEnable($id, $num) {
+
+        User::where('id', $id)->update(['portfolio_manager' => $num]);
+        
+        return redirect()->route('allPortfolio')->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>Your request has been submitted and being reviewed, please do not initiate another request</div>');
+    }
+
 }

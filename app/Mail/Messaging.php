@@ -35,7 +35,7 @@ class Messaging extends Mailable
      */
     public function build()
     {
-        return $this->from('noreply@brexitsassetmanagement.com', 'BREXITS ASSETS MANAGEMENT')
+        return $this->from('noreply@vantagehorizon.com', 'Vantage Horizon')
                 ->subject($this->subject)
                 ->view('email.message');
     }

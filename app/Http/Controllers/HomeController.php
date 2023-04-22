@@ -566,9 +566,10 @@ class HomeController extends Controller
         return view('user.addDeposit', ['plans'=>$plans]);
     }
 
-    public function depositPage($slug){
-        $plan = Plan::where('slug', $slug)->first();
-        return view('user.depositPage', ['plan'=>$plan]);
+    public function depositPage(){
+        // public function depositPage($slug){
+        $plans = Plan::orderBy('id', 'asc')->get();
+        return view('user.depositPage', ['plans'=>$plans]);
     }
 
     public function addDepositPost(Request $req){
@@ -613,9 +614,11 @@ class HomeController extends Controller
         return view('user.addPayout', ['plans'=>$plans]);
     }
 
-    public function addPayoutNow($slug){
-        $plan = Plan::where('slug', $slug)->first();
-        return view('user.addPayoutN', ['plan'=>$plan]);
+    public function addPayoutNow(){
+        // $plan = Plan::where('slug', $slug)->first();
+        $plans = Plan::orderBy('id', 'asc')->get();
+
+        return view('user.addPayoutN', ['plans'=>$plans]);
     }
 
     public function addPayoutPost(Request $req){
@@ -780,15 +783,61 @@ class HomeController extends Controller
     }
 
     public function portfolio() {
-            $title= ' ';
-            $name = auth()->user()->firstname.' '.auth()->user()->surname;
-            $content = auth()->user()->firstname.' '.auth()->user()->surname. ' has requested for a profile manager';
-            $button = false;
-            $button_text = '';
-            $subject = "Portfolio Manager";
-        Mail::to('sannidavidsmart@gmail.com')->send(new Messaging($title,$name,$content,$button,$button_text,$subject));
+        $title= ' ';
+        $name = auth()->user()->firstname.' '.auth()->user()->surname;
+        $content = auth()->user()->firstname.' '.auth()->user()->surname. ' has requested for a profile manager';
+        $button = false;
+        $button_text = '';
+        $subject = "Portfolio Manager";
+
+        $user = Utils::getUser();
+
+        $user = Utils::getUser();
+        User::where('email', $user->email)->update(['portfolio_manager' => 1]);
+
+        Mail::to('noreply@vantagehorizon.com')->send(new Messaging($title,$name,$content,$button,$button_text,$subject));
         
         return redirect('/portfolio-manager')->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>Your request has been submitted and being reviewed, please do not initiate another request</div>');
+    }
+
+    
+
+    public function bank(Request $request){
+        $settings = Settings::first();
+
+        // Retrieve the submitted parameters from the sessio
+        $user = $request->session()->get('user');
+        $amount = $request->session()->get('amount');
+        $plan = $request->session()->get('plan');
+        $payment_method = $request->session()->get('payment_method');
+
+        // Return the result view with the submitted parameters
+        return view('user.banks', 
+            [
+                'user' => $user, 
+                'amount' => $amount,
+                'plan' => $plan,
+                'payment_method' => $payment_method,
+                'settings' => $settings,
+            ]
+        );
+    }
+
+    public function submitDeposit(Request $request){
+
+        $user = Utils::getUser()->email;
+        $amount = $request->amount;
+        $plan = $request->plan;
+        $payment_method = $request->payment_method;
+
+        return redirect()->route('bankDetails')->with(
+            [
+                'user' => $user, 
+                'amount' => $amount,
+                'plan' => $plan,
+                'payment_method' => $payment_method,
+            ]
+        );
     }
 
 }

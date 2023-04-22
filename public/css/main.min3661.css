@@ -6559,7 +6559,7 @@ a.fc-more:hover {
 	line-height: 50px;
 	padding: 0 7px;
 	margin: 0;
-	background-color: #CC2B22
+	background-color: #0aadb3
 }
 
 .fc-right .fc-button-group {
@@ -8648,7 +8648,7 @@ a.fc-more:hover {
 }
 
 .c-alert--danger {
-	background-color: #ed1c24
+	background-color: #0aadb3
 }
 
 .c-avatar {
@@ -8767,7 +8767,7 @@ a.fc-more:hover {
 }
 
 .c-badge--danger {
-	background-color: #ed1c24
+	background-color: #0aadb3
 }
 
 .c-badge--primary {
@@ -9038,19 +9038,19 @@ a.fc-more:hover {
 }
 
 .c-btn--danger {
-	background: #f95359;
-	background: linear-gradient(180deg, #f95359, #d35847);
-	border-color: #d35847
+	background: #0aadb3;
+	background: linear-gradient(180deg, #0aadb3, #07898d);
+	border-color: #07898d
 }
 
 .c-btn--danger:hover {
-	background: #f83f46;
-	background: linear-gradient(180deg, #f83f46, #cf4937)
+	background: #07898d;
+	background: linear-gradient(180deg, #07898d, #026b6e)
 }
 
 .c-btn--danger:focus {
-	background: #f8353c;
-	background: linear-gradient(180deg, #f8353c, #cb4331)
+	background: #07898d;
+	background: linear-gradient(180deg, #07898d, #027579)
 }
 
 .c-card {
@@ -9474,8 +9474,8 @@ a.fc-more:hover {
 }
 
 .c-icon--danger {
-	background: #f95359;
-	background: linear-gradient(180deg, #f95359, #d35847)
+	background: #0aadb3;
+	background: linear-gradient(180deg, #0aadb3, #07898d)
 }
 
 .c-icon--fancy {
@@ -9564,8 +9564,8 @@ textarea.c-input {
 
 .c-input--danger,
 .c-input--danger:focus {
-	border-color: #ed1c24;
-	color: #ed1c24
+	border-color: #0aadb3;
+	color: #0aadb3
 }
 
 .modal-open {
@@ -9700,7 +9700,7 @@ textarea.c-input {
 	-ms-flex-align: center;
 	align-items: center;
 	padding: 15px 30px;
-	background-color: #CC2B22;
+	background-color: #0aadb3;
 	color: #fff
 }
 
@@ -10244,8 +10244,8 @@ textarea.c-input {
 }
 
 .c-progress--danger .c-progress__bar {
-	background: #f95359;
-	background: linear-gradient(180deg, #f95359, #d35847)
+	background: #0aadb3;
+	background: linear-gradient(180deg, #0aadb3, #07898d)
 }
 
 .c-progress--info .c-progress__bar {
@@ -10539,7 +10539,7 @@ textarea.c-input {
 }
 
 .c-table__row--danger {
-	border-left-color: #ed1c24
+	border-left-color: #0aadb3
 }
 
 .c-table__row--info {
@@ -11290,7 +11290,7 @@ textarea.c-input {
 }
 
 .c-sidebar__link.is-active {
-	background-color: #CC2B22;
+	background-color: #0aadb3;
 	color: #e6eaee;
 	box-shadow: inset 3px 0 0 0 #1d2531;
 }
@@ -11298,7 +11298,7 @@ textarea.c-input {
 .c-sidebar__link:hover {
 	color: #fff;
 	background-color: #1d2531;
-	box-shadow: inset 3px 0 0 0 #CC2B22;
+	box-shadow: inset 3px 0 0 0 #0aadb3;
 	text-decoration: none
 }
 
@@ -12769,7 +12769,7 @@ textarea.c-input {
 }
 
 .c-board--danger .c-board__content {
-	border-top-color: #ed1c24
+	border-top-color: #0aadb3
 }
 
 .c-task {
@@ -12851,7 +12851,7 @@ textarea.c-input {
 }
 
 .c-task--danger {
-	border-left-color: #ed1c24
+	border-left-color: #0aadb3
 }
 
 .c-plan {
@@ -13994,7 +13994,7 @@ textarea.c-input {
 }
 
 .u-text-danger {
-	color: #ed1c24!important
+	color: #0aadb3!important
 }
 
 .u-text-success {
@@ -14502,7 +14502,7 @@ textarea.c-input {
 }
 
 .u-color-danger {
-	color: #ed1c24!important
+	color: #0aadb3!important
 }
 
 .u-color-warning {
@@ -14529,8 +14529,8 @@ textarea.c-input {
 }
 
 .u-bg-danger {
-	background: #ed1c24!important;
-	background-color: #ed1c24!important
+	background: #0aadb3!important;
+	background-color: #0aadb3!important
 }
 
 .u-bg-fancy {

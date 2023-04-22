@@ -1,5 +1,5 @@
 <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+{{-- <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -9,7 +9,7 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
-</script>
+</script> --}}
 <!--End of Tawk.to Script-->
 
 @php
@@ -36,7 +36,7 @@ $me = Utils::getUser();
         <div class="o-page__sidebar js-page-sidebar">
             <div class="c-sidebar">
                 <a class="c-sidebar__brand" href="/home">
-                <img class="c-sidebar__brand-img" src="{{ asset('brexits-asset-logo-medium.png') }}" alt="Logo">
+                <img class="c-sidebar__brand-img" src="{{ asset('static/assets/images/logo/logo2.png') }}" alt="Logo">
                 </a>
                 <h4 class="c-sidebar__title">Overview</h4>
                 <ul class="c-sidebar__list">
@@ -176,7 +176,7 @@ $me = Utils::getUser();
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
                                     <h6 class="c-state-card__number u-h3">Individual</h6>
-                                    <p class="c-state-card__meta">Your funds to invest <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('brexist-trust-funds'),2) }}</span></p>
+                                    <p class="c-state-card__meta">Available Funds <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('brexist-trust-funds'),2) }}</span></p>
                                 </div>
                             </div>
                         </a>
@@ -186,7 +186,7 @@ $me = Utils::getUser();
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
                                     <h6 class="c-state-card__number u-h3">Entity</h6>
-                                    <p class="c-state-card__meta">Your funds to invest <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('tax-free-savings-account'),2) }}</span></p>
+                                    <p class="c-state-card__meta">Available Funds <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('tax-free-savings-account'),2) }}</span></p>
                                 </div>
                             </div>
                         </a>
@@ -196,7 +196,7 @@ $me = Utils::getUser();
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
                                     <h6 class="u-h3 c-state-card__number">Retirement</h6>
-                                    <p class="c-state-card__meta">Your funds to invest <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('offshore-account'),2) }}</span></p>
+                                    <p class="c-state-card__meta">Available Funds <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('offshore-account'),2) }}</span></p>
                                 </div>
                             </div>
                         </a>

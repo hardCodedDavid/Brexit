@@ -18,10 +18,13 @@ use App\Http\Controllers\Globals as Utils;
 	</div>
 	<div class="col-xl-4">
 		<div class="c-graph-card" data-mh="secondary-graphs">
-			<div class="c-graph-card__content u-flex u-justify-between u-align-items-baseline">
-				<h3 class="c-graph-card__title u-h5">Account Value</h3>
-				<div class="u-text-right">
-					<h4 class="u-h5 u-mb-zero u-text-danger">${{ number_format($investments,2) }}</h4>
+			<div class="c-graph-card__content">
+				<h3 class="c-graph-card__title u-h5">Portfolio Value: 
+				<h4 class="u-h5 u-mb-zero u-text-danger" style="padding-top: 10px;">${{ number_format($investments,2) }}</h4>
+				
+				</h3>
+				<div>
+					{{-- <h4 class="u-h5 u-mb-zero u-text-danger">${{ number_format($investments,2) }}</h4> --}}
 					<!--<span class="u-color-success">+{{round($overP) }}%</span>-->
 				</div>
 			</div>
@@ -39,6 +42,14 @@ use App\Http\Controllers\Globals as Utils;
 				<i class="fa fa-circle-o u-mr-xsmall u-color-warning"></i> OA
 				</span>
 			</div>
+		</div>
+		<div class="u-flex u-justify-between u-align-items-baseline">
+			<h6>Third Party Signal: </h6>
+			@if($user->portfolio_manager == 2)
+				<button class="c-btn c-btn--success" type="button">Active</button>
+			@else
+				<button class="c-btn c-btn--danger" type="button">Inactive</button>
+			@endif
 		</div>
 	</div>
 	<div class="col-lg-8">
@@ -106,7 +117,7 @@ use App\Http\Controllers\Globals as Utils;
 			</div>
 			<div class="c-divider u-mt-xsmall u-mb-xsmall"></div>
 			<div class="o-line u-mb-xsmall">
-				<p class="u-text-small">Accrued Expense</p>
+				<p class="u-text-small">Income Tax</p>
 				<span class="u-text-small u-text-mute">${{ number_format($static->accrued_expense,2) }}</span>
 			</div>
 {{--			<div class="o-line u-mb-xsmall">--}}
@@ -131,7 +142,7 @@ use App\Http\Controllers\Globals as Utils;
 				<span class="u-text-small u-text-mute">${{ number_format(Utils::getWithdrawableFunds(),2) }}</span>
 			</div>
 			<div class="o-line u-mb-xsmall">
-				<p class="u-text-small">Unsettled Cash</p>
+				<p class="u-text-small">Bonus</p>
 				<span class="u-text-small u-text-mute">${{ number_format($static->unsettled,2) }}</span>
 			</div>
             <div class="o-line u-mb-xsmall">

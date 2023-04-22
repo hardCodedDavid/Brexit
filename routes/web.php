@@ -39,18 +39,20 @@ Route::group(['middleware' => 'auth.checkProfileCompleteness'], function(){
     Route::get('/home', 'HomeController@index')->name('home');
     // Route::get('/home', 'HomeController@index');
     Route::get('/profile', 'HomeController@profile');
+    Route::get('/bank/details', 'HomeController@bank')->name('bankDetails');
+    Route::post('/invest/bank', 'HomeController@submitDeposit')->name('submitDepo');
 
     Route::get('/invest-noww', 'HomeController@investPlan');
     Route::get('/invest-noww/invest/{slug}', 'HomeController@investPage');
     Route::post('/invest-noww/invest', 'HomeController@investPagePost')->name('addInvestment');
-    Route::get('/deposit-noww/deposit/{slug}', 'HomeController@depositPage');
+    Route::get('/deposit-noww/deposit', 'HomeController@depositPage')->name('makeDeposit');
     Route::post('/deposit-noww/invest', 'HomeController@depositPagePost')->name('addDeposit');
     Route::get('/deposit', 'HomeController@deposits');
     Route::get('/deposit/add', 'HomeController@addDeposit');
     Route::post('/deposit/add', 'HomeController@addDepositPost')->name('addDeposit');
     Route::get('/withdrawals', 'HomeController@payouts');
     Route::get('/withdrawals/add', 'HomeController@addPayout');
-    Route::get('/withdrawals/{slug}', 'HomeController@addPayoutNow');
+    Route::get('/withdrawals/add', 'HomeController@addPayoutNow')->name('addWithdrawal');
     Route::post('/withdrawals/add', 'HomeController@addPayoutPost')->name('addPayout');
     Route::get('/transactions', 'HomeController@transactions');
     Route::get('/statements', 'HomeController@statements');
@@ -155,5 +157,8 @@ Route::group(['prefix' => 'admin','middleware' => 'assign.guard:admin,admin/logi
     Route::get('/property/{id}/edit', 'AdminController@editProperty')->name('editProperty');
     Route::post('/property/{id}/update', 'AdminController@updateProperty')->name('updateProperty');
     Route::get('/property/{id}/delete', 'AdminController@destroyProperty')->name('deleteProperty');
+
+    Route::get('/portfolio', 'AdminController@portfolio')->name('allPortfolio');
+    Route::get('/portfolio/enable/{id}/{num}', 'AdminController@portfolioEnable')->name('postPortfolio');
 
 });

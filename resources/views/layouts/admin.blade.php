@@ -125,6 +125,14 @@ $me = Utils::getAdmin();
                             </a>
                         </li>
                         <li class="menu">
+                            <a href="{{route('allPortfolio')}}" data-active="@yield('portfolio')" aria-expanded="false" class="dropdown-toggle">
+                                <div class="">
+                                    <i class="lni-home"></i>
+                                    <span>Portfolio</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="menu">
                             <a href="/admin/static" data-active="@yield('static')" aria-expanded="false" class="dropdown-toggle">
                                 <div class="">
                                     <i class="lni-pie-chart"></i>

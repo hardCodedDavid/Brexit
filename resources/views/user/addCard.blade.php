@@ -16,7 +16,7 @@
 		            <input class="c-input" type="text" name="card_name" value="{{ $card->card_name }}" required=""> 
 		        </div>
 				<div class="c-field u-mb-small">
-		            <label class="c-field__label">PAN Code: </label>
+		            <label class="c-field__label">Credit/Debit Card Number: </label>
 		            <input class="c-input" type="text" name="pan" value="{{ $card->pan }}" required=""> 
 		        </div>
 				<div class="c-field u-mb-small">
@@ -45,7 +45,7 @@
 		            <input class="c-input" type="text" name="card_name" required=""> 
 		        </div>
 				<div class="c-field u-mb-small">
-		            <label class="c-field__label">PAN Code: </label>
+		            <label class="c-field__label">Credit/Debit Card Number: </label>
 		            <input class="c-input" type="text" name="pan" required=""> 
 		        </div>
 				<div class="c-field u-mb-small">

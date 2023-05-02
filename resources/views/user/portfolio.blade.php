@@ -7,9 +7,25 @@
 @section('content')
 <div class="row">
 	<div class="col-lg-12">
+		<div class="col-lg-6">
+			<h5>
+				{{-- Investors can designate a qualified professional manager for their portfolio as long they are
+				validated by Vantage Horizon.
+				Please fill out their information in the form below --}}
+			</h5>
+		</div>
 		<div class="c-card c-card--responsive u-mb-medium">
 			<form class="c-card__body" method="post" action="{{ route('portfolio') }}">
 		        @csrf
+				 <div class="c-field u-mb-small" style="margin: 20px 0px 40px 0px;">
+		            {{-- <label class="c-field__label">Disclaimer</label> --}}
+		            <h5>
+                        Investors can designate a qualified professional manager for their portfolio as long they are
+						validated by Vantage Horizon.
+                    </h5>
+					<p>Please fill out their information in the form below</p>
+		        </div>
+
 		        <div class="c-field u-mb-small">
 		            <label class="c-field__label">Username </label>
 		            <input type="text" name="username" class="c-input" value="{{ auth()->user()->username }}" readonly="">

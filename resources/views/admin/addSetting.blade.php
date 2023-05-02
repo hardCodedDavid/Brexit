@@ -41,9 +41,8 @@
 						<label>Email</label>
 						<input type="text" name="email" class="form-control" required="" value="{{old('email') ?? isset($entity) ? $entity->email : ''}}">
 					</div>
-
 					<div class="form-group col-12">
-						<label>Bitcoin</label>
+						<label>Bitcoin Address</label>
 						<input type="text" name="bitcoin" class="form-control" required="" value="{{old('bitcoin') ?? isset($entity) ? $entity->bitcoin : ''}}">
 					</div>
 					<div class="form-group col-12">
@@ -59,8 +58,20 @@
 						<input type="text" name="account_holder" class="form-control" required="" value="{{old('account_holder') ?? isset($entity) ? $entity->account_holder : ''}}">
 					</div>
 					<div class="form-group col-12">
-						<label>Bank Country</label>
+						<label>Routing number</label>
+						<input type="text" name="routing_number" class="form-control" required="" value="{{old('routing_number') ?? isset($entity) ? $entity->routing_number : ''}}">
+					</div>
+					<div class="form-group col-12">
+						<label>Bank country</label>
 						<input type="text" name="bank_country" class="form-control" required="" value="{{old('bank_country') ?? isset($entity) ? $entity->bank_country : ''}}">
+					</div>
+					<div class="form-group col-12">
+						<label>Address</label>
+						<input type="text" name="address" class="form-control" required="" value="{{old('address') ?? isset($entity) ? $entity->address : ''}}">
+					</div>
+					<div class="form-group col-12">
+						<label>Swift</label>
+						<input type="text" name="swift" class="form-control" required="" value="{{old('swift') ?? isset($entity) ? $entity->swift : ''}}">
 					</div>
 
 				</div>

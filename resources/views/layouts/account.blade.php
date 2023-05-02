@@ -25,6 +25,9 @@ $me = Utils::getUser();
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
         <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
+
+        @stack('styles')
+
         <link rel="stylesheet" href="{{ asset('css/main.min3661.css?v=2.0') }}">
 
         @yield('head')
@@ -91,7 +94,7 @@ $me = Utils::getUser();
                 <ul class="c-sidebar__list">
                     <li class="c-sidebar__item">
                         <a class="c-sidebar__link @yield('deposits')" href="/deposit">
-                        <i class="fa fa-arrow-right u-mr-xsmall"></i>Deposits
+                        <i class="fa fa-arrow-right u-mr-xsmall"></i>Request Deposit 
                         </a>
                     </li>
                     <li class="c-sidebar__item">
@@ -130,7 +133,12 @@ $me = Utils::getUser();
                 <h2 class="c-navbar__title u-mr-auto">@yield('page')</h2>
                 <div class="c-dropdown dropdown">
                     <a  class="c-avatar c-avatar--xsmall has-dropdown dropdown-toggle" href="#" id="dropdwonMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="c-avatar__img" src="{{ asset('brexits-user-avatar-2.png') }}" alt="User's Profile Picture">
+                    {{-- <img class="c-avatar__img" src="{{ asset('brexits-user-avatar-2.png') }}" alt="User's Profile Picture"> --}}
+                    @if($me->user_img)
+                        <img class="c-avatar__img" src="{{ $me->user_img }}" alt="Avatar">
+                    @else
+                        <img class="c-avatar__img" src="{{ asset('brexits-user-avatar-2.png') }}" alt="User's Profile Picture">
+                    @endif
                     </a>
                     <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdwonMenuAvatar">
                         <a class="c-dropdown__item dropdown-item" href="/edit_profile">Edit Profile</a>
@@ -185,7 +193,7 @@ $me = Utils::getUser();
                         <a href="">
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
-                                    <h6 class="c-state-card__number u-h3">Entity</h6>
+                                    <h6 class="c-state-card__number u-h3">Entity <p style="font-size: 20px;">(Trust fund, Cooperate)</p></h6>
                                     <p class="c-state-card__meta">Available Funds <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('tax-free-savings-account'),2) }}</span></p>
                                 </div>
                             </div>
@@ -195,7 +203,7 @@ $me = Utils::getUser();
                         <a href="">
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
-                                    <h6 class="u-h3 c-state-card__number">Retirement</h6>
+                                    <h6 class="u-h3 c-state-card__number">Retirement <p style="font-size: 20px;">(Check-book IRA)</p></h6>
                                     <p class="c-state-card__meta">Available Funds <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('offshore-account'),2) }}</span></p>
                                 </div>
                             </div>
@@ -213,9 +221,7 @@ $me = Utils::getUser();
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
                                     <p style="text-align: center; font-size: 12px">
-                                        Brexits Managers (RF) (Pty) Ltd (Brexits) a registered and approved Manager in Collective Investment Schemes in Securities and an authorised financial services provider in terms of the FAIS. Collective investment schemes are generally medium- to long-term investments. Unit Trusts and ETFs the investor essentially owns a “proportionate share” (in proportion to the participatory interest held in the fund) of the underlying investments held by the fund. With Unit Trusts, the investor holds participatory units issued by the fund while in the case of an ETF, the participatory interest, while issued by the fund, comprises a listed security traded on the stock exchange. ETFs are index tracking funds, registered as a Collective Investment and can be traded by any stockbroker on the stock exchange or via Investment Plans and online trading platforms. ETFs may incur additional costs due to it being listed on the JSE. Past performance is not necessarily a guide to future performance and the value of investments / units may go up or down. A schedule of fees and charges, and maximum commissions are available on the Minimum Disclosure Document or upon request from the Manager. Collective investments are traded at ruling prices and can engage in borrowing and scrip lending. Should the respective portfolio engage in scrip lending, the utility percentage and related counterparties can be viewed on the ETF Minimum Disclosure Document. The Manager does not provide any guarantee either with respect to the capital or the return of a portfolio. The index, the applicable tracking error and the portfolio performance relative to the index can be viewed on the ETF Minimum Disclosure Document and or on the Brexits website.
-                                        Performance is based on NAV to NAV calculations of the portfolio. Individual performance may differ to that of the portfolio as a result of initial fees, actual investment date, dividend withholding tax and income reinvestment date. The reinvestment of income is calculated based on actual distributed amount and factors such as payment date and reinvestment date must be considered.
-                                        * Note exchange prices are delayed in accordance with regional exchange rules. South African prices are delayed by 15 minutes; North American prices are delayed by 15 minutes; Australian prices are delayed by 20 minutes.
+                                        All right Reserved Vantage Horizon 2023
                                     </p>
                                 </div>
                             </div>
@@ -225,6 +231,10 @@ $me = Utils::getUser();
 
             </div>
         </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+
         <script src="{{ asset('js/main.min3661.js?v=2.0') }}"></script>
 
 

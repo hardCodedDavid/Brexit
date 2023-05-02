@@ -1,23 +1,39 @@
-@extends('layouts.auth')
+@extends('layouts.static')
 
 @section('title', __('Verify Your Email Address'))
 
 @section('content')
-<div class="c-card u-mb-xsmall">
-    <header class="c-card__header u-pt-large">
-        <a class="c-card__icon" href="#!" style="background: red">
-        <img src="{{ asset('brexits-platform-logo-2.png') }}">
-        </a>
-        <h1 class="u-h3 u-text-center u-mb-zero">Verify Your Email Address</h1>
-    </header>
-    <form class="c-card__body" method="post" action="{{ route('verification.resend') }}">
-        @csrf
-        <div class="c-alert c-alert--success">
-        <i class="c-alert__icon fa fa-check-circle"></i> {{ __('A fresh verification link has been sent to your email address.') }}
+<div id="page_wrapper" class="bg-light">
+        
+        @include('components.header')
+
+        <!--============== Signup Form Start ==============-->
+        <div class="full-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-6 mx-auto">
+                        <div class="bg-white xs-p-20 p-30 border rounded">
+                            <div class="form-icon-left rounded form-boder">
+                                <h4 class="mb-4">Verify Your Email Address</h4>
+                                <form  method="post" action="{{ route('verification.resend') }}">
+                                    @csrf
+                                    <div class="row row-cols-1 g-3">
+                                        <div class="c-alert c-alert--success">
+                                            <i class="c-alert__icon fa fa-check-circle"></i> {{ __('A fresh verification link has been sent to your email address.') }}
+                                        </div>
+                                        {{ __('Before proceeding, please check your email for a verification link.') }}
+                                        {{ __('If you did not receive the email') }},
+                                        <div class="col">
+                                            <button type="submit" class="btn btn-primary mb-3">{{ __('Click here to request another') }}</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        {{ __('Before proceeding, please check your email for a verification link.') }}
-        {{ __('If you did not receive the email') }},
-        <button class="c-btn c-btn--danger c-btn--fullwidth" type="submit">{{ __('click here to request another') }}</button>
-    </form>
-</div>
+        <!--============== Signup Form End ==============-->
+    </div>
 @endsection

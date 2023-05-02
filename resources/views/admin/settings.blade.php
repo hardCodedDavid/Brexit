@@ -44,6 +44,9 @@ use App\Http\Controllers\Globals as Utils;
                 <li> <p>Bank Holder : {{$settings->account_holder}}</p></li>
                 <li> <p>Account Number : {{$settings->account_number}}</p></li>
                 <li> <p>Bank Country : {{$settings->bank_country}}</p></li>
+                <li> <p>Routing Number : {{$settings->routing_number}}</p></li>
+                <li> <p>Address : {{$settings->address}}</p></li>
+                <li> <p>Swift : {{$settings->swift}}</p></li>
                 <li> <p>Bitcoin: {{$settings->bitcoin}}</p></li>
             </ul>
 

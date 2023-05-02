@@ -78,10 +78,10 @@ use App\Http\Controllers\Globals as Utils;
 						<th>User</th>
 						<th>Statutory Cost</th>
 						<th>Brokerage Cost</th>
-						<th>Accrued Expense</th>
+						<th>Income Tax</th>
 						<th>Accrued Income</th>
 						<th>Withdrawable Funds</th>
-						<th>Unsettled Cash</th>
+						<th>Bonus</th>
 						<th>Locked Funds</th>
 						<th>Action</th>
 					</tr>

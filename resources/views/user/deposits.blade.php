@@ -73,7 +73,7 @@
     </div> --}}
 
     <div class="col-lg-2">
-		<a class="c-btn c-btn--danger c-btn--fullwidth" href="{{ route('makeDeposit') }}" role="button" aria-haspopup="true" aria-expanded="false">Deposits Now</a>
+		<a class="c-btn c-btn--danger c-btn--fullwidth" href="{{ route('makeDeposit') }}" role="button" aria-haspopup="true" aria-expanded="false">Deposit Now</a>
 		<br><br>
 	</div>
     <div class="col-lg-12">

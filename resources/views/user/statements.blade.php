@@ -15,9 +15,10 @@
 				<table class="c-table c-table--zebra u-mb-small" id="datatable2">
 					<thead class="c-table__head">
 						<tr class="c-table__row">
+						    <th class="c-table__cell c-table__cell--head">Property Image</th>
+						    <th class="c-table__cell c-table__cell--head">Property Name</th>
 						    <th class="c-table__cell c-table__cell--head">Date</th>
-						    <th class="c-table__cell c-table__cell--head">Account</th>
-    						<th class="c-table__cell c-table__cell--head">Amount Invested</th>
+    						<th class="c-table__cell c-table__cell--head">Invested Amount</th>
     						<th class="c-table__cell c-table__cell--head">Assets</th>
                             <th class="c-table__cell c-table__cell--head">Roi</th>
                             <th class="c-table__cell c-table__cell--head">Status</th>
@@ -30,10 +31,21 @@
     					@foreach($transactions as $transaction)
                             @php
                                 $plan = \App\Plan::where('slug', $transaction->plan)->first();
+                                $property_img = \App\PropertyImage::where('plan_id', $plan->id)->first();
                             @endphp
     					<tr class="c-table__row c-table__row--danger">
-    						<td class="c-table__cell">{{ date('Y-F-d', strtotime($transaction->created_at)) }}</td>
-                            <td class="c-table__cell">{{ $plan->name }}</td>
+
+    						<td class="c-table__cell">
+                            @if($property_img->img_url)
+                                <img class="c-avatar__img" style="width: 60px; height: 60px;" src="{{ $property_img->img_url }}" alt="...">
+                            @endif
+                                
+                            </td>
+
+    						<td class="c-table__cell">{{ $plan->name }}</td>
+
+                            <td class="c-table__cell">{{ date('Y-F-d', strtotime($transaction->created_at)) }}</td>
+                            
                             <td class="c-table__cell">${{ number_format($transaction->amount_invested,2) }}</td>
 
     						<td class="c-table__cell">{{ ucwords($transaction->asset) }}</td>

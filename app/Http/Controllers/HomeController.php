@@ -91,26 +91,43 @@ class HomeController extends Controller
         return view('user.editprofile', ['user'=>$user]);
     }
 
+    // Edit Profile
+
     public function editProfilePersonal(Request $req)
     {
-        User::where('email', $req->email)->update([
-            'firstname'=>$req->firstname,
-            'surname'=>$req->lastname,
-            'username'=>$req->username,
-            'dob'=>$req->dob,
-            'id_type'=>$req->id_type,
-            'id_number'=>$req->id_number,
-            'email'=>$req->email,
-            'gender'=>$req->gender,
-            'phone'=>$req->phone,
-            'work_number'=>$req->work_number,
-            'country_birth'=>$req->country_birth,
-            'city_birth'=>$req->city,
-            'country_residence'=>$req->country_residence,
-            'marital_status'=>$req->marital_status,
-            'nationality'=>$req->nationality,
-        ]);
-        return redirect()->back()->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>   Personal details updated successfully.</div>');
+        // User::where('email', $req->email)->update([
+        //     'firstname'=>$req->firstname,
+        //     'surname'=>$req->lastname,
+        //     'username'=>$req->username,
+        //     'dob'=>$req->dob,
+        //     'id_type'=>$req->id_type,
+        //     'id_number'=>$req->id_number,
+        //     'email'=>$req->email,
+        //     'gender'=>$req->gender,
+        //     'phone'=>$req->phone,
+        //     'work_number'=>$req->work_number,
+        //     'country_birth'=>$req->country_birth,
+        //     'city_birth'=>$req->city,
+        //     'country_residence'=>$req->country_residence,
+        //     'marital_status'=>$req->marital_status,
+        //     'nationality'=>$req->nationality,
+
+        //     'status'=>'completed',
+        //     'approved'=> 1,
+
+        // ]);
+        if ($req->hasfile('img')) {
+            $files = $req->file('img');
+            $destinationPath = 'user_img';
+            $residenceImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $residenceImage);
+
+            User::where('email', $req->email)->update([
+                'user_img' => $destinationPath."/".$residenceImage,
+            ]);
+            return redirect()->back()->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>   Personal details updated successfully.</div>');
+        }
+        // return redirect()->back()->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>   Personal details updated successfully.</div>');
     }
 
     public function editProfilePersonalMinr(Request $req)
@@ -521,7 +538,7 @@ class HomeController extends Controller
     }
 
     public function investPlan(){
-        $plans = Plan::orderBy('id', 'asc')->get();
+        $plans = Plan::orderBy('id', 'desc')->get();
         return view('user.investPlan', ['plans'=>$plans]);
     }
 
@@ -593,7 +610,7 @@ class HomeController extends Controller
             $title = ' ';
             $content = ' ';
             $name = $user->firstname.' '.$user->surname;
-            $content = 'Thank you, your deposit request of $'. number_format($req->amount,2).' has been received. <br><br> Kindly make payment to any of our preferred deposit methods <br><br> Once you\'ve completed the payment, Funds will be added to your account <b>' .ucwords(Utils::getPlan($plan->slug)->name).
+            $content = 'Thank you, your deposit request of $'. number_format($req->amount,2).' has been received. <br><br> Kindly make payment to any of our preferred deposit methods <br><br> Once you\'ve completed the payment, Funds will be added to your account <b>' .$req->plan.
                         '</b>,  Our support team will gladly assist at ( ' . $settings->email .' ) if there are any issues with your deposit.';
             $button = false;
             $button_text = '';
@@ -627,9 +644,9 @@ class HomeController extends Controller
         $investment = Investment::where(['plan'=>$req->plan, 'user'=>$user->email])->first();
         $payouts = count(Payout::where(['user'=>$user->email, 'status'=>'pending'])->get());
 
-         if($investment->locked == 1){
-             return redirect('/withdrawals')->with('message', '<div class="c-alert c-alert--danger"><i class="c-alert__icon fa fa-check-circle"></i>The selected account has been locked. Please contact admin</div>');
-        }
+        //  if($investment->locked == 1){
+        //      return redirect('/withdrawals')->with('message', '<div class="c-alert c-alert--danger"><i class="c-alert__icon fa fa-check-circle"></i>The selected account has been locked. Please contact admin</div>');
+        // }
 
         if($req->payment_method == 'bitcoin' && $user->bitcoin_address == null){
             return redirect('edit_profile')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. Please complete your bitcoin address in account registration to make bitcoin investment<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
@@ -643,11 +660,11 @@ class HomeController extends Controller
             return redirect('edit_profile')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. Please complete your account registration to request withdrawals<button class="c-close" data-dismiss="alert" type="button">&times;</button></div> ');
         }else {
             if(!isset($investment) || $investment == null){
-                return redirect()->back()->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. No investment found for this investment type.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
+                return redirect()->route('addWithdrawal')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. No investment found for this investment type.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
             }else if($req->amount > $investment->amount){
-                return redirect()->back()->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. You do not have sufficient funds to complete this transaction.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
+                return redirect()->route('addWithdrawal')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. You do not have sufficient funds to complete this transaction.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
             }else if($payouts > 0){
-                return redirect()->back()->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. You have a pending payouts.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
+                return redirect()->route('addWithdrawal')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. You have a pending payouts.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
             }else{
                 Payout::create([
                     'user'=>$user->email,
@@ -657,9 +674,15 @@ class HomeController extends Controller
                     'payment_method' => $req->payment_method,
                     'date' => now()
                 ]);
+                
+                User::where('email', $user->email)->update([
+                    'bitcoin_address'=>$req->bitcoin_address,
+                ]);
+
+                
                 $title= ' ';
                 $name = $user->firstname.' '.$user->surname;
-                $content = 'This is to inform you that your withdrawal of $'. number_format($req->amount,2).' from ' .ucwords(Utils::getPlan($investment->plan)->name). ' is in process. This can take several hours. <br><br>A notification will be sent when successful ';
+                $content = 'This is to inform you that your withdrawal of $'. number_format($req->amount,2).' from ' .$req->plan. ' is in process. This can take several hours. <br><br>A notification will be sent when successful ';
                 $button = false;
                 $button_text = '';
                 $subject = "Withdrawal Booked";
@@ -791,11 +814,12 @@ class HomeController extends Controller
         $subject = "Portfolio Manager";
 
         $user = Utils::getUser();
+        $settings = Settings::first();
 
         $user = Utils::getUser();
         User::where('email', $user->email)->update(['portfolio_manager' => 1]);
 
-        Mail::to('noreply@vantagehorizon.com')->send(new Messaging($title,$name,$content,$button,$button_text,$subject));
+        Mail::to($settings->email)->send(new Messaging($title,$name,$content,$button,$button_text,$subject));
         
         return redirect('/portfolio-manager')->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>Your request has been submitted and being reviewed, please do not initiate another request</div>');
     }
@@ -807,6 +831,7 @@ class HomeController extends Controller
 
         // Retrieve the submitted parameters from the sessio
         $user = $request->session()->get('user');
+        $type = $request->session()->get('type');
         $amount = $request->session()->get('amount');
         $plan = $request->session()->get('plan');
         $payment_method = $request->session()->get('payment_method');
@@ -819,6 +844,7 @@ class HomeController extends Controller
                 'plan' => $plan,
                 'payment_method' => $payment_method,
                 'settings' => $settings,
+                'type' => $type,
             ]
         );
     }
@@ -829,6 +855,7 @@ class HomeController extends Controller
         $amount = $request->amount;
         $plan = $request->plan;
         $payment_method = $request->payment_method;
+        $type = $request->type;
 
         return redirect()->route('bankDetails')->with(
             [
@@ -836,8 +863,10 @@ class HomeController extends Controller
                 'amount' => $amount,
                 'plan' => $plan,
                 'payment_method' => $payment_method,
+                'type' => $type,
             ]
         );
     }
+    
 
 }

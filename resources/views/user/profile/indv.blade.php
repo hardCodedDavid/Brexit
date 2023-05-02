@@ -24,7 +24,7 @@ use App\Http\Controllers\Globals as Utils;
             </ul>
             <div class="c-tabs__content tab-content" id="nav-tabContent">
                 <div class="c-tabs__pane active" id="nav-personal" role="tabpanel" aria-labelledby="nav-personal-tab">
-                    <form action="{{ route('updatePersonal') }}" method="post">
+                    <form action="{{ route('updatePersonal') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <!--<div class="col-lg-2 u-text-center">
@@ -37,6 +37,17 @@ use App\Http\Controllers\Globals as Utils;
 									@endif
                             </div>
                         </div>-->
+                            <div class="col-lg-12">
+                                <div class="c-field u-mb-small">
+                                @if($user->user_img)
+                                    <img class="c-avatar__img" style="width: 100px;" src="{{ $user->user_img }}" alt="Avatar">
+                                @else
+                                    <img class="c-avatar__img" style="width: 100px;" src="{{ asset('brexits-user-avatar-2.png') }}" alt="Avatar">
+                                @endif
+                                    <label class="c-field__label">Image *</label>
+                                    <input type="file" name="img" class="c-input" value="{{ $user->user_img }}">
+                                </div>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">First Name *</label>
@@ -81,23 +92,24 @@ use App\Http\Controllers\Globals as Utils;
                                     <input class="c-input" type="text" name="id_number" value="{{ $user->id_number }}"
                                         required="">
                                 </div>
-                            </div><div class="col-lg-6">
+                            </div>
+                            {{-- <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Social Security Number</label>
-                                    <input class="c-input" type="text" name="ssn" value="{{ '' }}" required="">
+                                    <input class="c-input" type="text" name="ssn" value="{{ $user->ssn }}" required="">
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
+                            </div> --}}
+                            {{-- <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Address *</label>
-                                    <input class="c-input" type="text" name="address" value="{{ '' }}">
+                                    <input class="c-input" type="text" name="address" value="{{ $user->address }}">
                                 </div>
                             </div><div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Address2 (Optional)</label>
                                     <input class="c-input" type="text" name="address" value="{{ '' }}">
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Email *</label>
@@ -119,7 +131,7 @@ use App\Http\Controllers\Globals as Utils;
                             <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Country *</label>
-                                    <select class="c-select" name="country" required="">
+                                    <select class="c-select" name="country_birth" required="">
                                         @foreach(App\Country::all() as $country)
                                         <option value="{{$country->name}}" {{ ($user->country_birth == $country->name)?
                                             'selected': '' }}>{{$country->name}}</option>
@@ -127,12 +139,12 @@ use App\Http\Controllers\Globals as Utils;
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            {{-- <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Zip code *</label>
-                                    <input class="c-input" type="text" name="zip_code" value="{{ '' }}" required="">
+                                    <input class="c-input" type="text" name="zip_code" value="{{ $user->zip_code }}" required="">
                                 </div>
-                            </div>
+                            </div> --}}
 
                             {{-- <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
@@ -194,7 +206,7 @@ use App\Http\Controllers\Globals as Utils;
                             <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Annual Income</label>
-                                    <input class="c-input" type="text" name="annual_income" value="{{ $user->work_number }}">
+                                    <input class="c-input" type="text" name="work_number" value="{{ $user->work_number }}">
                                 </div>
                             </div>
 
@@ -229,7 +241,6 @@ use App\Http\Controllers\Globals as Utils;
                     <form action="{{ route('updateAddress') }}" method="post">
                         @csrf
                         <div class="row">
-                            @if($user->dob != null)
                             <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Unit number</label>
@@ -301,10 +312,6 @@ use App\Http\Controllers\Globals as Utils;
                             <div class="col-lg-12">
                                 <button class="c-btn c-btn--danger c-btn--fullwidth" type="submit">Update</button>
                             </div>
-                            @else
-                            <div class="u-text-danger u-text-center">Please update your personal details to update this
-                                address information</div>
-                            @endif
                         </div>
                     </form>
                 </div>
@@ -313,8 +320,6 @@ use App\Http\Controllers\Globals as Utils;
                     <form action="{{ route('updateIdentity') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                            @if($user->street_name != null)
-
                             <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Passport</label>
@@ -341,10 +346,6 @@ use App\Http\Controllers\Globals as Utils;
                             <div class="col-lg-12 u-mt-medium">
                                 <button class="c-btn c-btn--danger c-btn--fullwidth" type="submit">Update</button>
                             </div>
-                            @else
-                            <div class="u-text-danger u-text-center">Please update your address information to update
-                                Identity / KYC form.</div>
-                            @endif
                         </div>
                     </form>
                 </div>
@@ -353,7 +354,6 @@ use App\Http\Controllers\Globals as Utils;
                     <form action="{{ route('updateTax') }}" method="POST">
                         @csrf
                         <div class="row" style="padding:0 2em">
-                            @if($user->street_name != null)
                             <div class="col-12">
                                 <div class="u-text-center">
                                     <h4 class="u-mb-xsmall">Tax Information.</h4>
@@ -448,10 +448,6 @@ use App\Http\Controllers\Globals as Utils;
                             <div class="col-lg-12">
                                 <button class="c-btn c-btn--danger c-btn--fullwidth" type="submit">Update</button>
                             </div>
-                            @else
-                            <div class="u-text-danger u-text-center">Please update your address information to update
-                                Identity / KYC form.</div>
-                            @endif
                         </div>
                     </form>
                 </div>
@@ -461,7 +457,6 @@ use App\Http\Controllers\Globals as Utils;
                         @csrf
                         <div class="row">
                             {{-- @if($user->tax_residence != null) --}}
-                            @if($user->street_name != null)
                             <div class="col-lg-6">
                                 <div class="c-field u-mb-small">
                                     <label class="c-field__label">Bank Name *</label>
@@ -526,10 +521,6 @@ use App\Http\Controllers\Globals as Utils;
                             <div class="col-lg-12">
                                 <button class="c-btn c-btn--danger c-btn--fullwidth" type="submit">Update</button>
                             </div>
-                            @else
-                            <div class="u-text-danger u-text-center">Please update your Tax to update Bank details form.
-                            </div>
-                            @endif
                         </div>
                     </form>
                 </div>

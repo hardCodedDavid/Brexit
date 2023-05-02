@@ -14,9 +14,12 @@
 		            <label class="c-field__label">Investment Type </label>
 					<select class="c-input" class="form-control" name="plan" required="">
                         <option value="">Please select...</option>
-						@foreach($plans as $plan)
+                        <option value="individual">Individual</option>
+                        <option value="entity">Entity</option>
+                        <option value="retirement">Retirement</option>
+						{{-- @foreach($plans as $plan)
 							<option value="{{ $plan->slug }}">{{ $plan->name }}</option>
-						@endforeach
+						@endforeach --}}
                     </select>
 		            {{-- <input class="c-input" type="text" value="{{ ucwords($plan->name) }}" readonly="">
 		            <input type="hidden" name="plan" class="form-control" value="{{ $plan->slug }}"> --}}
@@ -33,6 +36,9 @@
 		            <label class="c-field__label">Amount to deposit</label>
 		            <input class="c-input" type="number"name="amount" required="" step="any">
 		        </div>
+
+		        <input class="c-input" type="hidden" name="type" value="deposit" >
+
 		        <button class="c-btn c-btn--danger c-btn--fullwidth" type="submit">Invest</button>
 		    </form>
 		</div>

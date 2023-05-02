@@ -104,7 +104,7 @@
 						</select>
 					</div>
 					<div class="form-group col-12">
-						<label>Plan</label>
+						<label>Properties</label>
 						<select class="form-control" name="plan" required>
 							<option value="">Please select...</option>
 							@foreach($plans as $plan)
@@ -134,10 +134,10 @@
                     </div>
 
                     <div class="form-group col-12">
-                        <label>Asset</label>
+                        <label>Account Type</label>
                         <select class="form-control" name="asset" required>
                             <option value="">Please select...</option>
-                            @foreach(['Equities', 'Fixed Income (bond)', 'Cash', 'Properties', 'Cryptocurrencies', 'EFT\'s', 'Gold', 'Hedge Funds'] as $asset)
+                            @foreach(['Individual', 'Entity', 'Retirement'] as $asset)
                                 <option value="{{ $asset }}">{{ ucwords($asset) }}</option>
                             @endforeach
                         </select>

@@ -185,207 +185,6 @@
                                     </div>
                                 </form>
                             </div>
-                            <!--============== Feature Property Widget Start ==============-->
-                            <div class="widget property_carousel_widget">
-                                <h5 class="mb-30">Feature Property</h5>
-                                <div class="single-carusel owl-carousel nav-disable">
-                                    <div class="item">
-                                        <div class="property-grid-2 property-block transation mb-3">
-                                            <div class="overflow-hidden position-relative transation thumbnail-img rounded bg-secondary hover-img-zoom">
-                                                <div class="cata position-absolute">
-                                                    <span class="sale bg-secondary text-white">For Sale</span>
-                                                </div>
-                                                <a href="property-single-v1.html"><img src="assets/images/property_grid/property-grid-5.png" alt="Image Not Found!"></a>
-                                                <ul class="position-absolute quick-meta">
-                                                    <li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                                    <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>
-                                                    <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="post-content py-3">
-                                                <div class="post-meta font-small text-uppercase list-color-primary">
-                                                    <a href="#" class="listing-ctg"><i class="fa-solid fa-building"></i><span>Villa</span></a>
-                                                </div>
-                                                <h5 class="listing-title"><a href="property-single-v1.html">Gorgeous Villa Bay View</a></h5>
-                                                <span class="listing-location"><i class="fas fa-map-marker-alt"></i> 2305 Tree Frog Lane Overlandpk</span>
-                                                <ul class="d-flex quantity font-fifteen">
-                                                    <li title="Beds"><span><i class="fa-solid fa-bed"></i></span>3</li>
-                                                    <li title="Baths"><span><i class="fa-solid fa-shower"></i></span>2</li>
-                                                    <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1200 Sqft</li>
-                                                    <li title="Gas"><span><i class="fa-solid fa-fire"></i></span>Yes</li>
-                                                </ul>
-                                                <span class="listing-price">$12000<small> ( Monthly )</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="property-grid-2 property-block transation mb-3">
-                                            <div class="overflow-hidden position-relative transation thumbnail-img rounded bg-secondary hover-img-zoom">
-                                                <div class="cata position-absolute">
-                                                    <span class="sale bg-secondary text-white">For Sale</span>
-                                                </div>
-                                                <a href="property-single-v1.html"><img src="assets/images/property_grid/property-grid-6.png" alt="Image Not Found!"></a>
-                                                <ul class="position-absolute quick-meta">
-                                                    <li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                                    <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>
-                                                    <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="post-content py-3">
-                                                <div class="post-meta font-small text-uppercase list-color-primary">
-                                                    <a href="#" class="listing-ctg"><i class="fa-solid fa-building"></i><span>Appartment</span></a>
-                                                </div>
-                                                <h5 class="listing-title"><a href="property-single-v1.html">Luxury Condos</a></h5>
-                                                <span class="listing-location"><i class="fas fa-map-marker-alt"></i> 2305 Tree Frog Lane Overlandpk</span>
-                                                <ul class="d-flex quantity font-fifteen">
-                                                    <li title="Beds"><span><i class="fa-solid fa-bed"></i></span>3</li>
-                                                    <li title="Baths"><span><i class="fa-solid fa-shower"></i></span>2</li>
-                                                    <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1200 Sqft</li>
-                                                    <li title="Gas"><span><i class="fa-solid fa-fire"></i></span>Yes</li>
-                                                </ul>
-                                                <span class="listing-price">$1205500 <del>$1210000</del><small> ( Price Only )</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="property-grid-2 property-block transation mb-3">
-                                            <div class="overflow-hidden position-relative transation thumbnail-img rounded bg-secondary hover-img-zoom">
-                                                <div class="cata position-absolute">
-                                                    <span class="sale bg-secondary text-white">For Rent</span>
-                                                </div>
-                                                <a href="property-single-v1.html"><img src="assets/images/property_grid/property-grid-7.png" alt="Image Not Found!"></a>
-                                                <ul class="position-absolute quick-meta">
-                                                    <li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                                    <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>
-                                                    <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="post-content py-3">
-                                                <div class="post-meta font-small text-uppercase list-color-primary">
-                                                    <a href="#" class="listing-ctg"><i class="fa-solid fa-building"></i><span>Appartment</span></a>
-                                                </div>
-                                                <h5 class="listing-title"><a href="property-single-v1.html">New Developed Condos</a></h5>
-                                                <span class="listing-location"><i class="fas fa-map-marker-alt"></i> 2305 Tree Frog Lane Overlandpk</span>
-                                                <ul class="d-flex quantity font-fifteen">
-                                                    <li title="Beds"><span><i class="fa-solid fa-bed"></i></span>3</li>
-                                                    <li title="Baths"><span><i class="fa-solid fa-shower"></i></span>2</li>
-                                                    <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1200 Sqft</li>
-                                                    <li title="Gas"><span><i class="fa-solid fa-fire"></i></span>Yes</li>
-                                                </ul>
-                                                <span class="listing-price">$17500 <del>$21000</del><small> ( Monthly )</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="property-grid-2 property-block transation mb-3">
-                                            <div class="overflow-hidden position-relative transation thumbnail-img rounded bg-secondary hover-img-zoom">
-                                                <div class="cata position-absolute">
-                                                    <span class="sale bg-secondary text-white">For Rent</span>
-                                                </div>
-                                                <a href="property-single-v1.html"><img src="assets/images/property_grid/property-grid-8.png" alt="Image Not Found!"></a>
-                                                <ul class="position-absolute quick-meta">
-                                                    <li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                                    <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>
-                                                    <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="post-content py-3">
-                                                <div class="post-meta font-small text-uppercase list-color-primary">
-                                                    <a href="#" class="listing-ctg"><i class="fa-solid fa-building"></i><span>Condos</span></a>
-                                                </div>
-                                                <h5 class="listing-title"><a href="property-single-v1.html">Residensial Appartment</a></h5>
-                                                <span class="listing-location"><i class="fas fa-map-marker-alt"></i> 2305 Tree Frog Lane Overlandpk</span>
-                                                <ul class="d-flex quantity font-fifteen">
-                                                    <li title="Beds"><span><i class="fa-solid fa-bed"></i></span>3</li>
-                                                    <li title="Baths"><span><i class="fa-solid fa-shower"></i></span>2</li>
-                                                    <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1200 Sqft</li>
-                                                    <li title="Gas"><span><i class="fa-solid fa-fire"></i></span>Yes</li>
-                                                </ul>
-                                                <span class="listing-price">$22000 <del>$26200</del><small> ( Monthly )</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="property-grid-2 property-block transation mb-3">
-                                            <div class="overflow-hidden position-relative transation thumbnail-img rounded bg-secondary hover-img-zoom">
-                                                <div class="cata position-absolute">
-                                                    <span class="sale bg-secondary text-white">For Sale</span>
-                                                </div>
-                                                <a href="property-single-v1.html"><img src="assets/images/property_grid/property-grid-5.png" alt="Image Not Found!"></a>
-                                                <ul class="position-absolute quick-meta">
-                                                    <li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                                    <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>
-                                                    <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="post-content py-3">
-                                                <div class="post-meta font-small text-uppercase list-color-primary">
-                                                    <a href="#"><span>Villa</span></a>
-                                                </div>
-                                                <h5 class="listing-title"><a href="property-single-v1.html">Gorgeous Villa Bay View</a></h5>
-                                                <span class="listing-location"><i class="fas fa-map-marker-alt"></i> 2305 Tree Frog Lane Overlandpk</span>
-                                                <ul class="d-flex quantity font-fifteen">
-                                                    <li title="Beds"><span><i class="fa-solid fa-bed"></i></span>3</li>
-                                                    <li title="Baths"><span><i class="fa-solid fa-shower"></i></span>2</li>
-                                                    <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1200 Sqft</li>
-                                                    <li title="Gas"><span><i class="fa-solid fa-fire"></i></span>Yes</li>
-                                                </ul>
-                                                <span class="listing-price">$12000 <del>$15000</del><small> ( Monthly )</small></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--============== Feature Property Widget End ==============-->
-
-                            <!--============== Recent Property Widget Start ==============-->
-                            <div class="widget widget_recent_property">
-                                <h5 class="text-secondary mb-4">Recent Property</h5>
-                                <ul>
-                                    <li>
-                                        <img src="assets/images/thumbnaillist/01.jpg" alt="">
-                                        <div class="thumb-body">
-                                            <h6 class="listing-title"><a href="property-single-1.html">Nirala Appartment</a></h6>
-                                            <span class="listing-price">$3200<small>( Monthly )</small></span>
-                                            <ul class="d-flex quantity font-fifteen">
-                                                <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>6500 Sqft</li>
-
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/thumbnaillist/02.jpg" alt="">
-                                        <div class="thumb-body">
-                                            <h6 class="listing-title"><a href="property-single-1.html">Condo House</a></h6>
-                                            <span class="listing-price">$11500<small>( Monthly )</small></span>
-                                            <ul class="d-flex quantity font-fifteen">
-                                                <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>2200 Sqft</li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/thumbnaillist/03.jpg" alt="">
-                                        <div class="thumb-body">
-                                            <h6 class="listing-title"><a href="property-single-1.html">Luxury Condos</a></h6>
-                                            <span class="listing-price">$17000<small>( Monthly )</small></span>
-                                            <ul class="d-flex quantity font-fifteen">
-                                                <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>3500 Sqft</li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/thumbnaillist/04.jpg" alt="">
-                                        <div class="thumb-body">
-                                            <h6 class="listing-title"><a href="property-single-1.html">Small Appartment</a></h6>
-                                            <span class="listing-price">$5200<small>( Monthly )</small></span>
-                                            <ul class="d-flex quantity font-fifteen">
-                                                <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1200 Sqft</li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--============== Recent Property Widget End ==============-->
                         </div>
                     </div>
 
@@ -427,18 +226,35 @@
                                 <div class="property-grid-1 property-block bg-white transation-this hover-shadow">
                                     <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
                                         <div class="cata position-absolute"><span class="sale bg-secondary text-white">{{ $property->type }}</span></div>
-                                        {{-- <div class="owl-carousel single-carusel dot-disable nav-between-in"> --}}
-                                            <div class="item">
-                                                <a href="property-single-v1.html"><img src="{{ $property->property_img }}" alt="Image Not Found!"></a>
+                                            @php
+                                                $property_img = App\PropertyImage::where('plan_id', $property->id)->get();
+                                            @endphp
+
+
+                                            <div id="carouselExampleIndicators{{ $property->id }}" class="carousel slide" data-ride="carousel">
+                                                <div class="carousel-indicators">
+                                                    @foreach($property_img as $key => $image)
+                                                        <button type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide-to="{{$key}}" class="@if($key==0) active @endif"  aria-current="@if($key==0) true @endif" aria-label="Slide {{$key}}"></button>
+                                                    @endforeach
+                                                </div>
+                                                <div class="carousel-inner">
+                                                 @foreach($property_img as $key => $image)
+                                                    <div class="carousel-item @if($key==0) active @endif">
+                                                        <img src="{{ $image->img_url }}" alt="{{ $image->title }}" class="d-block w-100" alt="...">
+                                                    </div>
+                                                @endforeach
+                                                </div>
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
                                             </div>
-                                        {{-- </div> --}}
-                                        {{-- <a href="#" class="listing-ctg text-white"><i class="fa-solid fa-building"></i><span>Apartment</span></a> --}}
-                                        <ul class="position-absolute quick-meta">
-                                            <li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                            <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>
-                                            <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                        </ul>
-                                    </div>
+
+                                        </div>
                                     <div class="property_text p-3">
                                         <span class="listing-price">${{ number_format($property->price, 2) }}<small> ( Monthly )</small></span>
                                         <h5 class="listing-title"><a href="property-single-v1.html">{{ $property->name }}</a></h5>

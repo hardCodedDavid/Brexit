@@ -13,11 +13,13 @@ use App\Transfer;
 use App\CreditCard;
 use App\Investment;
 use App\Transaction;
+use App\PropertyImage;
 use App\Mail\Messaging;
 use App\Staticinvestment;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\In;
+use Intervention\Image\Facades\Image;
 use App\Http\Controllers\Globals as Util;
 
 class AdminController extends Controller
@@ -273,7 +275,8 @@ class AdminController extends Controller
                     'user' => $request->user,
                     'amount' => $request->amount,
                     'status' => 'approved',
-                    'type' => 'payout'
+                    'type' => 'payout',
+                    'account_type' => $request->plan,
                 ]);
             }
         }
@@ -291,6 +294,7 @@ class AdminController extends Controller
                 'amount'=>$payout->amount,
                 'status'=>'declined',
                 'type'=>'payout',
+                'account_type' => $payout->plan,
             ]);
             if ($payout->created_by === 0) {
                 $title = ' ';
@@ -311,6 +315,7 @@ class AdminController extends Controller
                 'amount'=>$payout->amount,
                 'status'=>'approved',
                 'type'=>'payout',
+                'account_type' => $payout->plan,
             ]);
             if ($payout->created_by === 0) {
                 $title = ' ';
@@ -335,6 +340,7 @@ class AdminController extends Controller
             'amount'=>$payout->amount,
             'status'=>'declined',
             'type'=>'payout',
+            'account_type' => $payout->plan,
         ]);
         if ($payout->created_by === 0) {
             $title= ' ';
@@ -380,6 +386,7 @@ class AdminController extends Controller
                 'amount'=>$deposit->amount,
                 'status'=>'approved',
                 'type'=>'deposit',
+                'account_type'=>$deposit->plan,
             ]);
 
             if ($deposit->created_by === 0) {
@@ -405,6 +412,7 @@ class AdminController extends Controller
                 'amount'=>$deposit->amount,
                 'status'=>'approved',
                 'type'=>'deposit',
+                'account' => $deposit->plan,
             ]);
 
             if($static){
@@ -436,6 +444,7 @@ class AdminController extends Controller
             'amount'=>$deposit->amount,
             'status'=>'declined',
             'type'=>'deposit',
+            'account_type' => $deposit->plan,
         ]);
 
         if ($deposit->created_by === 0) {
@@ -517,6 +526,7 @@ class AdminController extends Controller
                         'amount'=>$deposit->amount,
                         'status'=>'approved',
                         'type'=>'deposit',
+                        'account_type' => $deposit->plan,
                     ]);
                 } else{
                     $investment = new Investment;
@@ -530,6 +540,7 @@ class AdminController extends Controller
                         'amount'=>$deposit->amount,
                         'status'=>'approved',
                         'type'=>'deposit',
+                        'account_type' => $deposit->plan,
                     ]);
 
                     if($static){
@@ -596,6 +607,7 @@ class AdminController extends Controller
                         'amount'=>$deposit->amount,
                         'status'=>'approved',
                         'type'=>'deposit',
+                        'account_type' => $deposit->plan,
                     ]);
 
                     if($static){
@@ -734,6 +746,9 @@ class AdminController extends Controller
                 'account_number' => $req->account_number,
                 'account_holder' => $req->account_holder,
                 'bank_country' => $req->bank_country,
+                'address' => $req->address,
+                'routing_number' => $req->routing_number,
+                'swift' => $req->swift,
             ]);
         }else{
 
@@ -743,7 +758,10 @@ class AdminController extends Controller
                 'bank_name' => $req->bank_name,
                 'account_number' => $req->account_number,
                 'account_holder' => $req->account_holder,
-                'bank_country' => $req->bank_country
+                'bank_country' => $req->bank_country,
+                'address' => $req->address,
+                'routing_number' => $req->routing_number,
+                'swift' => $req->swift,
             ]);
         }
         return redirect('/admin/settings')->with('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong><i class="lni-checkmark"></i> Success!</strong> Settings updated successfully.<button type="button" class="close" data-dismiss="alert" aria-lSource Sans Pro="Close"><span aria-hidden="true">&times;</span></button></div>');
@@ -856,6 +874,7 @@ class AdminController extends Controller
                 'amount'=>$transfer->amount,
                 'status'=>'approved',
                 'type'=>'transfer',
+                'account_type' => $to->slug,
             ]);
             $title= ' ';
             $name = $transfer->user->firstname.' '.$transfer->user->surname;
@@ -873,6 +892,7 @@ class AdminController extends Controller
                     'amount'=>$transfer->amount,
                     'status'=>'approved',
                     'type'=>'credit',
+                    'account_type' => $to->slug,
                 ]);
             }else {
                 Investment::create([
@@ -885,6 +905,7 @@ class AdminController extends Controller
                     'amount'=>$transfer->amount,
                     'status'=>'approved',
                     'type'=>'credit',
+                    'account_type' => $to->slug,
                 ]);
             }
             $transfer->update(['status' => 'approved']);
@@ -948,51 +969,94 @@ class AdminController extends Controller
 
     public function createProperty(Request $req){
 
-        $plan = new Plan;
+        $plan = Plan::create([
+            'name' => $req->name,
+            'location' => $req->location,
+            'price' => $req->price,
+            'type' => $req->type,
+            'leverage' => $req->leverage,
+            'rental' => $req->rental,
+            'shares' => $req->shares,
+            'investors' => $req->investors,
+            'funding' => $req->funding,
+            'invested' => $req->invested,
+            'body' => $req->body,
+        ]);
 
-        $plan->name = $req->name;
-        $plan->location = $req->location;
-        $plan->price = $req->price;
-        $plan->type = $req->type;
-        
-        if ($req->file('img')) {
-            $files = $req->file('img');
-            $destinationPath = 'uploads';
-            $residenceImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-            $files->move($destinationPath, $residenceImage);
-            
-            $plan->property_img = $destinationPath."/".$residenceImage;
+        // Create the images
+        if ($req->hasFile('img')) {
+            $img = $req->file('img');
+            foreach ($img as $image) {
+                $destinationPath = 'uploads';
+                $filename = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image_resize = Image::make($image->getRealPath());              
+                $image_resize->fit(350, 220);
+                
+                $image_resize->save(public_path('uploads/' . $filename));
+
+                $plan->property_images()->create([
+                    'img_url' => $destinationPath."/".$filename
+                ]);
+            }
         }
 
-        $plan->save();
-
-        return view('admin.properties');
+        return redirect('/admin/property')->with('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong><i class="lni-checkmark"></i> Success!</strong> Property has been created.<button type="button" class="close" data-dismiss="alert" aria-lSource Sans Pro="Close"><span aria-hidden="true">&times;</span></button></div>');
     }
 
     public function updateProperty(Request $req, $id){
         $plan = Plan::findOrFail($id);
 
-        $plan->name = $req->name;
-        $plan->location = $req->location;
-        $plan->price = $req->price;
-        $plan->type = $req->type;
+        $plan->update([
+            'name' => $req->name,
+            'location' => $req->location,
+            'price' => $req->price,
+            'type' => $req->type,
+            'leverage' => $req->leverage,
+            'rental' => $req->rental,
+            'shares' => $req->shares,
+            'investors' => $req->investors,
+            'funding' => $req->funding,
+            'invested' => $req->invested,
+            'body' => $req->body,
+        ]);
         
-        if ($req->hasfile('img')) {
-            $files = $req->file('img');
-            $destinationPath = 'uploads';
-            $residenceImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-            $files->move($destinationPath, $residenceImage);
-            
-            $plan->property_img = $destinationPath."/".$residenceImage;
+
+        if ($req->hasFile('img')) {
+            $img = $req->file('img');
+
+            $plan->property_images()->delete();
+
+            foreach ($img as $image) {
+
+                // $destinationPath = 'uploads';
+
+                // $filename = time() . '_' . $image->getClientOriginalName();
+                
+                // $image->move($destinationPath, $filename);
+
+                // $plan->property_images()->create([
+                //     'img_url' => $destinationPath."/".$filename
+                // ]);
+
+                $destinationPath = 'uploads';
+                $filename = md5(rand(1000, 10000)) . "." . $image->getClientOriginalExtension();
+                $image_resize = Image::make($image->getRealPath());              
+                $image_resize->fit(350, 220);
+                
+                $image_resize->save(public_path('uploads/' . $filename));
+
+                $plan->property_images()->create([
+                    'img_url' => $destinationPath."/".$filename
+                ]);
+            }
         }
 
-        $plan->update();
-
-        return redirect()->back()->with('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong><i class="lni-checkmark"></i> Success!</strong> Property has been updated.<button type="button" class="close" data-dismiss="alert" aria-lSource Sans Pro="Close"><span aria-hidden="true">&times;</span></button></div>');
+        return redirect('/admin/property')->with('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong><i class="lni-checkmark"></i> Success!</strong> Property has been updated.<button type="button" class="close" data-dismiss="alert" aria-lSource Sans Pro="Close"><span aria-hidden="true">&times;</span></button></div>');
     }
 
     public function destroyProperty($id){
         Plan::findOrFail($id)->delete();
+        // Plan::findOrFail($id)->property_images()->delete();
         return redirect()->back()->with('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong><i class="lni-checkmark"></i> Success!</strong> Property has been deleted.<button type="button" class="close" data-dismiss="alert" aria-lSource Sans Pro="Close"><span aria-hidden="true">&times;</span></button></div>');
     }
 
@@ -1007,6 +1071,26 @@ class AdminController extends Controller
         User::where('id', $id)->update(['portfolio_manager' => $num]);
         
         return redirect()->route('allPortfolio')->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>Your request has been submitted and being reviewed, please do not initiate another request</div>');
+    }
+
+    public function featuredProperty0(Request $req, $id){
+        $plan = Plan::findOrFail($id);
+
+        $plan->update([
+            'featured' => 0,
+        ]);
+
+        return redirect('/admin/property')->with('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong><i class="lni-checkmark"></i> Success!</strong> Property has been updated.<button type="button" class="close" data-dismiss="alert" aria-lSource Sans Pro="Close"><span aria-hidden="true">&times;</span></button></div>');
+    }
+
+    public function featuredProperty1(Request $req, $id){
+        $plan = Plan::findOrFail($id);
+
+        $plan->update([
+            'featured' => 1,
+        ]);
+
+        return redirect('/admin/property')->with('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong><i class="lni-checkmark"></i> Success!</strong> Property has been updated.<button type="button" class="close" data-dismiss="alert" aria-lSource Sans Pro="Close"><span aria-hidden="true">&times;</span></button></div>');
     }
 
 }

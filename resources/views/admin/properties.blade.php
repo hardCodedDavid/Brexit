@@ -80,6 +80,7 @@ use App\Http\Controllers\Globals as Utils;
                         <th>slug</th>
                         <th>Location</th>
                         <th>Price</th>
+                        <th>Featured</th>
                         <th>Date</th>
                         <th>Action</th>
 					</tr>
@@ -97,6 +98,13 @@ use App\Http\Controllers\Globals as Utils;
                         <td class="c-table__cell">{{ $property->slug }}</td>
                         <td class="c-table__cell">{{ $property->location }}</td>
                         <td class="c-table__cell">${{ number_format($property->price, 2) }}</td>
+                        <td class="c-table__cell">
+                            @if($property->featured == 1)
+                                <div class="badge badge-success px-2 py-2">Active</div>
+                            @elseif($property->featured == 0)
+                                <div class="badge badge-danger px-2 py-2">Inactive</div>
+                            @endif
+                        </td>
                         <td class="c-table__cell">{{ date('Y-F-d', strtotime($property->created_at)) }}</td>
                         <td>
                             <div class="btn-group">
@@ -109,6 +117,11 @@ use App\Http\Controllers\Globals as Utils;
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuReference1">
                                     <a class="dropdown-item" href="{{route('editProperty', $property->id)}}">Edit</a>
                                     <a class="dropdown-item" href="{{route('deleteProperty', $property->id)}}">Delete</a>
+                                    @if($property->featured == 0)
+                                        <a class="dropdown-item" href="{{route('featuredPropertyActive', $property->id)}}">Mark featured</a>
+                                    @elseif($property->featured == 1)
+                                        <a class="dropdown-item" href="{{route('featuredProperty', $property->id)}}">Unmark featured</a>
+                                    @endif
                                 </div>
                             </div>
                         </td>

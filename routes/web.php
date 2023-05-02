@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Intervention\Image\Facades\Image;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,8 @@ Route::group(['middleware' => 'auth.checkProfileCompleteness'], function(){
     Route::get('/withdrawals/add', 'HomeController@addPayout');
     Route::get('/withdrawals/add', 'HomeController@addPayoutNow')->name('addWithdrawal');
     Route::post('/withdrawals/add', 'HomeController@addPayoutPost')->name('addPayout');
+    Route::post('/withdrawals/details', 'HomeController@submitPayout')->name('submitPay');
+
     Route::get('/transactions', 'HomeController@transactions');
     Route::get('/statements', 'HomeController@statements');
     Route::get('/credit-card', 'HomeController@creditCard');
@@ -157,6 +160,8 @@ Route::group(['prefix' => 'admin','middleware' => 'assign.guard:admin,admin/logi
     Route::get('/property/{id}/edit', 'AdminController@editProperty')->name('editProperty');
     Route::post('/property/{id}/update', 'AdminController@updateProperty')->name('updateProperty');
     Route::get('/property/{id}/delete', 'AdminController@destroyProperty')->name('deleteProperty');
+    Route::get('/property/{id}/featured/0', 'AdminController@featuredProperty0')->name('featuredProperty');
+    Route::get('/property/{id}/featured/1', 'AdminController@featuredProperty1')->name('featuredPropertyActive');
 
     Route::get('/portfolio', 'AdminController@portfolio')->name('allPortfolio');
     Route::get('/portfolio/enable/{id}/{num}', 'AdminController@portfolioEnable')->name('postPortfolio');

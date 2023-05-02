@@ -75,14 +75,15 @@ use App\Http\Controllers\Globals as Utils;
 				<thead>
 					<tr>
                         <th>SN</th>
-                        <th>Date</th>
                         <th>User</th>
-                        <th>Account</th>
+                        <th>Account Type</th>
                         <th>Amount Invested</th>
-                        <th>Assets</th>
+                        <th>Properties</th>
                         <th>Roi</th>
                         <th>Status</th>
+                        <th>Date</th>
                         <th>Action</th>
+                        
 					</tr>
 				</thead>
 
@@ -96,12 +97,11 @@ use App\Http\Controllers\Globals as Utils;
                     @endphp
                     <tr class="c-table__row c-table__row--danger">
                         <td class="c-table__cell">{{ $i++ }}</td>
-                        <td class="c-table__cell">{{ date('Y-F-d', strtotime($transaction->created_at)) }}</td>
                         <td class="c-table__cell">{{ $transaction->user->username }}</td>
-                        <td class="c-table__cell">{{ $plan->name }}</td>
+                        <td class="c-table__cell">{{ ucwords($transaction->asset) }}</td>
                         <td class="c-table__cell">${{ number_format($transaction->amount_invested, 2) }}</td>
 
-                        <td class="c-table__cell">{{ ucwords($transaction->asset) }}</td>
+                        <td class="c-table__cell">{{ $plan->name }}</td>
                         <td class="c-table__cell">${{ number_format($transaction->roi, 2) }}</td>
                         <td class="c-table__cell">
                             @if($transaction->status == 'open')
@@ -110,6 +110,7 @@ use App\Http\Controllers\Globals as Utils;
                                 <div class="badge badge-danger px-2 py-2">Closed</div>
                             @endif
                         </td>
+                        <td class="c-table__cell">{{ date('Y-F-d', strtotime($transaction->created_at)) }}</td>
                         <td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-dark btn-sm">Open</button>

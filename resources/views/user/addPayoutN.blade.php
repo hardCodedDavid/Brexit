@@ -1,3 +1,8 @@
+@php
+	use App\Http\Controllers\Globals as Utils;
+	$me = Utils::getUser();
+@endphp
+
 @extends('layouts.account')
 
 @section('title', __('Withdraw now'))
@@ -8,15 +13,18 @@
 <div class="row">
 	<div class="col-lg-12">
 		<div class="c-card c-card--responsive u-mb-medium">
-			<form class="c-card__body" method="post" action="{{ route('addPayout') }}">
+			<form class="c-card__body" method="post" action="{{ route('submitDepo') }}">
 		        @csrf
 		        <div class="c-field u-mb-small">
 		            <label class="c-field__label">From </label>
 		            <select class="c-input" class="form-control" name="plan" required="">
                         <option value="">Please select...</option>
-						@foreach($plans as $plan)
+						<option value="individual">Individual</option>
+                        <option value="entity">Entity</option>
+                        <option value="retirement">Retirement</option>
+						{{-- @foreach($plans as $plan)
 							<option value="{{ $plan->slug }}">{{ $plan->name }}</option>
-						@endforeach
+						@endforeach --}}
                     </select>
 		        </div>
                 <div class="c-field u-mb-small">
@@ -32,7 +40,10 @@
 		            <label class="c-field__label">Amount to withdraw</label>
 		            <input class="c-input" type="number" name="amount" required="" step="any">
 		        </div>
-		        <button class="c-btn c-btn--danger c-btn--fullwidth" type="submit">Withdraw</button>
+
+				<input class="c-input" type="hidden" name="type" value="payout" >
+		        
+				<button class="c-btn c-btn--danger c-btn--fullwidth" type="submit">Withdraw</button>
 		    </form>
 		</div>
 	</div>

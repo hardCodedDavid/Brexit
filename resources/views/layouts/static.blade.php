@@ -22,6 +22,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
     <!-- Required style of the theme -->
     <link rel="stylesheet" href="{{ asset('static/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('static/assets/css/bootstrap-select.min.css') }}">
@@ -133,7 +135,7 @@
             </div>
 
             <!--============== Copyright Section Start ==============-->
-            <div class="copyright-border text-secondary">
+            {{-- <div class="copyright-border text-secondary">
                 <div class="container py-4">
                     <div class="row row-cols-lg-2 row-cols-1">
                         <div class="col">
@@ -144,13 +146,12 @@
                                 <li><a href="+15187038716">+15187038716</a></li>
                                 <li>|</li>
                                 <li><a href="mail:support@vantagehorizon.com">support@vantagehorizon.com</a></li>
-                                {{-- <li>|</li>
-                                <li><a href="#">Site Map</a></li> --}}
+                                
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!--============== Copyright Section End ==============-->
         </footer>
 
@@ -164,6 +165,9 @@
         <!-- End Scroll To top -->
 
     <!-- Javascript Files -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+
     <script src="{{ asset('static/assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('static/assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('static/assets/js/bootstrap.min.js') }}"></script>

@@ -227,14 +227,14 @@
                             <div class="row row-cols-md-3 row-cols-1">
                                 <div class="col">
                                     <div class="mb-30 text-start count wow fadeIn" data-wow-duration="300ms">
-                                        <span class="text-secondary h1">$</span><span class="count-num text-secondary h1" data-speed="3000" data-stop="65">200</span><span class="text-secondary h1">M+</span>
+                                        <span class="text-secondary h1">$</span><span class="count-num text-secondary h1" data-speed="2000" data-stop="200">200</span><span class="text-secondary h1">M+</span>
                                         <div class="text-secondary h5 py-2">Property Value Funded</div>
                                         <p>Thousands of Vantage Horizon investors are fully funding new single family rental properties and investing in building their long-term wealth.</p>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="mb-30 text-start count wow fadeIn" data-wow-duration="300ms">
-                                        <span class="text-secondary h1">$</span><span class="count-num text-secondary h1" data-speed="3000" data-stop="65">350</span><span class="text-secondary h1">M+</span>
+                                        <span class="text-secondary h1">$</span><span class="count-num text-secondary h1" data-speed="2000" data-stop="350">350</span><span class="text-secondary h1">M+</span>
 
                                         <div class="text-secondary h5 py-2">Company Funding</div>
                                         <p>Vantage Horizon is backed by a world class group of investors and partnered with top tier financial institutions that believe in our mission of democratizing real estate investing.</p>
@@ -242,7 +242,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="mb-30 text-start count wow fadeIn" data-wow-duration="300ms">
-                                        <span class="count-num text-secondary h1" data-speed="3000" data-stop="65">300</span><span class="text-secondary h1">+</span>
+                                        <span class="count-num text-secondary h1" data-speed="2000" data-stop="300">300</span><span class="text-secondary h1">+</span>
                                         <div class="text-secondary h5 py-2">Properties Funded</div>
                                         <p>All Vantage Horizon properties are hand-picked and individually analyzed by our investment team, ensuring that our investors choose from an exceptional selection of homes.</p>
                                     </div>

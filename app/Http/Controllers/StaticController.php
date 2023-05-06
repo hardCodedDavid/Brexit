@@ -9,7 +9,11 @@ class StaticController extends Controller
 {
     public function index() 
     {
-        return view('static.index');
+        $plan = Plan::latest()->paginate(6);
+        
+        return view('static.index', [ 
+            'plans' => $plan,
+        ]);
     }
 
     public function about() 
@@ -29,9 +33,13 @@ class StaticController extends Controller
 
     public function list() 
     {
-        $plan = Plan::latest()->paginate(12);
+        $plan = Plan::latest()->paginate(3);
+        $count = Plan::latest()->count();
         
-        return view('static.properties', [ 'plans' => $plan ]);
+        return view('static.properties', [ 
+            'plans' => $plan,
+            'count' => $count,
+        ]);
     }
 
     public function contact() 
@@ -68,4 +76,58 @@ class StaticController extends Controller
     {
         return view('static.vacation');
     }
+
+    public function privacy() 
+    {
+        return view('static.privacy');
+    }
+
+    // public function search(Request $request)
+    // {
+    //     $keyword = $request->keyword;
+
+    //     $results = Plan::when($keyword, function ($query) use ($keyword) 
+    //         {
+    //             return $query->where('name', 'like', '%' . $keyword . '%');
+    //         })
+    //         ->get();
+
+    //     $count = Plan::latest()->count();
+    //     return view('static.properties', [ 
+    //         'plans' => $results,
+    //         'count' => $count,
+    //     ]);
+    // }
+
+    public function search()
+    {
+        $query = Plan::query();
+
+        if (request('keyword')) {
+            $query->where('name', 'like', '%' . request('keyword') . '%');
+        }
+
+        if (request('type')) {
+            $query->where('type', '=', request('type'));
+        }
+
+        if (request('location')) {
+            $query->where('location', 'like', '%' . request('location') . '%');
+        }
+
+        if (request('min_price') & request('max_price')) {
+            $query->whereBetween('price', [request('min_price'), request('max_price')]);
+        }
+
+        $results = $query->paginate(20);
+
+        $count = Plan::latest()->count();
+
+        return view('static.properties', [ 
+            'plans' => $results,
+            'count' => $count,
+        ]);
+    }
+
+
 }

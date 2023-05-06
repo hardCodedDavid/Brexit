@@ -113,7 +113,7 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <input type="file" name="img[]" id="imageInput" class="form-control" value="{{ $plan->property_img }}" required step="any" multiple>
+                            <input type="file" name="img[]" id="imageInput" class="form-control" value="{{ $plan->property_img }}" step="any" multiple>
                             {{-- <input type="hidden" name="property_img" value="{{ $plan->property_img }}" /> --}}
                         </div>
                     </div>

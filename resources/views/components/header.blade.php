@@ -24,12 +24,11 @@
                                             <a class="nav-link dropdown-toggle" href="#">About</a>
                                             <ul class="dropdown-menu">
                                                 <li> <a class="dropdown-item" href="{{ route('about') }}">About us</a>
-                                                <li> <a class="dropdown-item" href="{{ route('faq') }}">FAQ</a>
-                                                {{-- <li> <a class="dropdown-item" href="vacation-rentals.html">Vacation rentals</a>
-                                                <li> <a class="dropdown-item" href="web3-properties.html">Web 3 properties</a>
-                                                <li> <a class="dropdown-item" href="historical-performance.html">Historical Performance</a>
-                                                <li> <a class="dropdown-item" href="stakeholder-commitments.html">Stakeholder Commitments</a>
-                                                <li> <a class="dropdown-item" href="sell-your-home.html">Sell your home</a> --}}
+                                                <li> <a class="dropdown-item" href="{{ route('vacation') }}">Vacation Rental</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('web') }}">Web 3 Properties</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('historical') }}">Historical Performance</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('stakeholder') }}">Stakeholder Commitment</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('sellHome') }}">Sell Your Home</a></li>
                                                 </li>
                                             </ul>
                                         </li>
@@ -37,13 +36,10 @@
                                             <a class="nav-link dropdown-toggle" href="#">Learn</a>
                                             <ul class="dropdown-menu">
                                                 <li> <a class="dropdown-item" href="{{ route('how-it-works') }}">How it works</a></li>
-                                                <li> <a class="dropdown-item" href="{{ route('contact') }}">Contact Us</a></li>
-                                                <li> <a class="dropdown-item" href="{{ route('vacation') }}">Vacation Rental</a></li>
-                                                <li> <a class="dropdown-item" href="{{ route('historical') }}">Historical Performance</a></li>
-                                                <li> <a class="dropdown-item" href="{{ route('stakeholder') }}">Stakeholder Commitment</a></li>
-                                                <li> <a class="dropdown-item" href="{{ route('sellHome') }}">Sell Your Home</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('faq') }}">Help & FAQ</a>
                                                 <li> <a class="dropdown-item" href="{{ route('learning') }}">Learning Center</a></li>
-                                                <li> <a class="dropdown-item" href="{{ route('web') }}">Web 3 Properties</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('privacy') }}">Privacy Policy</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('contact') }}">Contact Us</a></li>
                                             </ul>
                                         </li>
                                     </li>

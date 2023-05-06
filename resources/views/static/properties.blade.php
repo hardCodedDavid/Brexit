@@ -36,28 +36,18 @@
                         <div class="listing-sidebar">
                             <div class="widget advance_search_widget">
                                 <h5 class="mb-30">Search Property</h5>
-                                <form class="rounded quick-search form-icon-right" action="#" method="post">
+                                <form class="rounded quick-search form-icon-right" action="{{ route('search') }}" method="post">
+                                    @csrf
                                     <div class="row g-3">
                                         <div class="col-12">
                                             <input type="text" class="form-control" name="keyword" placeholder="Enter Keyword...">
                                         </div>
                                         <div class="col-12">
-                                            <select class="form-control">
-                                                <option>Property Types</option>
-                                                <option>House</option>
-                                                <option>Office</option>
-                                                <option>Appartment</option>
-                                                <option>Condos</option>
-                                                <option>Villa</option>
-                                                <option>Small Family</option>
-                                                <option>Single Room</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-12">
-                                            <select class="form-control">
-                                                <option>Property Status</option>
-                                                <option>For Rent</option>
-                                                <option>For Sale</option>
+                                            <select class="form-control" name="type">
+                                                <option value="">Property Types</option>
+                                                @foreach(['Vacation rental','Web3 properties', 'Single family residential'] as $type)
+                                                    <option value="{{ $type }}">{{ ucwords($type) }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="col-12">
@@ -66,17 +56,18 @@
                                                 <i class="flaticon-placeholder flat-mini icon-font y-center text-dark"></i>
                                             </div>
                                         </div>
-                                        <div class="col-12">
-                                            <div class="position-relative">
-                                                <button class="form-control price-toggle toggle-btn" data-target="#data-range-price">Price <i class="fas fa-angle-down font-mini icon-font y-center text-dark"></i></button>
-                                                <div id="data-range-price" class="price_range price-range-toggle w-100">
-                                                    <div class="area-filter price-filter">
-                                                        <span class="price-slider">
-                                                            <input class="filter_price" type="text" name="price" value="0;10000000" />
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="col-6">
+                                            <input type="number" class="form-control" name="min_price" placeholder="Min Price...">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="number" class="form-control" name="max_price" placeholder="Max Price...">
+                                        </div>
+                                        {{-- <div class="col-12">
+                                            <select class="form-control">
+                                                <option>Property Status</option>
+                                                <option>For Rent</option>
+                                                <option>For Sale</option>
+                                            </select>
                                         </div>
                                         <div class="col-12">
                                             <select class="form-control">
@@ -178,9 +169,9 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-12">
-                                            <button class="btn btn-primary w-100">Search</button>
+                                            <button type="submit" class="btn btn-primary w-100">Search</button>
                                         </div>
                                     </div>
                                 </form>
@@ -193,96 +184,99 @@
                             <div class="col">
                                 <div class="woo-filter-bar p-3 d-flex flex-wrap justify-content-between">
                                     <div class="d-flex flex-wrap">
-                                        <form class="woocommerce-ordering" method="get">
-                                            <select name="orderby1">
-                                                <option>Any Status</option>
-                                                <option>For Rent</option>
-                                                <option>For Sale</option>
-                                            </select>
+                                        {{-- <form class="woocommerce-ordering" method="get">
+                                            
                                             <select name="orderby2">
                                                 <option>Default</option>
-                                                <option>Most Popular</option>
+                                                <option>Featured</option>
                                                 <option>Top Rated</option>
                                                 <option>Newest Items</option>
                                                 <option>Price low to high</option>
                                                 <option>Price hight to low</option>
                                             </select>
-                                        </form>
+                                        </form> --}}
                                     </div>
                                     <div class="d-flex">
-                                        <span class="woocommerce-ordering-pages me-4 font-fifteen">Showing at 15 result of 15933 Property</span>
+                                        <span class="woocommerce-ordering-pages me-4 font-fifteen">Showing at {{$plans->count()}} results of {{$count}} Property</span>
                                         <form class="view-category" method="get">
-                                            <button title="List" class="list-view" value="list" name="display" type="submit"><i class="flaticon-grid-1 flat-mini"></i></button>
-                                            <button title="Grid" class="grid-view active" value="grid" name="display" type="submit"><i class="flaticon-grid flat-mini"></i></button>
+                                            {{-- <button title="List" class="list-view" value="list" name="display" type="submit"><i class="flaticon-grid-1 flat-mini"></i></button>
+                                            <button title="Grid" class="grid-view active" value="grid" name="display" type="submit"><i class="flaticon-grid flat-mini"></i></button> --}}
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row row-cols-xl-2 row-cols-lg-1 row-cols-md-2 row-cols-1 g-4">
-                        @foreach($plans as $property)
-                            <div class="col">
-                                <!-- Property Grid -->
-                                <div class="property-grid-1 property-block bg-white transation-this hover-shadow">
-                                    <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
-                                        <div class="cata position-absolute"><span class="sale bg-secondary text-white">{{ $property->type }}</span></div>
-                                            @php
-                                                $property_img = App\PropertyImage::where('plan_id', $property->id)->get();
-                                            @endphp
+                            @foreach($plans as $property)
+                                <div class="col">
+                                    <!-- Property Grid -->
+                                    <div class="property-grid-1 property-block bg-white transation-this hover-shadow">
+                                        <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
+                                            <div class="cata position-absolute"><span class="sale bg-secondary text-white">{{ $property->type }}</span></div>
+                                                @php
+                                                    $property_img = App\PropertyImage::where('plan_id', $property->id)->get();
+                                                @endphp
 
 
-                                            <div id="carouselExampleIndicators{{ $property->id }}" class="carousel slide" data-ride="carousel">
-                                                <div class="carousel-indicators">
-                                                    @foreach($property_img as $key => $image)
-                                                        <button type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide-to="{{$key}}" class="@if($key==0) active @endif"  aria-current="@if($key==0) true @endif" aria-label="Slide {{$key}}"></button>
-                                                    @endforeach
-                                                </div>
-                                                <div class="carousel-inner">
-                                                 @foreach($property_img as $key => $image)
-                                                    <div class="carousel-item @if($key==0) active @endif">
-                                                        <img src="{{ $image->img_url }}" alt="{{ $image->title }}" class="d-block w-100" alt="...">
+                                                <div id="carouselExampleIndicators{{ $property->id }}" class="carousel slide" data-ride="carousel">
+                                                    <div class="carousel-indicators">
+                                                        @foreach($property_img as $key => $image)
+                                                            <button type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide-to="{{$key}}" class="@if($key==0) active @endif"  aria-current="@if($key==0) true @endif" aria-label="Slide {{$key}}"></button>
+                                                        @endforeach
                                                     </div>
-                                                @endforeach
+                                                    <div class="carousel-inner">
+                                                    @foreach($property_img as $key => $image)
+                                                        <div class="carousel-item @if($key==0) active @endif">
+                                                            <img src="{{ $image->img_url }}" alt="{{ $image->title }}" class="d-block w-100" alt="...">
+                                                        </div>
+                                                    @endforeach
+                                                    </div>
+                                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Previous</span>
+                                                    </button>
+                                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide="next">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Next</span>
+                                                    </button>
                                                 </div>
-                                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Previous</span>
-                                                </button>
-                                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Next</span>
-                                                </button>
-                                            </div>
-
-                                        </div>
-                                    <div class="property_text p-3">
-                                        <span class="listing-price">${{ number_format($property->price, 2) }}<small> ( Monthly )</small></span>
-                                        <h5 class="listing-title"><a href="property-single-v1.html">{{ $property->name }}</a></h5>
-                                         <span class="listing-location"><i class="fas fa-map-marker-alt"></i> {{ $property->location }}</span>
-                                        <ul class="d-flex quantity font-fifteen">
-                                            <li title="Beds"><span><i class="fa-solid fa-bed"></i></span>5</li>
-                                            <li title="Baths"><span><i class="fa-solid fa-shower"></i></span>3</li>
-                                            <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1100 Sqft</li>
-                                            <li title="Gas"><span><i class="fa-solid fa-fire"></i></span>Yes</li>
-                                        </ul>
-                                        <p>Beautiful house for residence, very charming green view aroung the building.  <a href="#" class="btn-link">More Info...</a></p>
-                                        <div class="d-flex align-items-center post-meta mt-2">
-                                            <div class="agent">
-                                                <a href="/invest-noww/invest/{{ $property->slug }}" class="btn btn-primary">Invest Now <i class="fas fa-arrow-right-long me-1"></i></a>
 
                                             </div>
-                                            <div class="post-date ms-auto"><span>{{ date('Y-F-d', strtotime($property->created_at)) }}</span></div>
+                                        <div class="property_text p-3">
+                                            <span class="listing-price">${{ number_format($property->price, 2) }}<small> ( {{ $property->rental }} )</small></span>
+                                            <h5 class="listing-title"><a href="property-single-v1.html">{{ $property->name }}</a></h5>
+                                            <span class="listing-location"><i class="fas fa-map-marker-alt"></i> {{ $property->location }}</span>
+                                            <ul class="d-flex quantity font-fifteen">
+                                                <li title="Leverage"><span><i class="fa-solid fa-house"></i></span>{{ $property->leverage }}</li>
+                                                <li title="Shares"><span><i class="fa-solid fa-house-circle-check"></i></span>{{ $property->shares }}</li>
+                                                <li title="Investors"><span><i class="fa-solid fa-users"></i></span>{{ $property->investors }}</li>
+                                                <li title="funding"><span><i class="fa-solid fa-money-check-dollar"></i></span>{{ $property->funding }}</li>
+                                            </ul>
+                                            <p>
+                                                {{ $property->body }}  
+                                                {{-- <a href="#" class="btn-link">More Info...</a> --}}
+                                            </p>
+                                            <div class="d-flex align-items-center post-meta mt-2">
+                                                <div class="agent">
+                                                    <a href="/invest-noww/invest/{{ $property->slug }}" class="btn btn-primary">Invest Now <i class="fas fa-arrow-right-long me-1"></i></a>
+
+                                                </div>
+                                                <div class="post-date ms-auto"><span>{{ date('d M, Y', strtotime($property->created_at)) }}</span></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                            @if($plans->count() == 0)
+                                <p class="text-center">No result found</P>
+                            @endif
                         </div>
                         <div class="row">
                             <div class="col mt-5">
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination pagination-dotted-active justify-content-center">
-                                        <li class="page-item disabled">
+                                        {{ $plans }}
+                                        {{-- <li class="page-item disabled">
                                             <a class="page-link">Previous Page</a>
                                         </li>
                                         <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -290,7 +284,7 @@
                                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                                         <li class="page-item">
                                             <a class="page-link" href="#">Next Page</a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </nav>
                             </div>

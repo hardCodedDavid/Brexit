@@ -28,6 +28,8 @@ Route::get('/stakeholder-commitment', 'StaticController@stakeholder')->name('sta
 Route::get('/sell-your-home', 'StaticController@sell')->name('sellHome');
 Route::get('/learning-centre', 'StaticController@learning')->name('learning');
 Route::get('/web-3-properties', 'StaticController@web')->name('web');
+Route::get('/privacy-policy', 'StaticController@privacy')->name('privacy');
+Route::post('/search', 'StaticController@search')->name('search');
 
 Route::get('/accounts/generate', 'HomeController@generateAccountNumberForUsers');
 Route::get('/register', 'Auth\RegisterController@accountType')->name('account.type');

@@ -52,58 +52,9 @@
             <div class="full-row">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-4">
-                            <div class="footer-widget mb-5">
-                                <h3 class="widget-title mb-4 font-400">Over 10000 Customers Already Connected</h3>
-                                <p>Libero consectetuer fames montes habitasse lorem hendrerit dictumst sit blandit. Commodo justo. Blandit lobortis metus et. Dignissim netus netus convallis hendrerit. Molestie penatibus litora cubilia etiam.</p>
-                                <div class="footer-widget media-widget mt-5">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
+                        
+                        <div class="col-lg-12">
                             <div class="row row-cols-sm-3 row-cols-1">
-                                <div class="col">
-                                    <div class="footer-widget footer-nav mb-5">
-                                        <h4 class="widget-title mb-4">Learn More</h4>
-                                        <ul>
-                                            <li><a href="#">Privacy statement</a></li>
-                                            <li><a href="#">Modern slavery statement</a></li>
-                                            <li><a href="#">Perrys past & present</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="footer-widget footer-nav mb-5">
-                                        <h4 class="widget-title mb-4">About Special Service</h4>
-                                        <ul>
-                                            <li><a href="#">Power Steering</a></li>
-                                            <li><a href="#">Engine Overhaul</a></li>
-                                            <li><a href="#">Tyre Balancing</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="footer-widget footer-nav mb-5">
-                                        <h4 class="widget-title mb-4">Invest</h4>
-                                        <ul>
-                                            <li><a href="{{ route('listProperty') }}">Properties</a></li>
-                                            <li><a href="#">Download app</a></li>
-                                            <li><a href="#">Careers</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="footer-widget footer-nav mb-5">
-                                        <h4 class="widget-title mb-4">Learn</h4>
-                                        <ul>
-                                            <li><a href="{{ route('how-it-works') }}">How it Works</a></li>
-                                            <li><a href="{{ route('faq') }}">Help & FAQ</a></li>
-                                            <li><a href="{{ route('learning') }}">Learning Centre</a></li>
-                                            <li><a href="{{ route('contact') }}">Contact Us</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
                                 <div class="col">
                                     <div class="footer-widget footer-nav mb-5">
                                         <h4 class="widget-title mb-4">About</h4>
@@ -113,7 +64,29 @@
                                             <li><a href="{{ route('web') }}">Web3 Properties</a></li>
                                             <li><a href="{{ route('historical') }}">Historical Performance</a></li>
                                             <li><a href="{{ route('stakeholder') }}">Stakeholder Commitments</a></li>
+                                            <li><a href="{{ route('learning') }}">Learning Centre</a></li>
                                             <li><a href="{{ route('sellHome') }}">Sell Your Home</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="footer-widget footer-nav mb-5">
+                                        <h4 class="widget-title mb-4">Invest</h4>
+                                        <ul>
+                                            <li><a href="{{ route('listProperty') }}">Properties</a></li>
+                                            {{-- <li><a href="#">Download app</a></li>
+                                            <li><a href="#">Careers</a></li> --}}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="footer-widget footer-nav mb-5">
+                                        <h4 class="widget-title mb-4">Learn</h4>
+                                        <ul>
+                                            <li><a href="{{ route('how-it-works') }}">How it Works</a></li>
+                                            <li><a href="{{ route('faq') }}">Help & FAQ</a></li>
+                                            <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
+                                            <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                         </ul>
                                     </div>
                                 </div>

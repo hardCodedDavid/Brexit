@@ -54,6 +54,7 @@
                                                 <li> <a class="dropdown-item" href="{{ route('how-it-works') }}">How it works</a></li>
                                                 <li> <a class="dropdown-item" href="{{ route('faq') }}">Help & FAQ</a>
                                                 <li> <a class="dropdown-item" href="{{ route('learning') }}">Learning Center</a></li>
+                                                <li> <a class="dropdown-item" href="{{ route('privacy') }}">Privacy Policy</a></li>
                                                 <li> <a class="dropdown-item" href="{{ route('contact') }}">Contact Us</a></li>
                                             </ul>
                                         </li>
@@ -236,17 +237,36 @@
                     </div>
                 </div>
                 <div class="row row-cols-xl-3 row-cols-lg-1 row-cols-md-2 row-cols-1 g-4">
+                    @foreach($plans as $property)
+                        @php
+                            $property_img = App\PropertyImage::where('plan_id', $property->id)->get();
+                        @endphp
+
                     <div class="col">
                         <div class="property-grid-5 property-block rounded border transation-this bg-white hover-shadow">
                             <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
-                                <a href="#" class="listing-ctg text-white"><span>Apartment</span></a>
-                                <div class="owl-carousel single-carusel dot-disable nav-between-in">
-                                    <div class="item">
-                                        <a href="property-single-v1.html"><img src="{{ asset('static/assets/images/property_grid/property-grid-1.png') }}" alt="Image Not Found!"></a>
+                                <a href="#" class="listing-ctg text-white"><span>{{ $property->type }}</span></a>
+                                 <div id="carouselExampleIndicators{{ $property->id }}" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-indicators">
+                                        @foreach($property_img as $key => $image)
+                                            <button type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide-to="{{$key}}" class="@if($key==0) active @endif"  aria-current="@if($key==0) true @endif" aria-label="Slide {{$key}}"></button>
+                                        @endforeach
                                     </div>
-                                    <div class="item">
-                                        <a href="property-single-v1.html"><img src="{{ asset('static/assets/images/property_grid/property-grid-2.png') }}" alt="Image Not Found!"></a>
+                                    <div class="carousel-inner">
+                                    @foreach($property_img as $key => $image)
+                                        <div class="carousel-item @if($key==0) active @endif">
+                                            <img src="{{ $image->img_url }}" alt="{{ $image->title }}" class="d-block w-100" alt="...">
+                                        </div>
+                                    @endforeach
                                     </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
                                 </div>
                                 
                                 <ul class="position-absolute quick-meta">
@@ -256,201 +276,33 @@
                                 </ul>
                             </div>
                             <div class="property_text p-3">
-                                <h5 class="listing-title"><a href="property-single-v1.html">Family House Residense</a></h5>
-                                <span class="listing-location"><i class="fas fa-map-marker-alt"></i> 3 Industrial Road, Boston, MA 5502, USA</span>
+                                <h5 class="listing-title"><a href="/invest-noww/invest/{{ $property->slug }}">{{ $property->name }}</a></h5>
+                                <span class="listing-location"><i class="fas fa-map-marker-alt"></i> {{ $property->location }}</span>
                                 <ul class="d-flex quantity font-fifteen">
-                                    <li title="Beds"><span><i class="fa-solid fa-bed"></i></span>7 Bed</li>
-                                    <li title="Baths"><span><i class="fa-solid fa-shower"></i></span>5 Bath</li>
-                                    <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1200 Sqft</li>
-                                    <li title="Gas"><span><i class="fa-solid fa-fire"></i></span>Yes</li>
+                                    <li title="Leverage"><span><i class="fa-solid fa-house"></i></span>{{ $property->leverage }}</li>
+                                    <li title="Shares"><span><i class="fa-solid fa-house-circle-check"></i></span>{{ $property->shares }}</li>
+                                    <li title="Investors"><span><i class="fa-solid fa-users"></i></span>{{ $property->investors }}</li>
+                                    <li title="funding"><span><i class="fa-solid fa-money-check-dollar"></i></span>{{ $property->funding }}</li>
                                 </ul>
                                 <div class="agent">
                                     <ul class="d-flex justify-content-between">
-                                        <li><span>Realtors</span><div class="text-dark">Albart Rone</div></li>
-                                        <li><span>Status</span><div class="text-dark">For Sell</div></li>
-                                        <li><span>Time</span><div class="text-dark">7/4/2021</div></li>
+                                        <li><span>Rental</span><div class="text-dark">( {{ $property->rental }} )</div></li>
+                                        <li><span>Status</span><div class="text-dark">Active</div></li>
+                                        <li><span>Time</span><div class="text-dark">{{ date('d M, Y', strtotime($property->created_at)) }}</div></li>
                                     </ul>
                                 </div>
                                 <div class="entry-footer">
-                                    <span class="listing-price">$345000<small>( Only )</small></span>
+                                    <span class="listing-price">${{ number_format($property->price, 2) }}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="property-grid-5 property-block rounded border transation-this bg-white hover-shadow">
-                            <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
-                                <a href="#" class="listing-ctg text-white"><span>Condo</span></a>
-                                <a href="property-single-v1.html"><img src="{{ asset('static/assets/images/property_grid/property-grid-2.png') }}" alt="Image Not Found!"></a>
-                                <ul class="position-absolute quick-meta">
-                                    <li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                    <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>
-                                    <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="property_text p-3">
-                                <h5 class="listing-title"><a href="property-single-v1.html">Condos Infront of River</a></h5>
-                                <span class="listing-location"><i class="fas fa-map-marker-alt"></i> 3 Industrial Road, Boston, MA 5502, USA</span>
-                                <ul class="d-flex quantity font-fifteen">
-                                    <li title="Beds"><span><i class="fa-solid fa-bed"></i></span>7 Bed</li>
-                                    <li title="Baths"><span><i class="fa-solid fa-shower"></i></span>5 Bath</li>
-                                    <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1200 Sqft</li>
-                                    <li title="Gas"><span><i class="fa-solid fa-fire"></i></span>Yes</li>
-                                </ul>
-                                <div class="agent">
-                                    <ul class="d-flex justify-content-between">
-                                        <li><span>Realtors</span><div class="text-dark">Albart Rone</div></li>
-                                        <li><span>Status</span><div class="text-dark">For Sell</div></li>
-                                        <li><span>Time</span><div class="text-dark">7/4/2021</div></li>
-                                    </ul>
-                                </div>
-                                <div class="entry-footer">
-                                    <span class="listing-price">$1221850<small>( Only )</small></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="property-grid-5 property-block rounded border transation-this bg-white hover-shadow">
-                            <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
-                                <a href="#" class="listing-ctg text-white"><span>Appartment</span></a>
-                                <a href="property-single-v1.html"><img src="{{ asset('static/assets/images/property_grid/property-grid-3.png') }}" alt="Image Not Found!"></a>
-                                <ul class="position-absolute quick-meta">
-                                    <li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                    <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>
-                                    <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="property_text p-3">
-                                <h5 class="listing-title"><a href="property-single-v1.html">Florida Sea View Appartment</a></h5>
-                                <span class="listing-location"><i class="fas fa-map-marker-alt"></i> 3 Industrial Road, Boston, MA 5502, USA</span>
-                                <ul class="d-flex quantity font-fifteen">
-                                    <li title="Beds"><span><i class="fa-solid fa-bed"></i></span>7 Bed</li>
-                                    <li title="Baths"><span><i class="fa-solid fa-shower"></i></span>5 Bath</li>
-                                    <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1200 Sqft</li>
-                                    <li title="Gas"><span><i class="fa-solid fa-fire"></i></span>Yes</li>
-                                </ul>
-                                <div class="agent">
-                                    <ul class="d-flex justify-content-between">
-                                        <li><span>Realtors</span><div class="text-dark">Albart Rone</div></li>
-                                        <li><span>Status</span><div class="text-dark">For Rent</div></li>
-                                        <li><span>Time</span><div class="text-dark">7/4/2021</div></li>
-                                    </ul>
-                                </div>
-                                <div class="entry-footer">
-                                    <span class="listing-price">$11250<small>( Monthly )</small></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="property-grid-5 property-block rounded border transation-this bg-white hover-shadow">
-                            <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
-                                <a href="#" class="listing-ctg text-white"><span>Appartment</span></a>
-                                <a href="property-single-v1.html"><img src="{{ asset('static/assets/images/property_grid/property-grid-4.png') }}" alt="Image Not Found!"></a>
-                                <ul class="position-absolute quick-meta">
-                                    <li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                    <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>
-                                    <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="property_text p-3">
-                                <h5 class="listing-title"><a href="property-single-v1.html">New Yourk City Appartment</a></h5>
-                                <span class="listing-location"><i class="fas fa-map-marker-alt"></i> 3 Industrial Road, Boston, MA 5502, USA</span>
-                                <ul class="d-flex quantity font-fifteen">
-                                    <li title="Beds"><span><i class="fa-solid fa-bed"></i></span>7 Bed</li>
-                                    <li title="Baths"><span><i class="fa-solid fa-shower"></i></span>5 Bath</li>
-                                    <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1200 Sqft</li>
-                                    <li title="Gas"><span><i class="fa-solid fa-fire"></i></span>Yes</li>
-                                </ul>
-                                <div class="agent">
-                                    <ul class="d-flex justify-content-between">
-                                        <li><span>Realtors</span><div class="text-dark">Albart Rone</div></li>
-                                        <li><span>Status</span><div class="text-dark">For Rent</div></li>
-                                        <li><span>Time</span><div class="text-dark">7/4/2021</div></li>
-                                    </ul>
-                                </div>
-                                <div class="entry-footer">
-                                    <span class="listing-price">$11250<small>( Monthly )</small></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="property-grid-5 property-block rounded border transation-this bg-white hover-shadow">
-                            <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
-                                <a href="#" class="listing-ctg text-white"><span>Appartment</span></a>
-                                <a href="property-single-v1.html"><img src="{{ asset('static/assets/images/property_grid/property-grid-4.png') }}" alt="Image Not Found!"></a>
-                                <ul class="position-absolute quick-meta">
-                                    <li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                    <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>
-                                    <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="property_text p-3">
-                                <h5 class="listing-title"><a href="property-single-v1.html">New Yourk City Appartment</a></h5>
-                                <span class="listing-location"><i class="fas fa-map-marker-alt"></i> 3 Industrial Road, Boston, MA 5502, USA</span>
-                                <ul class="d-flex quantity font-fifteen">
-                                    <li title="Beds"><span><i class="fa-solid fa-bed"></i></span>7 Bed</li>
-                                    <li title="Baths"><span><i class="fa-solid fa-shower"></i></span>5 Bath</li>
-                                    <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1200 Sqft</li>
-                                    <li title="Gas"><span><i class="fa-solid fa-fire"></i></span>Yes</li>
-                                </ul>
-                                <div class="agent">
-                                    <ul class="d-flex justify-content-between">
-                                        <li><span>Realtors</span><div class="text-dark">Albart Rone</div></li>
-                                        <li><span>Status</span><div class="text-dark">For Rent</div></li>
-                                        <li><span>Time</span><div class="text-dark">7/4/2021</div></li>
-                                    </ul>
-                                </div>
-                                <div class="entry-footer">
-                                    <span class="listing-price">$11250<small>( Monthly )</small></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="property-grid-5 property-block rounded border transation-this bg-white hover-shadow">
-                            <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
-                                <a href="#" class="listing-ctg text-white"><span>Villa</span></a>
-                                <div class="owl-carousel single-carusel dot-disable nav-between-in">
-                                    <div class="item">
-                                        <a href="property-single-v1.html"><img src="{{ asset('static/assets/images/property_grid/property-grid-5.png') }}" alt="Image Not Found!"></a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="property-single-v1.html"><img src="{{ asset('static/assets/images/property_grid/property-grid-4.png') }}" alt="Image Not Found!"></a>
-                                    </div>
-                                </div>
-                                <ul class="position-absolute quick-meta">
-                                    <li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                    <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>
-                                    <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="property_text p-3">
-                                <h5 class="listing-title"><a href="property-single-v1.html">Small Family House</a></h5>
-                                <span class="listing-location"><i class="fas fa-map-marker-alt"></i> 3 Industrial Road, Boston, MA 5502, USA</span>
-                                <ul class="d-flex quantity font-fifteen">
-                                    <li title="Beds"><span><i class="fa-solid fa-bed"></i></span>2 Bed</li>
-                                    <li title="Baths"><span><i class="fa-solid fa-shower"></i></span>2 Bath</li>
-                                    <li title="Area"><span><i class="fa-solid fa-vector-square"></i></span>1500 Sqft</li>
-                                    <li title="Gas"><span><i class="fa-solid fa-fire"></i></span>Yes</li>
-                                </ul>
-                                <div class="agent">
-                                    <ul class="d-flex justify-content-between">
-                                        <li><span>Realtors</span><div class="text-dark">Albart Rone</div></li>
-                                        <li><span>Status</span><div class="text-dark">For Rent</div></li>
-                                        <li><span>Time</span><div class="text-dark">7/4/2021</div></li>
-                                    </ul>
-                                </div>
-                                <div class="entry-footer">
-                                    <span class="listing-price">$3400<small>( Monthly )</small></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                    @if($plans->count() == 0)
+                        <p class="text-center">No result found</P>
+                    @endif
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col mt-5">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination pagination-dotted-active justify-content-center">
@@ -466,7 +318,7 @@
                             </ul>
                         </nav>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <!--============== Property Tab End ==============-->

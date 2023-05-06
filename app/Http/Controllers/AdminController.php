@@ -19,7 +19,7 @@ use App\Staticinvestment;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\In;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManagerStatic as Image;
 use App\Http\Controllers\Globals as Util;
 
 class AdminController extends Controller
@@ -992,7 +992,8 @@ class AdminController extends Controller
                 $image_resize = Image::make($image->getRealPath());              
                 $image_resize->fit(350, 220);
                 
-                $image_resize->save(public_path('uploads/' . $filename));
+                // $image_resize->save(public_path('uploads/' . $filename));
+                $image_resize->save('uploads/' . $filename);
 
                 $plan->property_images()->create([
                     'img_url' => $destinationPath."/".$filename
@@ -1043,7 +1044,8 @@ class AdminController extends Controller
                 $image_resize = Image::make($image->getRealPath());              
                 $image_resize->fit(350, 220);
                 
-                $image_resize->save(public_path('uploads/' . $filename));
+                // $image_resize->save(public_path('uploads/' . $filename));
+                $image_resize->save('uploads/' . $filename);
 
                 $plan->property_images()->create([
                     'img_url' => $destinationPath."/".$filename

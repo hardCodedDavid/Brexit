@@ -7,7 +7,7 @@
 			<div class="loader clock xy-center"></div>
 		</div>-->
 
-    <div id="page_wrapper" style="background-image: url('static/assets/images/background/vintage-horizin-bg-1.1.jpg'); background-size: 100%; background-repeat: no-repeat">
+    <div id="page_wrapper" style=" background-size: 100%; background-repeat: no-repeat">
         
         <!--============== Header Section Start ==============-->
         <header class="nav-on-banner fixed-bg-white">
@@ -81,14 +81,15 @@
         <!--============== Header Section End ==============-->
 
         <!--============== Search Banner Start ==============-->
-        <div class="full-row p-70" style="background-image: url(assets/images/background/vintage-horizin-bg-1.1.jpg); background-repeat: no-repeat; background-size: cover;">
+        <div class="full-row p-70" style="background: rgba(255,255,255,.5); background-image: url('{{ asset('static/home/header.jpeg') }}'); background-repeat: no-repeat; background-size: cover;">
             <div class="container">
                 <div class="row justify-content-left py-8">
                     <div class="col-md-5 ">
                         <div class="sm-p-0 text-white" style="padding-top: 170px; padding-bottom: 190px; color: white;">
-                            <h1 class="text-start text-dark font-700">Discover Your Your Most Reliable Way to Building Wealth</h1>
+                            <h1 class="text-start text-dark font-700">A Better Way to Invest in Real Estate</h1>
                             <p>
-                            <span class="d-table text-dark font-medium mb-4">We are Vintage Horizon and we are coxmmitted to helping the community build wealth through Real Estate</span></p>
+                            <span class="d-table text-dark font-medium mb-4">We're built for people who want to invest in real estate, but don't want to buy a whole home
+or deal with the operational headaches.</span></p>
                         </div>
                     </div>
                 </div>
@@ -103,18 +104,36 @@
                 <div class="row row-cols-md-3 row-cols-1 g-4 bg-light p-5 mx-0">
                     <div class="col">
                         <div class="mb-4"><i class="flaticon-life-insurance text-primary flat-medium"></i></div>
-                        <h4 class="mb-3 font-400">Instalment Booking</h4>
-                        <p>Amet eleifend nostra torquent facilisi pharetra ante gravida cursus auctor consequat metus sociosqu. Aenean nec egestas fusce integer ante.</p>
+                        <h4 class="mb-3 font-400">Consistent Passive Income</h4>
+                        <p>Earn rental income and receive deposits quarterly</p>
                     </div>
                     <div class="col">
                         <div class="mb-4"><i class="flaticon-data text-primary flat-medium"></i></div>
-                        <h4 class="mb-3 font-400">Property Managment</h4>
-                        <p>Amet eleifend nostra torquent facilisi pharetra ante gravida cursus auctor consequat metus sociosqu. Aenean nec egestas fusce integer ante.</p>
+                        <h4 class="mb-3 font-400">Property Appreciation</h4>
+                        <p>Watch your investment grow as the home appreciates</p>
                     </div>
                     <div class="col">
                         <div class="mb-4"><i class="flaticon-id-card text-primary flat-medium"></i></div>
-                        <h4 class="mb-3 font-400">Lifetime Membership</h4>
-                        <p>Amet eleifend nostra torquent facilisi pharetra ante gravida cursus auctor consequat metus sociosqu. Aenean nec egestas fusce integer ante.</p>
+                        <h4 class="mb-3 font-400">Save Time & Energy</h4>
+                        <p>Kick back and relax! Arrived acquires & manages your properties</p>
+                    </div>
+                </div>
+
+                <div class="row row-cols-md-3 row-cols-1 g-4 bg-light p-5 mx-0">
+                    <div class="col">
+                        <div class="mb-4"><i class="flaticon-money text-primary flat-medium"></i></div>
+                        <h4 class="mb-3 font-400">Tax Advantages</h4>
+                        <p>Benefit from favorable real estate tax deductions</p>
+                    </div>
+                    <div class="col">
+                        <div class="mb-4"><i class="flaticon-home text-primary flat-medium"></i></div>
+                        <h4 class="mb-3 font-400">Diversify with Real Estate</h4>
+                        <p>Access historically consistent returns with low correlation to the stock market</p>
+                    </div>
+                    <div class="col">
+                        <div class="mb-4"><i class="flaticon-money text-primary flat-medium"></i></div>
+                        <h4 class="mb-3 font-400">Flexible Investment Amounts</h4>
+                        <p>Invest anywhere from $5,000 to $100,000,000 per house and build a portfolio across several properties</p>
                     </div>
                 </div>
             </div>
@@ -128,8 +147,8 @@
                 <div class="row">
                     <div class="col">
                         <div class="text-secondary mb-5">
-                            <h2 class="text-secondary mb-4">Our Team</h2>
-                            <span class="d-table w-50 w-sm-100 sub-title">Mauris primis turpis Laoreet magna felis mi amet quam enim curae. Sodales semper tempor dictum faucibus habitasse.</span>
+                            <h2 class="text-secondary mb-4">Investing In Real Estate Has Never Been Easier</h2>
+                            {{-- <span class="d-table w-50 w-sm-100 sub-title">Mauris primis turpis Laoreet magna felis mi amet quam enim curae. Sodales semper tempor dictum faucibus habitasse.</span> --}}
                         </div>
                     </div>
                 </div>
@@ -140,8 +159,8 @@
                                 <img src="{{ asset('static/assets/images/property/5.png') }}" alt="image not found">
                             </div>
                             <div class="position-absolute text-center p-4 w-100 bottom-0">
-                                <h5 class="transation"><a class="text-white font-400 text-nowrap" href="#">Ryan Frazier</a></h5>
-                                <span class="d-table mx-auto text-white">Co-founder & CEO</span>
+                                <h5 class="transation"><a class="text-white font-400 text-nowrap" href="#">Browse Homes</a></h5>
+                                <span class="d-table mx-auto text-white">Browse Vantage horizon homes, each pre-vetted for their investment potential</span>
                             </div>
                         </div>
                     </div>
@@ -151,8 +170,8 @@
                                 <img src="{{ asset('static/assets/images/property/6.png') }}" alt="image not found">
                             </div>
                             <div class="position-absolute text-center p-4 w-100 bottom-0">
-                                <h5 class="transation"><a class="text-white font-400 text-nowrap" href="#">Alejandro Chouza</a></h5>
-                                <span class="d-table mx-auto text-white">Co-founder & COO</span>
+                                <h5 class="transation"><a class="text-white font-400 text-nowrap" href="#">Select Property</a></h5>
+                                <span class="d-table mx-auto text-white">Determine how much money you want to invest and select your shares</span>
                             </div>
                         </div>
                     </div>
@@ -162,8 +181,8 @@
                                 <img src="{{ asset('static/assets/images/property/7.png') }}" alt="image not found">
                             </div>
                             <div class="position-absolute text-center p-4 w-100 bottom-0">
-                                <h5 class="transation"><a class="text-white font-400 text-nowrap" href="#">Kenny Cason</a></h5>
-                                <span class="d-table mx-auto text-white">Co-founder & COO</span>
+                                <h5 class="transation"><a class="text-white font-400 text-nowrap" href="#">Buy Shares</a></h5>
+                                <span class="d-table mx-auto text-white">Review the terms, sign electronically, and fund your investment</span>
                             </div>
                         </div>
                     </div>
@@ -173,12 +192,16 @@
                                 <img src="{{ asset('static/assets/images/property/8.png') }}" alt="image not found">
                             </div>
                             <div class="position-absolute text-center p-4 w-100 bottom-0">
-                                <h5 class="transation"><a class="text-white font-400 text-nowrap" href="#">Joel Mezistrano</a></h5>
-                                <span class="d-table mx-auto text-white">CFO</span>
+                                <h5 class="transation"><a class="text-white font-400 text-nowrap" href="#">Earn Income & Appreciation</a></h5>
+                                <span class="d-table mx-auto text-white">Earn your share of rental income and home appreciation on our holdings.</span>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div style="margin: auto; align-item: center; display: flex;">
+                    <a href="/how-it-works" style="width: 300px;" class="btn btn-primary mt-5">How vantage horizon works<i class="flaticon-rocket flat-mini text-white"></i> </a>
+                </div>
+                
             </div>
         </div>
         <!--============== Property Location End ==============-->
@@ -190,13 +213,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="{{ asset('static/assets/images/clipart/9.png') }}" alt="">
+                        <img src="{{ asset('static/home/cash.png') }}" alt="">
                     </div>
                     <div class="col-lg-5 offset-lg-1">
                         <div class="position-relative y-center">
-                            <span class="tagline mb-1 d-block text-primary">Meetings</span>
-                            <h2 class="mb-40 down-line">Stay up to date on new besiness ideas</h2>
-                            <p>Aliquam faucibus, odio nec commodo aliquam, neque felis placerat dui, a porta ante lectus dapibus est. Aliquam a bibendum mi, sed condimentum est. Mauris arcu odio, vestibulum quis dapibus sit amet, finibus id turpis.</p>
+                            {{-- <span class="tagline mb-1 d-block text-primary">Meetings</span> --}}
+                            <h2 class="mb-40 down-line">Earn cash dividends and appreciation</h2>
+                            <p>Sit back and relax while Vantage horizon earns you cash dividends. We maximize your profitability using decades of Real Estate experience and lessons we’ve learned through managing dozens of properties. Watch your investment portfolio grow through our online portal!</p>
                         </div>
                     </div>
                 </div>
@@ -206,13 +229,29 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 offset-lg-1 order-lg-2">
-                        <img src="{{ asset('static/assets/images/clipart/10.png') }}" alt="">
+                        <img src="{{ asset('static/home/invest.jpeg') }}" alt="">
                     </div>
                     <div class="col-lg-5 order-lg-1">
                         <div class="position-relative y-center">
-                            <span class="tagline mb-1 d-block text-primary">Collaborate</span>
-                            <h2 class="mb-40 down-line">Drive more customer by digital</h2>
-                            <p>Aliquam faucibus, odio nec commodo aliquam, neque felis placerat dui, a porta ante lectus dapibus est. Aliquam a bibendum mi, sed condimentum est. Mauris arcu odio, vestibulum quis dapibus sit amet, finibus id turpis.</p>
+                            {{-- <span class="tagline mb-1 d-block text-primary">Collaborate</span> --}}
+                            <h2 class="mb-40 down-line">Invest with a few clicks in less than 5 minutes</h2>
+                            <p>Found your next investment? In less than 5 minutes you can choose how much you'd like to invest, make the purchase, and see the shares stack up in your investment portal. Over time you can build a portfolio of properties that are working to generate income for you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="full-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="{{ asset('static/home/build.png') }}" alt="">
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <div class="position-relative y-center">
+                            {{-- <span class="tagline mb-1 d-block text-primary">Meetings</span> --}}
+                            <h2 class="mb-40 down-line">Build the future you deserve</h2>
+                            <p>Use your rental income to buy more and more real estate – you’re on the path to financial freedom.</p>
                         </div>
                     </div>
                 </div>
@@ -224,7 +263,7 @@
 
 
         <!--============== Property Tab Start ==============-->
-        <div class="full-row bg-light">
+        {{-- <div class="full-row bg-light">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-4">
@@ -302,259 +341,263 @@
                         <p class="text-center">No result found</P>
                     @endif
                 </div>
-                {{-- <div class="row">
-                    <div class="col mt-5">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination pagination-dotted-active justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link">Previous Page</a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next Page</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div> --}}
             </div>
-        </div>
+        </div> --}}
         <!--============== Property Tab End ==============-->
 
 
         <!--=============== Problem solving Section Start ===============-->
-        <div class="full-row bg-light" style="padding: 150px 0; background-image: url(static/assets/images/background/vintage-horizin-bg-1.jpg); background-repeat: no-repeat; background-size: cover;">
+        <div class="full-row bg-light" style="padding: 150px 0; background-image: url('{{ asset('static/home/home.jpeg') }}'); background-repeat: no-repeat; background-size: cover;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 order-lg-1 text-white">
-                        <span class="tagline mb-1 d-block text-white md-mt-40">Solve Problems</span>
-                        <h1 class="mb-40 text-white">Easy and Trusted Progress</h1>
-                        <p>Molestie donec curae nostra a natoque sit tellus, varius. Hendrerit netus cursus quam eu ultrices aenean amet quam platea nibh nostra hymenaeos eleifend. Elit gravida Taciti habitasse molestie gravida cras parturient. Fermentum
-                            felis nullam viverra dolor. Viverra purus cras mauris</p>
-                        <a href="#" class="btn btn-primary mt-5">Get Started <i class="flaticon-rocket flat-mini text-white"></i> </a>
+                        {{-- <span class="tagline mb-1 d-block text-white md-mt-40">Solve Problems</span> --}}
+                        <h1 class="mb-40 text-white">Crowdfunding</h1>
+                        <p style="font-size: 20px;">crowdfunding allows multiple investors to pool their money and collectively invest in larger real
+                            estate projects than they could on their own.
+                            As an investor in a crowdfunding deal, you, along with dozens or even hundreds of other
+                            investors, purchase a portion of interest in a property or real estate project, similar to owning
+                            shares in a company. Capital that is raised goes to the real estate developer to invest in building,
+                            renovating or recapitalizing the property, which with the goal of potentially generating ROI for
+                            each investor
+                        </p>
+                        {{-- <a href="#" class="btn btn-primary mt-5">Get Started <i class="flaticon-rocket flat-mini text-white"></i> </a> --}}
                     </div>
                 </div>
             </div>
         </div>
         <!--=============== Problem solving Section End ===============-->
 
-        <!--============== Blog Section Start ==============-->
         <div class="full-row bg-light">
             <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <span class="pb-2 d-table w-50 w-sm-100 text-primary m-auto text-center tagline">Our Learning Centre</span>
-                        <h2 class="down-line w-50 w-sm-100 mx-auto text-center mb-5">Gain more insight on About Our Company Activities</h2>
+                {{-- <div class="row">
+                    <div class="col mb-5">
+                        <h2 class="text-dark down-line w-50 mx-auto mb-4 text-center w-sm-100">What You Area Looking For?</h2>
+                        <span class="d-table w-50 w-sm-100 sub-title general-font fw-normal mx-auto text-center">Mauris primis turpis Laoreet magna felis mi amet quam enim curae. Sodales semper tempor dictum faucibus habitasse.</span>
                     </div>
-                </div>
-                <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
-                    <div class="col">
-                        <div class="thumb-blog-overlay bg-white hover-text-PushUpBottom">
-                            <div class="post-image position-relative overlay-secondary">
-                                <img src="{{ asset('static/assets/images/blog/1.png') }}" alt="Image not found!">
-                                <div class="position-absolute xy-center">
-                                    <div class="overflow-hidden text-center">
-                                        <a class="text-white first-push-up transation font-large" href="#">+</a>
-                                    </div>
-                                </div>
+                </div> --}}
+                <div class="row justify-content-center">
+                    <div class="col-md-4 mb-3">
+                        <a href="#" class="text-center d-flex flex-column justify-content-center align-items-center hover-text-white p-4 bg-white transation text-general hover-bg-primary">
+                            <div class="box-70px position-relative">
+                                <i class="flaticon-home flat-medium d-inline-block text-primary position-absolute xy-center"></i>
                             </div>
-                            <div class="post-content p-35">
-                                <h5 class="d-block mb-3"><a href="#" class="transation text-dark hover-text-primary font-400">Our latest development projects by develop.</a></h5>
-                                <div class="post-meta text-uppercase font-fifteen">
-                                    <a href="#"><span>By Robert Haven</span></a>
-                                    <a href="#"><span>Dec 25, 2019</span></a>
-                                </div>
-                            </div>
-                        </div>
+                            <h6 class="d-block text-secondary">You don’t have to be a pro to invest like one</h5>
+                            <p>Get instant access to great property deals, in-depth analysis, and a community of wealth builders from around the world.</p>
+                        </a>
                     </div>
-                    <div class="col">
-                        <div class="thumb-blog-overlay bg-white hover-text-PushUpBottom">
-                            <div class="post-image position-relative overlay-secondary">
-                                <img src="{{ asset('static/assets/images/blog/2.png') }}" alt="Image not found!">
-                                <div class="position-absolute xy-center">
-                                    <div class="overflow-hidden text-center">
-                                        <a class="text-white first-push-up transation font-large" href="#">+</a>
-                                    </div>
-                                </div>
+                    <div class="col-md-4 mb-3">
+                        <a href="#" class="text-center d-flex flex-column justify-content-center align-items-center hover-text-white p-4 bg-white transation text-general hover-bg-primary">
+                            <div class="box-70px position-relative">
+                                <i class="flaticon-sketch-1 flat-medium d-inline-block text-primary position-absolute xy-center"></i>
                             </div>
-                            <div class="post-content p-35">
-                                <h5 class="d-block mb-3"><a href="#" class="transation text-dark hover-text-primary font-400">Cultivating market leadership from the inside.</a></h5>
-                                <div class="post-meta text-uppercase font-fifteen">
-                                    <a href="#"><span>By Robert Haven</span></a>
-                                    <a href="#"><span>Dec 25, 2019</span></a>
-                                </div>
-                            </div>
-                        </div>
+                            <h6 class="d-block text-secondary">Skip the down payment</h6>
+                            <p>Acquire fractional ownership of rental properties.</p>
+                        </a>
                     </div>
-                    <div class="col">
-                        <div class="thumb-blog-overlay bg-white hover-text-PushUpBottom">
-                            <div class="post-image position-relative overlay-secondary">
-                                <img src="{{ asset('static/assets/images/blog/3.png') }}" alt="Image not found!">
-                                <div class="position-absolute xy-center">
-                                    <div class="overflow-hidden text-center">
-                                        <a class="text-white first-push-up transation font-large" href="#">+</a>
-                                    </div>
-                                </div>
+                    <div class="col-md-4 mb-3">
+                        <a href="#" class="text-center d-flex flex-column justify-content-center align-items-center hover-text-white p-4 bg-white transation text-general hover-bg-primary">
+                            <div class="box-70px position-relative">
+                                <i class="flaticon-online-booking flat-medium d-inline-block text-primary position-absolute xy-center"></i>
                             </div>
-                            <div class="post-content p-35">
-                                <h5 class="d-block mb-3"><a href="#" class="transation text-dark hover-text-primary font-400">We are the next generation of the advertise.</a></h5>
-                                <div class="post-meta text-uppercase font-fifteen">
-                                    <a href="#"><span>By Robert Haven</span></a>
-                                    <a href="#"><span>Dec 25, 2019</span></a>
-                                </div>
+                            <h6 class="d-block text-secondary">Earn rent today, appreciation tomorrow</h6>
+                            <p>Get daily rent payouts (not monthly or quarterly) and collect property appreciation when you cash out.</p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <a href="#" class="text-center d-flex flex-column justify-content-center align-items-center hover-text-white p-4 bg-white transation text-general hover-bg-primary">
+                            <div class="box-70px position-relative">
+                                <i class="flaticon-shop flat-medium d-inline-block text-primary position-absolute xy-center"></i>
                             </div>
-                        </div>
+                            <h6 class="d-block text-secondary">Own multiple properties without the landlord headaches</h6>
+                            <p>Diversify your portfolio without multiplying your workload. Vote on key property decisions, and professional property managers handle the rest.</p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <a href="#" class="text-center d-flex flex-column justify-content-center align-items-center hover-text-white p-4 bg-white transation text-general hover-bg-primary">
+                            <div class="box-70px position-relative">
+                                <i class="flaticon-online-booking flat-medium d-inline-block text-primary position-absolute xy-center"></i>
+                            </div>
+                            <h6 class="d-block text-secondary">Keep full control of your investments</h6>
+                            <p>Forget expensive brokers and lock-in periods. Easily reinvest your rental income for the long term, or list your holdings for sale whenever you like.</p>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <!--============== Blog Section End ==============-->
 
         <div class="full-row bg-light">
             <div class="container">
                 <div class="row row-cols-lg-2 row-cols-1 mb-5">
                     <div class="col mb-5">
-                        <h4 class="mb-4">We're empowering the world to build wealth through modern real estate investing.</h4>
-                        <p>Residential real estate has proven to be the best long term investment in modern history, providing returns in line with stocks, but with half the volatility. The problem is, the majority of people who want to invest in real estate aren't able to do it. Most people are prevented from participating due to the high initial investment needed for down-payments and the many operational requirements of managing a property.</p> 
+                        <h2 class="mb-4">We're on a mission </h2>
+                        <p>At Vantage Horizon our mission is to empower the world to build wealth through modern real
+                            estate investing.
+                            While residential real estate has been the best long-run investment in modern history,
+                            operational headaches and larger upfront financial commitments prevent many people from
+                            participating.
+                        </p>
+                        <p>
+                            By breaking down the barriers to investing in rental properties, we believe we can help millions of
+                            people better access this incredible asset class.
+                        </p>
+                        <p>
+                            (The Rate of Return on Everything, 1870–2015 (2019 Research Study)
+                            The first key finding is that residential real estate, not equity, has been the best long-run
+                            investment over the course of modern history. Although returns on housing and equities are
+                            similar, the volatility of housing returns is substantially lower, as Table II shows. Returns on the
+                            two asset classes are in the same ballpark—around 7%—but the standard deviation of housing
+                            returns is substantially smaller than that of equities (10% for housing versus 22% for equities).
+                            Predictably, with thinner tails, the compounded return (using the geometric average) is vastly
+                            better for housing than for equities—6.6% for housing versus 4.7% for equities. This finding
+                            appears to contradict one of the basic tenets of modern valuation models: higher risks should
+                            come with higher rewards)
+                        </p> 
                         <p>Our goal is to make real estate investing as simple as investing in stocks or crypto. Diversification is key to any investment strategy, but the barrier to entry for real estate investing has always been so high. We don't believe that should be the case.</p>
                         <p>We're on a mission to make property investing accessible to everyone with strong technical background and legal expertise.</p>
-                        <!-- <a href="#" class="btn-link mt-4 d-table">Development Service</a> -->
+                        <a href="#" class="btn btn-primary mt-5">Signup <i class="flaticon-rocket flat-mini text-white"></i> </a>
                     </div>
                     <div class="col">
                         <div class="capability-avg">
-                            <div class="bar-progress fact-counter text-secondary position-relative mb-4">
-                                <span class="higlight-font">UI/UX Design</span>
-                                <div class="progress bg-white count wow fadeIn" data-wow-duration="0ms">
-                                    <div class="skill-percent higlight-font"><span class="count-num" data-speed="3000" data-stop="80">0</span>%</div>
-                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="80" aria-valuemax="100"> </div>
-                                </div>
-                            </div>
-                            <div class="bar-progress fact-counter text-secondary position-relative mb-4">
-                                <span class="higlight-font">Java Development</span>
-                                <div class="progress bg-white count wow fadeIn" data-wow-duration="0ms">
-                                    <div class="skill-percent higlight-font"><span class="count-num" data-speed="3000" data-stop="51">0</span>%</div>
-                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="51" aria-valuemax="100"> </div>
-                                </div>
-                            </div>
-                            <div class="bar-progress fact-counter text-secondary position-relative mb-4">
-                                <span class="higlight-font">PHP Programming</span>
-                                <div class="progress bg-white count wow fadeIn" data-wow-duration="0ms">
-                                    <div class="skill-percent higlight-font"><span class="count-num" data-speed="3000" data-stop="95">0</span>%</div>
-                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="95" aria-valuemax="100"> </div>
-                                </div>
-                            </div>
-                            <div class="bar-progress fact-counter text-secondary position-relative mb-4">
-                                <span class="higlight-font">CMS Website</span>
-                                <div class="progress bg-white count wow fadeIn" data-wow-duration="0ms">
-                                    <div class="skill-percent higlight-font"><span class="count-num" data-speed="3000" data-stop="72">0</span>%</div>
-                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="72" aria-valuemax="100"> </div>
-                                </div>
-                            </div>
-                            <div class="bar-progress fact-counter text-secondary position-relative mb-4">
-                                <span class="higlight-font">Mobile App</span>
-                                <div class="progress bg-white count wow fadeIn" data-wow-duration="0ms">
-                                    <div class="skill-percent higlight-font"><span class="count-num" data-speed="3000" data-stop="90">0</span>%</div>
-                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="90" aria-valuemax="100"> </div>
-                                </div>
-                            </div>
+                            <img src="{{ asset('static/home/mission.jpeg') }}" alt="">
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <div class="row row-cols-md-5 row-cols-sm-2 row-cols-2 g-4 ">
-                        <div class="col">
-                            <a href="#" class="hover-img-upshow overflow-hidden pe-5 d-block">
-                                <img src="{{ asset('static/assets/images/partner/client-1.png') }}" alt="creative template">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="hover-img-upshow overflow-hidden pe-5 d-block">
-                                <img src="{{ asset('static/assets/images/partner/client-2.png') }}" alt="creative template">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="hover-img-upshow overflow-hidden pe-5 d-block">
-                                <img src="{{ asset('static/assets/images/partner/client-3.png') }}" alt="creative template">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="hover-img-upshow overflow-hidden pe-5 d-block">
-                                <img src="assets/images/partner/client-4.png" alt="creative template">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="hover-img-upshow overflow-hidden pe-5 d-block">
-                                <img src="{{ asset('static/assets/images/partner/client-5.png') }}" alt="creative template">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="hover-img-upshow overflow-hidden pe-5 d-block">
-                                <img src="{{ asset('static/assets/images/partner/client-9.png') }}" alt="creative template">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="hover-img-upshow overflow-hidden pe-5 d-block">
-                                <img src="{{ asset('static/assets/images/partner/client-8.png') }}" alt="creative template">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="hover-img-upshow overflow-hidden pe-5 d-block">
-                                <img src="assets/images/partner/client-7.1.png" alt="creative template">
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="hover-img-upshow overflow-hidden pe-5 d-block">
-                                <img src="{{ asset('static/assets/images/partner/client-6.png') }}" alt="creative template">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-sm-3 row-cols-1 g-4">
-                    <div class="col">
-                        <a href="#" class="hover-img-upshow overflow-hidden d-table d-sm-block my-20">
-                            <img class="w-auto" src="{{ asset('static/assets/images/partner/client-1.png') }}" alt="partner logo">
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#" class="hover-img-upshow overflow-hidden d-table d-sm-block my-20">
-                            <img class="w-auto" src="{{ asset('static/assets/images/partner/client-2.png') }}" alt="partner logo">
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#" class="hover-img-upshow overflow-hidden d-table d-sm-block my-20">
-                            <img class="w-auto" src="{{ asset('static/assets/images/partner/client-3.png') }}" alt="partner logo">
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#" class="hover-img-upshow overflow-hidden d-table d-sm-block my-20">
-                            <img class="w-auto" src="{{ asset('static/assets/images/partner/client-4.png') }}" alt="partner logo">
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#" class="hover-img-upshow overflow-hidden d-table d-sm-block my-20">
-                            <img class="w-auto" src="{{ asset('static/assets/images/partner/client-5.png') }}" alt="partner logo">
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#" class="hover-img-upshow overflow-hidden d-table d-sm-block my-20">
-                            <img class="w-auto" src="{{ asset('static/assets/images/partner/client-9.png') }}" alt="partner logo">
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#" class="hover-img-upshow overflow-hidden d-table d-sm-block my-20">
-                            <img class="w-auto" src="{{ asset('static/assets/images/partner/client-8.png') }}" alt="partner logo">
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#" class="hover-img-upshow overflow-hidden d-table d-sm-block my-20">
-                            <img class="w-auto" src="{{ asset('static/assets/images/partner/client-7.png') }}" alt="partner logo">
-                        </a>
-                    </div>
-                </div> -->
             </div>
         </div>
+
+        <!--=============== Problem solving Section Start ===============-->
+        <div class="full-row bg-dark" style="padding: 150px 0; background-image: url(static/home/home.png); background-repeat: no-repeat; background-size: cover;">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="capability-avg">
+                            <img src="{{ asset('static/home/simple.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-5 order-lg-1 text-white">
+                        {{-- <span class="tagline mb-1 d-block text-white md-mt-40">Solve Problems</span> --}}
+                        <h1 class="mb-40 text-white">Simple and Fast:</h1>
+                        <p style="font-size: 20px;">
+                            We have simplified the process of investing in real estate. While the old process required over 15
+                            steps and several months of hard work, the Arrived process is radically simple. In just 4 steps
+                            you can buy shares in a rental home or vacation rental property.
+                        </p>
+                        {{-- <a href="#" class="btn btn-primary mt-5">Get Started <i class="flaticon-rocket flat-mini text-white"></i> </a> --}}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!--=============== Problem solving Section End ===============-->
+
+
+<!--============== Our Aminities Section Start ==============-->
+        <div class="full-row bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        {{-- <span class="tagline-3 d-table mx-auto mb-3">Our Aminities</span> --}}
+                        <h1 class="main-title w-50 mx-auto mb-4 text-center w-sm-100">The Vantage horizon way</h1>
+                    </div>
+                </div>
+                <div class="row row-cols-xl-4 row-cols-sm-2 row-cols-1 gy-5">
+                    <div class="col">
+                        <div class="service-style-1 text-center p-35 bg-white hover-bg-primary transation box-shadow h-100 rounded">
+                            <div class="bg-gray icon-wrap"><span class="icon flaticon-user flat-medium text-primary"></span></div>
+                            <h5 class="title mb-3 font-400"><a href="#" class="d-block text-secondary font-700 mt-4">Signup</a></h5>
+                            <a href="#" class="btn-icon box-shadow"><i class="icon fas fa-long-arrow-alt-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="service-style-1 text-center p-35 bg-white hover-bg-primary transation box-shadow h-100 rounded">
+                            <div class="bg-gray icon-wrap"><span class="icon flaticon-data flat-medium text-primary"></span></div>
+                            <h5 class="title mb-3 font-400"><a href="#" class="d-block text-secondary font-700 mt-4">Browse Property</a></h5>
+                            <a href="#" class="btn-icon box-shadow"><i class="icon fas fa-long-arrow-alt-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="service-style-1 text-center p-35 bg-white hover-bg-primary transation box-shadow h-100 rounded">
+                            <div class="bg-gray icon-wrap"><span class="icon flaticon-money flat-medium text-primary"></span></div>
+                            <h5 class="title mb-3 font-400"><a href="#" class="d-block text-secondary font-700 mt-4">Purchase Shares</a></h5>
+                            <a href="#" class="btn-icon box-shadow"><i class="icon fas fa-long-arrow-alt-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="service-style-1 text-center p-35 bg-white hover-bg-primary transation box-shadow h-100 rounded">
+                            <div class="bg-gray icon-wrap"><span class="icon flaticon-home flat-medium text-primary"></span></div>
+                            <h5 class="title mb-3 font-400"><a href="#" class="d-block text-secondary font-700 mt-4">Earn income & Appreciation</a></h5>
+                            <a href="#" class="btn-icon box-shadow"><i class="icon fas fa-long-arrow-alt-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== Our Aminities Section End ==============-->
+
+<!--=============== Problem solving Section Start ===============-->
+        <div class="full-row bg-light" style="padding: 150px 0; background-image: url('{{ asset('static/home/home.jpeg') }}'); background-repeat: no-repeat; background-size: cover;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 order-lg-1 text-white">
+                        {{-- <span class="tagline mb-1 d-block text-white md-mt-40">Solve Problems</span> --}}
+                        <h1 class="mb-40 text-white">Our Process</h1>
+                        <p style="font-size: 20px;">
+                            In addition to making the investing experience faster and easier, we have spent a great deal of
+                            time developing an operational model that allows us to maximize returns for our investors. While
+                            many different components go into maximizing investor returns, the two main areas that we
+                            focus on are the selection of high-quality property management (PM) partners and acquiring
+                            properties with great return profiles.
+                        </p>
+                        {{-- <a href="#" class="btn btn-primary mt-5">Get Started <i class="flaticon-rocket flat-mini text-white"></i> </a> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--=============== Problem solving Section End ===============-->
+
+
+        <div class="full-row bg-light">
+            <div class="container">
+                <div class="row row-cols-lg-2 row-cols-1 mb-5">
+                    <div class="col mb-5">
+                        <h2 class="mb-4">Diversify your investments </h2>
+                        <p>
+                            Diversification is a very powerful tool to lower your risk while keeping your potential for
+                            returns high. There are multiple ways Arrived is designed to help you mitigate risk through
+                            diversification.
+                        </p>
+                        <a href="/" class="btn btn-primary mt-5">Learn More <i class="flaticon-rocket flat-mini text-white"></i> </a>
+                    </div>
+                    <div class="col">
+                        <div class="capability-avg">
+                            {{-- <img src="{{ asset('static/home/mission.jpeg') }}" alt=""> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!--============== Explore Properties Section Start ==============-->
+        <div class="full-row half-bg-secondary p-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bg-primary d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between p-5">
+                            <div class="text-white font-medium" style="width: 80%;">
+                                <h1 class="text-white">Start investing in properties shares with vantage horizon</h1>
+                                {{-- <p>We can help you realize your dream of a new home</p> --}}
+                            </div>
+                            <div class="btn-wrap">
+                                <a class="btn btn-white font-medium" href="/login">Get Started <i class="icon fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== Explore Properties Section End ==============-->
 
         <!--============== Modal Start ==============-->
         <div class="overlay-dark modal fade quick-view-modal" id="quick-view">

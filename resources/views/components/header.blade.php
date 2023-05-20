@@ -28,7 +28,7 @@
                                                 <li> <a class="dropdown-item" href="{{ route('web') }}">Web 3 Properties</a></li>
                                                 <li> <a class="dropdown-item" href="{{ route('historical') }}">Historical Performance</a></li>
                                                 <li> <a class="dropdown-item" href="{{ route('stakeholder') }}">Stakeholder Commitment</a></li>
-                                                <li> <a class="dropdown-item" href="{{ route('sellHome') }}">Sell Your Home</a></li>
+                                                {{-- <li> <a class="dropdown-item" href="{{ route('sellHome') }}">Sell Your Home</a></li> --}}
                                                 </li>
                                             </ul>
                                         </li>

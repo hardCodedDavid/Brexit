@@ -78,7 +78,7 @@
 
 
         <!--============== Banner Start ==============-->
-        <div class="full-row paraxify" style="background-image: url({{ asset('static/assets/images/background/bg-4.png') }}); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 500px;">
+        <div class="full-row paraxify" style="background-image: url({{ asset('static/vacation/alpha.png') }}); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 500px;">
         </div>
         <!--============== Banner End ==============-->
 
@@ -100,7 +100,7 @@
                             <ul class="list-style-tick my-4">
                                 <li>
                                     <strong>Higher potential revenue</strong>
-                                    Vacation rentals in destinations like Nashville & Orlando have tremendous income potential. Why? Owners can charge higher, competitivenightlyratesthanthey could for a long-term rental property. On average, a full-time vacation rental can generate up to 130% more revenue than a traditional long-term rental.
+                                    Vacation rentals in destinations like Nashville & Orlando have tremendous income potential. Why? Owners can charge higher, competitive hightly rates than they could for a long-term rental property. On average, a full-time vacation rental can generate up to 130% more revenue than a traditional long-term rental.
                                 </li>
                                 <li>
                                     <strong>Seasonal cashflow.</strong>
@@ -147,7 +147,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <div class="text-secondary mb-2">
-                            <img src="{{ asset('static/assets/images/team/1.jpg') }}" alt="Agent Photo">
+                            <img src="{{ asset('static/vacation/misfit.jpg') }}" alt="Agent Photo">
                         </div>
                     </div>
                     <div class="col-lg-2">
@@ -179,8 +179,15 @@
                         <div class="row row-cols-md-1 row-cols-1">
                             <div class="col mb-5">
                                 <div class="simple-thumb transation px-4">
-                                    <h3 class="text-secondary font-400">Misfit Homes</h3>
-                                    <p >Misfit Homes is a vacation rental company based in Nashville, TN, specializing in what they refer to as "fun luxury stays". Each Misfit Home is decorated with high-end furnishings, Music City inspired art, and spaces designed to elevate your stay to a uniquely memorable experience. When you stay at one of these homes, you know you will be treated to thoughtful and fun amenities, such as skyline views, games, and karaoke rooms. Stand Out and Stay In with Misfit Homes.</p>
+                                    <h3 class="text-secondary font-400">Alpha Geek Capital</h3>
+                                    <p >
+                                        Tony J. Robinson is the founder and managing partner of Alpha Geek Capital. He's widely
+                                        regarded as one of the leading experts on investing in Short Term Rentals. He's the co-host of
+                                        the BiggerPockets Real Estate Rookie Podcast, a top business podcast with over 11,000,000
+                                        downloads. He and his wife, Sara, run the Real Estate Robinsons YouTube channel, with 25,000
+                                        subscribers. Along with his partners, he's created a strong track record of creating solid returns
+                                        within the short term rental asset.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +198,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="text-secondary mb-2">
-                            <img src="{{ asset('static/assets/images/team/1.jpg') }}" alt="Agent Photo">
+                            <img src="{{ asset('static/vacation/alpha.png') }}" alt="Agent Photo">
                         </div>
                     </div>
                 </div>
@@ -203,7 +210,7 @@
 
 
         <!--============== Page Banner Start ==============-->
-        <div class="page-banner-simple bg-secondary py-50" style="background-image: url({{ asset('static/assets/images/background/bg-1.png') }}); background-repeat: no-repeat; background-position: center center; background-size: cover;">
+        <div class="page-banner-simple bg-secondary py-50" style="background-image: url({{ asset('static/vacation/vacation.jpg') }}); background-repeat: no-repeat; background-position: center center; background-size: cover;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">

@@ -65,7 +65,7 @@
                                             <li><a href="{{ route('historical') }}">Historical Performance</a></li>
                                             <li><a href="{{ route('stakeholder') }}">Stakeholder Commitments</a></li>
                                             <li><a href="{{ route('learning') }}">Learning Centre</a></li>
-                                            <li><a href="{{ route('sellHome') }}">Sell Your Home</a></li>
+                                            {{-- <li><a href="{{ route('sellHome') }}">Sell Your Home</a></li> --}}
                                         </ul>
                                     </div>
                                 </div>
@@ -92,7 +92,62 @@
                                 </div>
                             </div>
                         </div>
-                        <span class="text-light font-200">Vantage Horizon, Inc. ("Vantage Horizon") operates the VantageHorizon.com All securities related activity is conducted through RERA  Group LLC (“RERA”), a registered broker-dealer and member of FINRA/SIPC, located at 525 Green Place, Woodmere, NY 11598.<br>
+                        <span class="text-light font-200">
+
+                            Vantage Horizon, Inc. ("Vantage Horizon") operates the VantageHorizon.com All securities
+                            related activity is conducted through RERA Group LLC (“RERA”), a registered broker-dealer and
+                            member of FINRA/SIPC, located at 525 Green Place, Woodmere, NY 11598. You should speak
+                            with your financial advisor, accountant and/or attorney when evaluating any offering. Neither
+                            Vantage Horizon nor RERA makes any recommendations or provides advice about investments,
+                            and no communication, through this Site or in any other medium, should be construed as a
+                            recommendation for any security offered on or off this Site. Vantage Horizon is conducting
+                            public offerings pursuant to Regulation A, as amended, through the Site. Past performance is no
+                            guarantee of future results. Investments such as those on the Vantage Horizon platform are
+                            speculative and involve substantial risks to consider before investing, outlined in the respective
+                            offering materials and including, but not limited to, illiquidity, lack of diversification and complete
+                            loss of capital. Key risks include, but are not limited to, limited operating history, limited
+                            diversification, risk of asset damage or theft and lack of voting rights. Also, the adverse
+                            economic effects of the COVID-19 pandemic are unknown and could materially impact this
+                            investment. An investment in an offering constitutes only an investment in a particular series and
+                            not in Vantage Horizon or the underlying asset(s). Investors should carefully review the risks
+                            located in the respective offering materials for a more comprehensive discussion of risk. From
+                            time to time, Vantage Horizon will seek to qualify additional series offerings of securities under
+                            regulation A. For offerings that have not yet been qualified, no money or other consideration is
+                            being solicited and, if sent in response, will not be accepted. No offer to buy securities of a
+                            particular offering can be accepted, and no part of the purchase price can be received, until an
+                            offering statement filed with the Securities and Exchange Commission (the "SEC") relating to
+                            that series has been qualified by the SEC. Any such offer may be withdrawn or revoked, without
+                            obligation or commitment of any kind, at any time before notice of acceptance given after the
+                            date of qualification by the SEC. An indication of interest involves no obligation or commitment
+                            of any kind. Investment overviews contained herein contain summaries of the purpose and the
+                            principal business terms of the investment opportunities. Such summaries are intended for
+                            informational purposes only and do not purport to be complete, and each is qualified in its
+                            entirety by reference to the more-detailed discussions contained in the respective offering
+                            circular filed with the SEC. The Site may make forward-looking statements. Potential investors
+                            should not rely on any forward-looking statements regarding any investment opportunity, which
+                            is based on our beliefs and information currently available to us. The words “anticipate,” 
+                            “believe,” “expect,” “aim,” “potential,” “design,” “target,” “intend,” “may,” “might,” “plan,”
+                            “estimate,” “project,” “projection,” “should,” “will,” “would,” “result” and similar expressions
+                            identify forward-looking statements. Such statements are subject to risks, uncertainties, and
+                            assumptions and are not guarantees of future performance, which may be affected by known
+                            and unknown risks, trends, uncertainties, and factors that are beyond our control. These risks
+                            could result in the loss of your investment.Vantage Horizon does not offer refunds after an
+                            investment has been made. Please review the relevant offering materials and subscription
+                            documentation for more information. An active trading market for any series of Vantage Horizon
+                            interests may not develop or be sustained. If an active public trading market for Vantage Horizon
+                            series interests does not develop or is not sustained, it may be difficult or impossible for you to
+                            resell your interests at any price. Even if an active market does develop, the market price could
+                            decline below the amount you paid for your interests. There is no assurance that the Vantage
+                            Horizon platform will provide an active market for resales of Vantage Horizon series interests.
+                            Further, without the Vantage Horizon platform, it may be difficult or impossible for you to
+                            dispose of your interests. If the market develops for any series of Vantage Horizon interests, the
+                            market price of such interests could fluctuate significantly for many reasons, including reasons
+                            unrelated to performance, the underlying assets or any series, such as reports by industry
+                            analysts, investor perceptions or announcements by competitors regarding their own
+                            performance, as well as general economic and industry conditions.
+                        
+                        
+                        {{-- Vantage Horizon, Inc. ("Vantage Horizon") operates the VantageHorizon.com All securities related activity is conducted through RERA  Group LLC (“RERA”), a registered broker-dealer and member of FINRA/SIPC, located at 525 Green Place, Woodmere, NY 11598.<br>
                         You should speak with your financial advisor, accountant and/or attorney when evaluating any offering. Neither Vantage Horizon nor RERA makes any recommendations or provides advice about investments, and no communication, through this Site or in any other medium, should be construed as a recommendation for any security offered on or off this Site.<br>
                         Vantage Horizon is conducting public offerings pursuant to Regulation A, as amended, through the Site. Past performance is no guarantee of future results. Investments such as those on the Vantage Horizon platform are speculative and involve substantial risks to consider before investing, outlined in the respective offering materials and including, but not limited to, illiquidity, lack of diversification and complete loss of capital. Key risks include, but are not limited to, limited operating history, limited diversification, risk of asset damage or theft and lack of voting rights. Also, the adverse economic effects of the COVID-19 pandemic are unknown and could materially impact this investment. An investment in an offering constitutes only an investment in a particular series and not in Vantage Horizon or the underlying asset(s). Investors should carefully review the risks located in the respective offering materials for a more comprehensive discussion of risk.<br>
                         From time to time, Vantage Horizon will seek to qualify additional series offerings of securities under regulation A. For offerings that have not yet been qualified, no money or other consideration is being solicited and, if sent in response, will not be accepted. No offer to buy securities of a particular offering can be accepted, and no part of the purchase price can be received, until an offering statement filed with the Securities and Exchange Commission (the "SEC") relating to that series has been qualified by the SEC. Any such offer may be withdrawn or revoked, without obligation or commitment of any kind, at any time before notice of acceptance given after the date of qualification by the SEC. An indication of interest involves no obligation or commitment of any kind.<br>
@@ -102,7 +157,7 @@
                         <span class="text-light font-200">See the offering materials for detailed information.<br>
                         Vantage Horizon does not offer refunds after an investment has been made. Please review the relevant offering materials and subscription documentation for more information.<br>
                         An active trading market for any series of Vantage Horizon interests may not develop or be sustained. If an active public trading market for Vantage Horizon series interests does not develop or is not sustained, it may be difficult or impossible for you to resell your interests at any price. Even if an active market does develop, the market price could decline below the amount you paid for your interests. There is no assurance that the Vantage Horizon platform will provide an active market for resales of Vantage Horizon series interests. Further, without the Vantage Horizon platform, it may be difficult or impossible for you to dispose of your interests. If the market develops for any series of Vantage Horizon interests, the market price of such interests could fluctuate significantly for many reasons, including reasons unrelated to performance, the underlying assets or any series, such as reports by industry analysts, investor perceptions or announcements by competitors regarding their own performance, as well as general economic and industry conditions.
-                        </span>
+                        </span> --}}
                     </div>
                 </div>
             </div>
@@ -138,8 +193,6 @@
         <!-- End Scroll To top -->
 
     <!-- Javascript Files -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
 
     <script src="{{ asset('static/assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('static/assets/js/popper.min.js') }}"></script>
@@ -151,6 +204,9 @@
     <script src="{{ asset('static/assets/js/mixitup.min.js') }}"></script>
     <script src="{{ asset('static/assets/js/paraxify.js') }}"></script>
     <script src="{{ asset('static/assets/js/custom.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script> --}}
 </body>
 
 </html>

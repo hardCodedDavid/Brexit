@@ -32,22 +32,22 @@
                 <div class="row">
                     <div class="col-md-5 order-md-2">
                         <h4 class="down-line mb-4">Get In Touch</h4>
-                        <p>Nullam vel enim risus. Integer rhoncus hendrerit sem egestas porttitor.</p>
+                        {{-- <p>Nullam vel enim risus. Integer rhoncus hendrerit sem egestas porttitor.</p> --}}
                         <div class="mb-3">
                             <ul>
                                 <li class="mb-3">
-                                    <h6 class="mb-0">Office Address :</h6> Level 13, 2 Elizabeth St, Melbourne, Victoria 3000 Australia
+                                    <h6 class="mb-0">Office Address :</h6> 525 Green Place, Woodmere, NY 11598. 
                                 </li>
                                 <li class="mb-3">
-                                    <h6>Contact Number :</h6> (1) 000 991 8830, (800) 8001-8588
+                                    <h6>Contact Number :</h6> +1 (559) 717-8091
                                 </li>
                                 <li class="mb-3">
-                                    <h6>Email Address :</h6> Info@patron.com, support@patron.com
+                                    <h6>Email Address :</h6> info@vantagehorizon.com, support@vantagehorizon.com
                                 </li>
                             </ul>
                         </div>
-                        <h5 class="mb-2">Career Info</h5>
-                        <p>If you’re interested in employment opportunities at Unicoder, please email us:<br> <a href="#">support@unicoderbd.com</a></p>
+                        {{-- <h5 class="mb-2">Career Info</h5>
+                        <p>If you’re interested in employment opportunities at Unicoder, please email us:<br> <a href="#">support@unicoderbd.com</a></p> --}}
                     </div>
                     <div class="col-md-7 order-md-1">
                         <h4 class="down-line mb-4">Send Message</h4>

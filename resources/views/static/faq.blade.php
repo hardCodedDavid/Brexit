@@ -41,80 +41,51 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="simple-collaps px-4 py-3 bg-white border rounded mb-3">
-                        <span class="accordion text-secondary d-block">What is html template?</span>
+                        <span class="accordion text-secondary d-block">Who legally has ownership of the house?</span>
                         <div class="panel" style="">
-                            <p>Eget justo aliquam vel rhoncus tortor suscipit. Etiam dis integer. Bibendum inceptos curae. Cras feugiat proin est vestibulum integer tincidunt dapibus quisque Urna. Nibh quisque per tellus dis fringilla fringilla habitasse posuere aliquam quam ornare nibh odio commodo Curabitur. Nectus etiam. Aptent. Libero morbi. Libero nam torquent rhoncus fames eu consequat pulvinar.</p>
-                            <p>Fermentum, urna torquent fermentum. Nulla lacus scelerisque penatibus sodales dictum quisque. Est urna vel commodo cubilia pede ipsum etiam. Et ac quis leo bibendum platea Mus nascetur. Potenti eleifend iaculis cras. Consequat erat suscipit Nullam parturient mauris sollicitudin. A massa ad imperdiet neque platea nonummy senectus.</p>
+                            <p>
+                                When you purchase shares in an Vantage Horizon home offering, you directly buy
+                                ownership in the individual Series of a Series LLC that owns that home asset. For example, if you
+                                purchase 1% of the shares in a single home offering, you would then be entitled to 1% of the
+                                economic interests of the asset over time, which may include income from rent or property value
+                                appreciation.
+                            </p>
                         </div>
                     </div>
                     <div class="simple-collaps px-4 py-3 bg-white border rounded mb-3">
-                        <span class="accordion text-secondary d-block">How many category avaibable in this template?</span>
+                        <span class="accordion text-secondary d-block"> Will I have any responsibilities for managing properties I invest in? If not, who is responsible? </span>
                         <div class="panel">
-                            <p>Eget justo aliquam vel rhoncus tortor suscipit. Etiam dis integer. Bibendum inceptos curae. Cras feugiat proin est vestibulum integer tincidunt dapibus quisque Urna. Nibh quisque per tellus dis fringilla fringilla habitasse posuere aliquam quam ornare nibh odio commodo Curabitur. Nectus etiam. Aptent. Libero morbi. Libero nam torquent rhoncus fames eu consequat pulvinar.</p>
-                            <p>Fermentum, urna torquent fermentum. Nulla lacus scelerisque penatibus sodales dictum quisque. Est urna vel commodo cubilia pede ipsum etiam. Et ac quis leo bibendum platea Mus nascetur. Potenti eleifend iaculis cras. Consequat erat suscipit Nullam parturient mauris sollicitudin. A massa ad imperdiet neque platea nonummy senectus.</p>
+                            <p>
+                                No, Vantage Horizon takes care of all the homeownership responsibilities, including the
+                                selection, purchase, and renovation of the home or vacation rental, as well as finding tenants,
+                                managing bookings, and dealing with maintenance requests. Vantage Horizon works with
+                                experienced property managers that take care of the day-to-day management responsibility – our
+                                property managers have many years of experience, which allows them to maximize returns and
+                                minimize operating costs.
+                            </p>
                         </div>
                     </div>
                     <div class="simple-collaps px-4 py-3 bg-white border rounded mb-3">
-                        <span class="accordion text-secondary d-block">Which framework use to make the template responsive?</span>
+                        <span class="accordion text-secondary d-block"> What is the minimum Initial Investment?</span>
                         <div class="panel">
-                            <p>Eget justo aliquam vel rhoncus tortor suscipit. Etiam dis integer. Bibendum inceptos curae. Cras feugiat proin est vestibulum integer tincidunt dapibus quisque Urna. Nibh quisque per tellus dis fringilla fringilla habitasse
-                                posuere aliquam quam ornare nibh odio commodo Curabitur. Nectus etiam. Aptent. Libero morbi. Libero nam torquent rhoncus fames eu consequat pulvinar.</p>
-                            <p>Fermentum, urna torquent fermentum. Nulla lacus scelerisque penatibus sodales dictum quisque. Est urna vel commodo cubilia pede ipsum etiam. Et ac quis leo bibendum platea Mus nascetur. Potenti eleifend iaculis cras. Consequat
-                                erat suscipit Nullam parturient mauris sollicitudin. A massa ad imperdiet neque platea nonummy senectus.</p>
+                            <p> 
+                                Our mission at Vantage Horizon is to make investing in rental homes accessible to
+                                everyone. As such, the minimum amount required to invest is just $500 USD.
+                            </p>
                         </div>
                     </div>
                     <div class="simple-collaps px-4 py-3 bg-white border rounded mb-3">
-                        <span class="accordion text-secondary d-block">Is the template is W3 Validate?</span>
+                        <span class="accordion text-secondary d-block">What happens if I want to liquidate my investment before the holding period ends?</span>
                         <div class="panel">
-                            <p>Eget justo aliquam vel rhoncus tortor suscipit. Etiam dis integer. Bibendum inceptos curae. Cras feugiat proin est vestibulum integer tincidunt dapibus quisque Urna. Nibh quisque per tellus dis fringilla fringilla habitasse
-                                posuere aliquam quam ornare nibh odio commodo Curabitur. Nectus etiam. Aptent. Libero morbi. Libero nam torquent rhoncus fames eu consequat pulvinar.</p>
-                            <p>Fermentum, urna torquent fermentum. Nulla lacus scelerisque penatibus sodales dictum quisque. Est urna vel commodo cubilia pede ipsum etiam. Et ac quis leo bibendum platea Mus nascetur. Potenti eleifend iaculis cras. Consequat
-                                erat suscipit Nullam parturient mauris sollicitudin. A massa ad imperdiet neque platea nonummy senectus.</p>
-                        </div>
-                    </div>
-                    <div class="simple-collaps px-4 py-3 bg-white border rounded mb-3">
-                        <span class="accordion text-secondary d-block">Can I use the template to convert in WordPress?</span>
-                        <div class="panel">
-                            <p>Eget justo aliquam vel rhoncus tortor suscipit. Etiam dis integer. Bibendum inceptos curae. Cras feugiat proin est vestibulum integer tincidunt dapibus quisque Urna. Nibh quisque per tellus dis fringilla fringilla habitasse
-                                posuere aliquam quam ornare nibh odio commodo Curabitur. Nectus etiam. Aptent. Libero morbi. Libero nam torquent rhoncus fames eu consequat pulvinar.</p>
-                            <p>Fermentum, urna torquent fermentum. Nulla lacus scelerisque penatibus sodales dictum quisque. Est urna vel commodo cubilia pede ipsum etiam. Et ac quis leo bibendum platea Mus nascetur. Potenti eleifend iaculis cras. Consequat
-                                erat suscipit Nullam parturient mauris sollicitudin. A massa ad imperdiet neque platea nonummy senectus.</p>
-                        </div>
-                    </div>
-                    <div class="simple-collaps px-4 py-3 bg-white border rounded mb-3">
-                        <span class="accordion text-secondary d-block">Can I resale the template after modefy in local market?</span>
-                        <div class="panel">
-                            <p>Eget justo aliquam vel rhoncus tortor suscipit. Etiam dis integer. Bibendum inceptos curae. Cras feugiat proin est vestibulum integer tincidunt dapibus quisque Urna. Nibh quisque per tellus dis fringilla fringilla habitasse
-                                posuere aliquam quam ornare nibh odio commodo Curabitur. Nectus etiam. Aptent. Libero morbi. Libero nam torquent rhoncus fames eu consequat pulvinar.</p>
-                            <p>Fermentum, urna torquent fermentum. Nulla lacus scelerisque penatibus sodales dictum quisque. Est urna vel commodo cubilia pede ipsum etiam. Et ac quis leo bibendum platea Mus nascetur. Potenti eleifend iaculis cras. Consequat
-                                erat suscipit Nullam parturient mauris sollicitudin. A massa ad imperdiet neque platea nonummy senectus.</p>
-                        </div>
-                    </div>
-                    <div class="simple-collaps px-4 py-3 bg-white border rounded mb-3">
-                        <span class="accordion text-secondary d-block">How can I make new template by own, using the template source code?</span>
-                        <div class="panel">
-                            <p>Eget justo aliquam vel rhoncus tortor suscipit. Etiam dis integer. Bibendum inceptos curae. Cras feugiat proin est vestibulum integer tincidunt dapibus quisque Urna. Nibh quisque per tellus dis fringilla fringilla habitasse
-                                posuere aliquam quam ornare nibh odio commodo Curabitur. Nectus etiam. Aptent. Libero morbi. Libero nam torquent rhoncus fames eu consequat pulvinar.</p>
-                            <p>Fermentum, urna torquent fermentum. Nulla lacus scelerisque penatibus sodales dictum quisque. Est urna vel commodo cubilia pede ipsum etiam. Et ac quis leo bibendum platea Mus nascetur. Potenti eleifend iaculis cras. Consequat
-                                erat suscipit Nullam parturient mauris sollicitudin. A massa ad imperdiet neque platea nonummy senectus.</p>
-                        </div>
-                    </div>
-                    <div class="simple-collaps px-4 py-3 bg-white border rounded mb-3">
-                        <span class="accordion text-secondary d-block">What will I do, If I get any bug or error?</span>
-                        <div class="panel">
-                            <p>Eget justo aliquam vel rhoncus tortor suscipit. Etiam dis integer. Bibendum inceptos curae. Cras feugiat proin est vestibulum integer tincidunt dapibus quisque Urna. Nibh quisque per tellus dis fringilla fringilla habitasse
-                                posuere aliquam quam ornare nibh odio commodo Curabitur. Nectus etiam. Aptent. Libero morbi. Libero nam torquent rhoncus fames eu consequat pulvinar.</p>
-                            <p>Fermentum, urna torquent fermentum. Nulla lacus scelerisque penatibus sodales dictum quisque. Est urna vel commodo cubilia pede ipsum etiam. Et ac quis leo bibendum platea Mus nascetur. Potenti eleifend iaculis cras. Consequat
-                                erat suscipit Nullam parturient mauris sollicitudin. A massa ad imperdiet neque platea nonummy senectus.</p>
-                        </div>
-                    </div>
-                    <div class="simple-collaps px-4 py-3 bg-white border rounded mb-3">
-                        <span class="accordion text-secondary d-block">Do you have any video tutorial support?</span>
-                        <div class="panel">
-                            <p>Eget justo aliquam vel rhoncus tortor suscipit. Etiam dis integer. Bibendum inceptos curae. Cras feugiat proin est vestibulum integer tincidunt dapibus quisque Urna. Nibh quisque per tellus dis fringilla fringilla habitasse
-                                posuere aliquam quam ornare nibh odio commodo Curabitur. Nectus etiam. Aptent. Libero morbi. Libero nam torquent rhoncus fames eu consequat pulvinar.</p>
-                            <p>Fermentum, urna torquent fermentum. Nulla lacus scelerisque penatibus sodales dictum quisque. Est urna vel commodo cubilia pede ipsum etiam. Et ac quis leo bibendum platea Mus nascetur. Potenti eleifend iaculis cras. Consequat
-                                erat suscipit Nullam parturient mauris sollicitudin. A massa ad imperdiet neque platea nonummy senectus.</p>
+                            <p>
+                                We’ve designed Vantage Horizon offerings for investors who want to invest in real estate
+                                for several years to maximize return potential. We understand that plans change, and some
+                                investors may want to liquidate their investments after a shorter period. We are working on a
+                                program that, subject to the compliance and transfer restrictions described in our Offering Circular,
+                                would allow investors to request to redeem their shares and liquidate their investments. Disclaimer:
+                                There may be penalties associated with redeeming shares depending on when the request is made.
+                                We cannot guarantee that any redemptions will be possible.
+                            </p>
                         </div>
                     </div>
                 </div>

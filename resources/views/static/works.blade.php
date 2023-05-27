@@ -41,7 +41,7 @@
 
 
         <!--============== Banner Start ==============-->
-        <div class="full-row paraxify" style="background-image: url({{ asset('static/assets/images/background/bg-4.png') }}); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 500px;">
+        <div class="full-row paraxify" style="background-image: url({{ asset('static/works/001.jpg') }}); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 500px;">
         </div>
         <!--============== Banner End ==============-->
 
@@ -82,7 +82,7 @@
                         </p>
                     </div>
                     <div class="col">
-                        <img src="{{ asset('static/assets/images/property/10.png') }}" alt="uniland real estate">
+                        <img src="{{ asset('static/works/002.png') }}" alt="uniland real estate">
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
             <div class="container">
                 <div class="row row-cols-md-2 row-cols-1">
                     <div class="col">
-                        <img src="{{ asset('static/assets/images/property/10.png') }}" alt="uniland real estate">
+                        <img src="{{ asset('static/works/003.jpg') }}" alt="uniland real estate">
                     </div>
                     <div class="col">
                         <span class="text-primary mb-2 d-table font-medium font-600">How it Works</span>
@@ -119,7 +119,7 @@
                         <p>Vantage Horizon uses data science to ensure that we find and acquire the right home at the right price. This process starts with analyzing hundreds of different markets to identify which offer strong cash flow and property appreciation potential. We then pick the best neighborhoods and desired home attributes in those markets. Once we find properties that fit the bill, we create a property and financial analysis that is presented to our investment committee for review. This process ensures that we are only selecting and acquiring the properties that will maximize the returns for our investors.</p>
                     </div>
                     <div class="col">
-                        <img src="{{ asset('static/assets/images/property/10.png') }}" alt="uniland real estate">
+                        <img src="{{ asset('static/works/004.jpg') }}" alt="uniland real estate">
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
             <div class="container">
                 <div class="row row-cols-md-2 row-cols-1">
                     <div class="col">
-                        <img src="{{ asset('static/assets/images/property/10.png') }}" alt="uniland real estate">
+                        <img src="{{ asset('static/works/005.jpeg') }}" alt="uniland real estate">
                     </div>
                     <div class="col">
                         <span class="text-primary mb-2 d-table font-medium font-600">How it Works</span>
@@ -169,7 +169,7 @@
                         </p>
                     </div>
                     <div class="col">
-                        <img src="{{ asset('static/assets/images/property/10.png') }}" alt="uniland real estate">
+                        <img src="{{ asset('static/works/006.jpeg') }}" alt="uniland real estate">
                     </div>
                 </div>
             </div>

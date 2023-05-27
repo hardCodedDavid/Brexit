@@ -125,6 +125,14 @@ $me = Utils::getAdmin();
                             </a>
                         </li>
                         <li class="menu">
+                            <a href="/admin/blogs" data-active="@yield('blog')" aria-expanded="false" class="dropdown-toggle">
+                                <div class="">
+                                    <i class="lni-user"></i>
+                                    <span>Blog</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="menu">
                             <a href="{{route('allPortfolio')}}" data-active="@yield('portfolio')" aria-expanded="false" class="dropdown-toggle">
                                 <div class="">
                                     <i class="lni-home"></i>

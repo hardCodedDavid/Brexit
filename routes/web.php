@@ -27,6 +27,8 @@ Route::get('/historical-performance', 'StaticController@historical')->name('hist
 Route::get('/stakeholder-commitment', 'StaticController@stakeholder')->name('stakeholder');
 Route::get('/sell-your-home', 'StaticController@sell')->name('sellHome');
 Route::get('/learning-centre', 'StaticController@learning')->name('learning');
+Route::get('/blog/{id}/show', 'BlogController@show')->name('blogShow');
+
 Route::get('/web-3-properties', 'StaticController@web')->name('web');
 Route::get('/privacy-policy', 'StaticController@privacy')->name('privacy');
 Route::post('/search', 'StaticController@search')->name('search');
@@ -168,4 +170,11 @@ Route::group(['prefix' => 'admin','middleware' => 'assign.guard:admin,admin/logi
     Route::get('/portfolio', 'AdminController@portfolio')->name('allPortfolio');
     Route::get('/portfolio/enable/{id}/{num}', 'AdminController@portfolioEnable')->name('postPortfolio');
 
+    Route::get('/blogs', 'BlogController@index')->name('blog');
+    // Route::get('/blog/{id}/show', 'BlogController@show')->name('blogShow');
+    Route::get('/blog/create', 'BlogController@create')->name('blogCreate');
+    Route::post('/blogs/add', 'BlogController@store')->name('blogAdd');
+    Route::get('/blogs/{id}/edit', 'BlogController@edit')->name('blogEdit');
+    Route::post('/blogs/{id}/update', 'BlogController@update')->name('blogUpdate');
+    Route::get('/blogs/{id}/delete', 'BlogController@destroy')->name('blogDelete');
 });

@@ -1029,16 +1029,6 @@ class AdminController extends Controller
 
             foreach ($img as $image) {
 
-                // $destinationPath = 'uploads';
-
-                // $filename = time() . '_' . $image->getClientOriginalName();
-                
-                // $image->move($destinationPath, $filename);
-
-                // $plan->property_images()->create([
-                //     'img_url' => $destinationPath."/".$filename
-                // ]);
-
                 $destinationPath = 'uploads';
                 $filename = md5(rand(1000, 10000)) . "." . $image->getClientOriginalExtension();
                 $image_resize = Image::make($image->getRealPath());              

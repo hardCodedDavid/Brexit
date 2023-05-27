@@ -9,7 +9,7 @@
     @include('components.header')
 
     <!--============== Page Banner Start ==============-->
-    <div class="page-banner-simple bg-secondary py-50" style="background-image: url({{ asset('static/assets/images/background/bg-1.png') }}); background-repeat: no-repeat; background-position: center center; background-size: cover;">
+    <div class="page-banner-simple bg-secondary py-50" style="background-image: url({{ asset('static/works/001.jpg') }}); background-repeat: no-repeat; background-position: center center; background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -25,21 +25,7 @@
     <div class="full-row">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="fag-category list-color-general list-text-hover-primary py-5 px-4 bg-white border rounded mb-5">
-                        <ul>
-                            <li><a href="#">Basic</a></li>
-                            <li><a href="#">Elements</a></li>
-                            <li><a href="#">Shortcodes</a></li>
-                            <li><a href="#">Extended License</a></li>
-                            <li><a href="#">Refund Policy</a></li>
-                            <li><a href="#">Code Quality</a></li>
-                            <li><a href="#">Responsive Template</a></li>
-                            <li><a href="#">Color Settings</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="simple-collaps px-4 py-3 bg-white border rounded mb-3">
                         <span class="accordion text-secondary d-block">Who legally has ownership of the house?</span>
                         <div class="panel" style="">

@@ -53,7 +53,7 @@
         <!--============== Features End ==============-->
 
         <!--============== Banner Start ==============-->
-        <div class="full-row paraxify" style="background-image: url({{ asset('static/assets/images/background/bg-4.png') }}); background-repeat: no-repeat; background-position: center center; background-size: cover;">
+        <div class="full-row paraxify" style="background-image: url({{ asset('static/about/landing.jpg') }}); background-repeat: no-repeat; background-position: center center; background-size: cover;">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-lg-8">
@@ -112,7 +112,7 @@
                             <div class="col">
                                 <div class="entry-wrapper bg-white transation-this hover-shadow">
                                     <div class="entry-thumbnail-wrapper transation bg-secondary hover-img-zoom">
-                                        <img src="{{ asset('static/assets/images/team/1.jpg') }}" alt="Agent Photo">
+                                        <img src="{{ asset('static/about/001.png') }}" alt="Agent Photo">
                                     </div>
                                     <div class="entry-content-wrapper">
                                         <div class="entry-header d-flex pb-2">
@@ -128,7 +128,7 @@
                             <div class="col">
                                 <div class="entry-wrapper bg-white transation-this hover-shadow">
                                     <div class="entry-thumbnail-wrapper transation bg-secondary hover-img-zoom">
-                                        <img src="{{ asset('static/assets/images/team/1.jpg') }}" alt="Agent Photo">
+                                        <img src="{{ asset('static/about/002.png') }}" alt="Agent Photo">
                                     </div>
                                     <div class="entry-content-wrapper">
                                         <div class="entry-header d-flex pb-2">
@@ -144,7 +144,7 @@
                             <div class="col">
                                 <div class="entry-wrapper bg-white transation-this hover-shadow">
                                     <div class="entry-thumbnail-wrapper transation bg-secondary hover-img-zoom">
-                                        <img src="{{ asset('static/assets/images/team/1.jpg') }}" alt="Agent Photo">
+                                        <img src="{{ asset('static/about/003.png') }}" alt="Agent Photo">
                                     </div>
                                     <div class="entry-content-wrapper">
                                         <div class="entry-header d-flex pb-2">
@@ -160,7 +160,7 @@
                             <div class="col">
                                 <div class="entry-wrapper bg-white transation-this hover-shadow">
                                     <div class="entry-thumbnail-wrapper transation bg-secondary hover-img-zoom">
-                                        <img src="{{ asset('static/assets/images/team/1.jpg') }}" alt="Agent Photo">
+                                        <img src="{{ asset('static/about/004.png') }}" alt="Agent Photo">
                                     </div>
                                     <div class="entry-content-wrapper">
                                         <div class="entry-header d-flex pb-2">
@@ -176,7 +176,7 @@
                             <div class="col">
                                 <div class="entry-wrapper bg-white transation-this hover-shadow">
                                     <div class="entry-thumbnail-wrapper transation bg-secondary hover-img-zoom">
-                                        <img src="{{ asset('static/assets/images/team/1.jpg') }}" alt="Agent Photo">
+                                        <img src="{{ asset('static/about/005.jpeg') }}" alt="Agent Photo">
                                     </div>
                                     <div class="entry-content-wrapper">
                                         <div class="entry-header d-flex pb-2">
@@ -192,7 +192,7 @@
                             <div class="col">
                                 <div class="entry-wrapper bg-white transation-this hover-shadow">
                                     <div class="entry-thumbnail-wrapper transation bg-secondary hover-img-zoom">
-                                        <img src="{{ asset('static/assets/images/team/1.jpg') }}" alt="Agent Photo">
+                                        <img src="{{ asset('static/about/006.png') }}" alt="Agent Photo">
                                     </div>
                                     <div class="entry-content-wrapper">
                                         <div class="entry-header d-flex pb-2">

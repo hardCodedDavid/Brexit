@@ -81,7 +81,7 @@
         <!--============== Header Section End ==============-->
 
         <!--============== Search Banner Start ==============-->
-        <div class="full-row p-70" style="background: rgba(255,255,255,.5); background-image: url('{{ asset('static/home/header.jpeg') }}'); background-repeat: no-repeat; background-size: cover;">
+        <div class="full-row p-70" style="background: rgba(255,255,255,.5); background-image: url('{{ asset('static/home/header1.jpeg') }}'); background-repeat: no-repeat; background-size: cover;">
             <div class="container">
                 <div class="row justify-content-left py-8">
                     <div class="col-md-5 ">
@@ -142,66 +142,49 @@ or deal with the operational headaches.</span></p>
 
 
         <!--============== Property Location Start ==============-->
-        <div class="full-row">
+
+        <div class="full-row bg-light">
             <div class="container">
                 <div class="row">
+                <div class="col">
+                        {{-- <span class="tagline-3 d-table mx-auto mb-3">Our Services</span> --}}
+                        <h1 class="main-title w-50 mx-auto mb-4 text-center w-sm-100">Investing In Real Estate Has Never Been Easier</h1>
+                    </div>
+                </div>
+                <div class="row row-cols-xl-4 row-cols-md-2 row-cols-1 g-4">
                     <div class="col">
-                        <div class="text-secondary mb-5">
-                            <h2 class="text-secondary mb-4">Investing In Real Estate Has Never Been Easier</h2>
-                            {{-- <span class="d-table w-50 w-sm-100 sub-title">Mauris primis turpis Laoreet magna felis mi amet quam enim curae. Sodales semper tempor dictum faucibus habitasse.</span> --}}
+                        <div class="text-center p-35 bg-white transation box-shadow h-100 hover-style-1">
+                            <span class="flaticon-home flat-medium text-primary"></span>
+                            <h5 class="mb-3 font-400"><a href="#" class="d-block text-secondary hover-text-primary font-700 mt-4">Browse Homes</a></h5>
+                            <p>Browse Vantage horizon homes, each pre-vetted for their investment potential</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center p-35 bg-white transation box-shadow h-100 hover-style-1">
+                            <span class="flaticon-shop flat-medium text-primary"></span>
+                            <h5 class="mb-3 font-400"><a href="#" class="d-block text-secondary hover-text-primary font-700 mt-4">Select Property</a></h5>
+                            <p>Determine how much money you want to invest and select your shares</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center p-35 bg-white transation box-shadow h-100 hover-style-1">
+                            <span class="flaticon-partner flat-medium text-primary"></span>
+                            <h5 class="mb-3 font-400"><a href="#" class="d-block text-secondary hover-text-primary font-700 mt-4">Buy Shares</a></h5>
+                            <p>Review the terms, sign electronically, and fund your investment</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center p-35 bg-white transation box-shadow h-100 hover-style-1">
+                            <span class="flaticon-partner flat-medium text-primary"></span>
+                            <h5 class="mb-3 font-400"><a href="#" class="d-block text-secondary hover-text-primary font-700 mt-4">Earn Income & Appreciation</a></h5>
+                            <p>Earn your share of rental income and home appreciation on our holdings.</p>
                         </div>
                     </div>
                 </div>
-                <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-2 row-cols-1 g-4">
-                    <div class="col">
-                        <div class="hover-img-zoom position-relative">
-                            <div class="overflow-hidden transation thumbnail-img rounded-lg bg-secondary">
-                                <img src="{{ asset('static/assets/images/property/5.png') }}" alt="image not found">
-                            </div>
-                            <div class="position-absolute text-center p-4 w-100 bottom-0">
-                                <h5 class="transation"><a class="text-white font-400 text-nowrap" href="#">Browse Homes</a></h5>
-                                <span class="d-table mx-auto text-white">Browse Vantage horizon homes, each pre-vetted for their investment potential</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="hover-img-zoom position-relative">
-                            <div class="overflow-hidden transation thumbnail-img rounded-lg bg-secondary">
-                                <img src="{{ asset('static/assets/images/property/6.png') }}" alt="image not found">
-                            </div>
-                            <div class="position-absolute text-center p-4 w-100 bottom-0">
-                                <h5 class="transation"><a class="text-white font-400 text-nowrap" href="#">Select Property</a></h5>
-                                <span class="d-table mx-auto text-white">Determine how much money you want to invest and select your shares</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="hover-img-zoom position-relative">
-                            <div class="overflow-hidden transation thumbnail-img rounded-lg bg-secondary">
-                                <img src="{{ asset('static/assets/images/property/7.png') }}" alt="image not found">
-                            </div>
-                            <div class="position-absolute text-center p-4 w-100 bottom-0">
-                                <h5 class="transation"><a class="text-white font-400 text-nowrap" href="#">Buy Shares</a></h5>
-                                <span class="d-table mx-auto text-white">Review the terms, sign electronically, and fund your investment</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="hover-img-zoom position-relative">
-                            <div class="overflow-hidden transation thumbnail-img rounded-lg bg-secondary">
-                                <img src="{{ asset('static/assets/images/property/8.png') }}" alt="image not found">
-                            </div>
-                            <div class="position-absolute text-center p-4 w-100 bottom-0">
-                                <h5 class="transation"><a class="text-white font-400 text-nowrap" href="#">Earn Income & Appreciation</a></h5>
-                                <span class="d-table mx-auto text-white">Earn your share of rental income and home appreciation on our holdings.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin: auto; align-item: center; display: flex;">
+
+                <div class="col" style="justify-content: center; display: flex;">
                     <a href="/how-it-works" style="width: 300px;" class="btn btn-primary mt-5">How vantage horizon works<i class="flaticon-rocket flat-mini text-white"></i> </a>
                 </div>
-                
             </div>
         </div>
         <!--============== Property Location End ==============-->
@@ -347,7 +330,7 @@ or deal with the operational headaches.</span></p>
 
 
         <!--=============== Problem solving Section Start ===============-->
-        <div class="full-row bg-light" style="padding: 150px 0; background-image: url('{{ asset('static/home/home.jpeg') }}'); background-repeat: no-repeat; background-size: cover;">
+        <div class="full-row bg-light" style="padding: 150px 0; background-image: url('{{ asset('static/home/header.jpeg') }}'); background-repeat: no-repeat; background-size: cover;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 order-lg-1 text-white">

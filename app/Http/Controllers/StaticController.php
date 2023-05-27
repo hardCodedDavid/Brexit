@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Plan;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,7 @@ class StaticController extends Controller
 
     public function list() 
     {
-        $plan = Plan::latest()->paginate(3);
+        $plan = Plan::latest()->paginate(20);
         $count = Plan::latest()->count();
         
         return view('static.properties', [ 
@@ -64,7 +65,11 @@ class StaticController extends Controller
 
     public function learning() 
     {
-        return view('static.learning');
+        $blog = Blog::latest()->paginate(20);
+        
+        return view('static.learning', [ 
+            'blogs' => $blog,
+        ]);
     }
 
     public function web() 

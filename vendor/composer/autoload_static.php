@@ -512,6 +512,7 @@ class ComposerStaticInit94dbba2a11baf18d07f3e9d0b648b064
     public static $classMap = array (
         'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
         'App\\AuthorizedPerson' => __DIR__ . '/../..' . '/app/AuthorizedPerson.php',
+        'App\\Blog' => __DIR__ . '/../..' . '/app/Blog.php',
         'App\\City' => __DIR__ . '/../..' . '/app/City.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\CoporateBody' => __DIR__ . '/../..' . '/app/CoporateBody.php',
@@ -570,6 +571,7 @@ class ComposerStaticInit94dbba2a11baf18d07f3e9d0b648b064
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'BlogSeeder' => __DIR__ . '/../..' . '/database/seeds/BlogSeeder.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',

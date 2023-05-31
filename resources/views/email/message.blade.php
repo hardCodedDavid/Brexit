@@ -42,7 +42,7 @@
                         </table>
                         @endif
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Regards,</p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Brexits Team.</p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Vantage Horizon.</p>
                       </td>
                     </tr>
                   </table>
@@ -63,7 +63,7 @@
                 </tr>
                 <tr>
                   <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                    &copy; BREXITS ASSETS MANAGEMENT {{ date('Y')}}
+                    &copy; Vantage Horizon  {{ date('Y')}}
                   </td>
                 </tr>
               </table>

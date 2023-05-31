@@ -13,8 +13,8 @@ s0.parentNode.insertBefore(s1,s0);
 <!--End of Tawk.to Script-->
 
 @php
-use App\Http\Controllers\Globals as Utils;
-$me = Utils::getUser();
+    use App\Http\Controllers\Globals as Utils;
+    $me = Utils::getUser();
 @endphp
 <!doctype html>
 <html lang="en-us">
@@ -24,7 +24,7 @@ $me = Utils::getUser();
         <title>@yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
-        <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ asset('static/assets/images/favicon.ico') }}" type="image/x-icon">
 
         @stack('styles')
 
@@ -38,7 +38,7 @@ $me = Utils::getUser();
         <![endif]-->
         <div class="o-page__sidebar js-page-sidebar">
             <div class="c-sidebar">
-                <a class="c-sidebar__brand" href="/home">
+                <a class="c-sidebar__brand" href="/">
                 <img class="c-sidebar__brand-img" src="{{ asset('static/assets/images/logo/Vantage-horizon-logo-large.png') }}" alt="Logo">
                 </a>
                 <h4 class="c-sidebar__title">Overview</h4>
@@ -132,8 +132,7 @@ $me = Utils::getUser();
                 </button>
                 <h2 class="c-navbar__title u-mr-auto">@yield('page')</h2>
                 <div class="c-dropdown dropdown">
-                    <a  class="c-avatar c-avatar--xsmall has-dropdown dropdown-toggle" href="#" id="dropdwonMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{-- <img class="c-avatar__img" src="{{ asset('brexits-user-avatar-2.png') }}" alt="User's Profile Picture"> --}}
+                    <a  class="c-avatar c-avatar--xsmall dropdown dropdown-toggle" href="#" id="dropdwonMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @if($me->user_img)
                         <img class="c-avatar__img" src="{{ $me->user_img }}" alt="Avatar">
                     @else
@@ -143,7 +142,6 @@ $me = Utils::getUser();
                     <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdwonMenuAvatar">
                         <a class="c-dropdown__item dropdown-item" href="/edit_profile">Edit Profile</a>
                         <a class="c-dropdown__item dropdown-item" href="/edit_profile#nav-identity">Identity/KYC Doc</a>
-                        {{-- <a class="c-dropdown__item dropdown-item" href="/edit_profile#nav-tax">TAX info</a> --}}
                         <a class="c-dropdown__item dropdown-item" href="/password/reset">Reset Password</a>
                         <a class="c-dropdown__item dropdown-item" href="/logout">Logout</a>
                     </div>
@@ -184,7 +182,8 @@ $me = Utils::getUser();
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
                                     <h6 class="c-state-card__number u-h3">Individual</h6>
-                                    <p class="c-state-card__meta">Available Funds <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('brexist-trust-funds'),2) }}</span></p>
+                                    <p class="c-state-card__meta">Available Funds: <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('individual'),2) }}</span></p>
+                                    <p class="c-state-card__meta">Invested Funds: <span class="" style="color: red;">${{ number_format(Utils::getIndividualFunds('individual'),2) }}</span></p>
                                 </div>
                             </div>
                         </a>
@@ -193,8 +192,9 @@ $me = Utils::getUser();
                         <a href="">
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
-                                    <h6 class="c-state-card__number u-h3">Entity <p style="font-size: 20px;">(Trust fund, Cooperate)</p></h6>
-                                    <p class="c-state-card__meta">Available Funds <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('tax-free-savings-account'),2) }}</span></p>
+                                    <h6 class="c-state-card__number u-h3">Entity <p style="font-size: 20px;">(Trust fund, Corporate)</p></h6>
+                                    <p class="c-state-card__meta">Available Funds: <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('entity'),2) }}</span></p>
+                                    <p class="c-state-card__meta">Invested Funds: <span class="" style="color: red;">${{ number_format(Utils::getIndividualFunds('entity'),2) }}</span></p>
                                 </div>
                             </div>
                         </a>
@@ -204,7 +204,8 @@ $me = Utils::getUser();
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
                                     <h6 class="u-h3 c-state-card__number">Retirement <p style="font-size: 20px;">(Check-book IRA)</p></h6>
-                                    <p class="c-state-card__meta">Available Funds <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('offshore-account'),2) }}</span></p>
+                                    <p class="c-state-card__meta">Available Funds: <span class="u-text-danger">${{ number_format(Utils::getInvestmentSum('retirement'),2) }}</span></p>
+                                    <p class="c-state-card__meta">Invested Funds: <span class="" style="color: red;">${{ number_format(Utils::getIndividualFunds('retirement'),2) }}</span></p>
                                 </div>
                             </div>
                         </a>

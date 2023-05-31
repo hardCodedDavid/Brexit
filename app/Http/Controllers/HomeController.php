@@ -568,7 +568,7 @@ class HomeController extends Controller
             $button_text = '';
             $subject = "Investment Booked";
             Mail::to($user->email)->send(new Messaging($title,$name,$content,$button,$button_text,$subject));
-            return redirect('/')->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>   Your investment is pending admin\'s approval..</div>');
+            return redirect()->back()->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>   Your investment is pending admin\'s approval..</div>');
         }
     }
 
@@ -644,6 +644,21 @@ class HomeController extends Controller
         $investment = Investment::where(['plan'=>$req->plan, 'user'=>$user->email])->first();
         $payouts = count(Payout::where(['user'=>$user->email, 'status'=>'pending'])->get());
 
+        $invest = Investment::where(['user'=> $user->email, 'plan'=>$req->plan])->sum('amount');
+        $withdrawals = Payout::where(['user'=> $user->email, 'plan'=>$req->plan, 'status' => 'pending'])->sum('amount');
+        
+        $funds = $invest - $withdrawals;
+
+        $amount = $user->staticInvestments()->where('status', 'open')->where('asset', $req->plan)->get();
+    
+        $totalInvestment = 0;
+
+        foreach ($amount as $investments) {
+            $totalInvestment += (int)$investments['amount_invested'];
+        }
+
+        $total = $funds - $totalInvestment;
+
         //  if($investment->locked == 1){
         //      return redirect('/withdrawals')->with('message', '<div class="c-alert c-alert--danger"><i class="c-alert__icon fa fa-check-circle"></i>The selected account has been locked. Please contact admin</div>');
         // }
@@ -665,6 +680,8 @@ class HomeController extends Controller
                 return redirect()->route('addWithdrawal')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. You do not have sufficient funds to complete this transaction.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
             }else if($payouts > 0){
                 return redirect()->route('addWithdrawal')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. You have a pending payouts.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
+            }else if($req->amount > $total){
+                return redirect()->route('addWithdrawal')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. You do not have sufficient funds in '. $req->plan .' to complete this transaction.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
             }else{
                 Payout::create([
                     'user'=>$user->email,
@@ -682,7 +699,13 @@ class HomeController extends Controller
                 
                 $title= ' ';
                 $name = $user->firstname.' '.$user->surname;
-                $content = 'This is to inform you that your withdrawal of $'. number_format($req->amount,2).' from ' .$req->plan. ' is in process. This can take several hours. <br><br>A notification will be sent when successful ';
+                $content = 'This is to inform you that your withdrawal of <b>$'. number_format($req->amount,2).'</b> from <b>' .$req->plan. '</b> is in process. This can take several hours. <br><br> 
+                        <p>Account Name:  <b> ' .$user->account_holder. ' </b></p>
+                        <p>Bank Name:  <b> ' .$user->bank_name. '</b></p>
+                        <p>Account Number:  <b> ' .$user->account_number. '</b></p>
+                        <p>Routing Number:  <b> ' .$user->branch_code. '</b></p>
+                        <br><br>
+                        A notification will be sent when successful ';
                 $button = false;
                 $button_text = '';
                 $subject = "Withdrawal Booked";
@@ -767,12 +790,15 @@ class HomeController extends Controller
                 'status' => 'pending'
             ]);
 
-            $from = Plan::where('slug', $transfer->from)->first();
-            $to = Plan::where('slug', $transfer->to)->first();
+            // $from = Plan::where('slug', $transfer->from)->first();
+            // $to = Plan::where('slug', $transfer->to)->first();
+
+            $from = $investment->plan;
+            $to = $req->plan;
 
             $title= ' ';
             $name = auth()->user()->firstname.' '.auth()->user()->surname;
-            $content = 'Your inter-account transfer from '.ucwords($from->name).' to '. ucwords($to->name) .' has been initiated successfully.';
+            $content = 'Your inter-account transfer from '.ucwords($from).' to '. ucwords($to) .' has been initiated successfully.';
             $button = false;
             $button_text = '';
             $subject = "Transfer Initiated!";

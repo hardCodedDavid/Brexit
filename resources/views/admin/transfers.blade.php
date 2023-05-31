@@ -93,8 +93,8 @@ use App\Http\Controllers\Globals as Utils;
                             <td>
                                 <a href="/admin/users/view/{{ $transaction->user->id }}" target="_blank">{{ $transaction->user->username }}</a>
                             </td>
-                            <td>{{$from->name}}</td>
-                            <td>{{$to->name}}</td>
+                            <td>{{ $transaction->from}}</td>
+                            <td>{{ $transaction->to}}</td>
                             <td>${{ number_format($transaction->amount,2) }}</td>
 
                             <td>

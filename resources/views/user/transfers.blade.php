@@ -34,8 +34,8 @@
                             @endphp
     					<tr class="c-table__row c-table__row--danger">
     						<td class="c-table__cell">{{ $i++ }}</td>
-                            <td class="c-table__cell">{{ $from->name }}</td>
-                            <td class="c-table__cell">{{ $to->name }}</td>
+                            <td class="c-table__cell">{{ $transaction->from}}</td>
+                            <td class="c-table__cell">{{ $transaction->to }}</td>
                             <td class="c-table__cell">${{ number_format($transaction->amount,2) }}</td>
     						<td class="c-table__cell">
     							@if($transaction->status == 'approved')

@@ -412,7 +412,7 @@ class AdminController extends Controller
                 'amount'=>$deposit->amount,
                 'status'=>'approved',
                 'type'=>'deposit',
-                'account' => $deposit->plan,
+                'account_type' => $deposit->plan,
             ]);
 
             if($static){
@@ -860,8 +860,8 @@ class AdminController extends Controller
         $from = Plan::where('slug', $transfer->from)->first();
         $to = Plan::where('slug', $transfer->to)->first();
 
-        $investmentFrom = Investment::where(['user'=>$transfer->user->email, 'plan'=>$from->slug])->first();
-        $investmentTo = Investment::where(['user'=>$transfer->user->email, 'plan'=>$to->slug])->first();
+        $investmentFrom = Investment::where(['user'=>$transfer->user->email, 'plan'=>$transfer->from])->first();
+        $investmentTo = Investment::where(['user'=>$transfer->user->email, 'plan'=>$transfer->to])->first();
 
         if($transfer->amount > $investmentFrom->amount){
             return redirect()->back()->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. The user does not have sufficient balance for this transfer.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
@@ -874,11 +874,11 @@ class AdminController extends Controller
                 'amount'=>$transfer->amount,
                 'status'=>'approved',
                 'type'=>'transfer',
-                'account_type' => $to->slug,
+                'account_type' => $transfer->to,
             ]);
             $title= ' ';
             $name = $transfer->user->firstname.' '.$transfer->user->surname;
-            $content = 'Your inter-account transfer from '.ucwords($from->name).' to '. ucwords($to->name) .' was successful.';
+            $content = 'Your inter-account transfer from '.ucwords($transfer->from).' to '. ucwords($transfer->to) .' was successful.';
             $button = false;
             $button_text = '';
             $subject = "Transfer Successful";
@@ -892,20 +892,20 @@ class AdminController extends Controller
                     'amount'=>$transfer->amount,
                     'status'=>'approved',
                     'type'=>'credit',
-                    'account_type' => $to->slug,
+                    'account_type' => $transfer->to,
                 ]);
             }else {
                 Investment::create([
                     'user'=>$transfer->user->email,
                     'amount'=>$transfer->amount,
-                    'plan'=>$to->slug,
+                    'plan'=>$transfer->to,
                 ]);
                 Transaction::create([
                     'user'=>$transfer->user->email,
                     'amount'=>$transfer->amount,
                     'status'=>'approved',
                     'type'=>'credit',
-                    'account_type' => $to->slug,
+                    'account_type' => $transfer->to,
                 ]);
             }
             $transfer->update(['status' => 'approved']);
@@ -922,7 +922,7 @@ class AdminController extends Controller
         $transfer->update(['status' => 'declined']);
         $title= ' ';
         $name = $transfer->user->firstname.' '.$transfer->user->surname;
-        $content = 'Your inter-account transfer of $'. number_format($transfer->amount,2) .' from '.ucwords($from->name).' to '. ucwords($to->name) .' has been declined.';
+        $content = 'Your inter-account transfer of $'. number_format($transfer->amount,2) .' from '.ucwords($transfer->from).' to '. ucwords($transfer->to) .' has been declined.';
 
         $button = false;
         $button_text = '';

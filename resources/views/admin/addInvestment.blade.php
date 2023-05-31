@@ -79,10 +79,10 @@
                         </div>
 
                         <div class="form-group col-12">
-                            <label>Asset</label>
+                            <label>Account Type</label>
                             <select class="form-control" name="asset" required>
                                 <option value="">Please select...</option>
-                                @foreach(['Equities', 'Fixed Income (bond)', 'Cash', 'Properties', 'Cryptocurrencies', 'EFT\'s', 'Gold', 'Hedge Funds'] as $asset)
+                                @foreach(['Individual', 'Entity', 'Retirement'] as $asset)
                                     <option value="{{ $asset }}" @if($investment->asset == $asset) selected @endif>{{ ucwords($asset) }}</option>
                                 @endforeach
                             </select>

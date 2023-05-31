@@ -19,7 +19,7 @@ use App\Http\Controllers\Globals as Utils;
                     <select class="c-select has-search" name="from" required="">
                         <option value="">Please select....</option>
                         @foreach($investments as $investment)
-                        <option value="{{ $investment->id }}">{{ ucwords(Utils::getPlan($investment->plan)->name) }} - ${{ number_format($investment->amount,2) }}</option>
+                        <option value="{{ $investment->id }}">{{ $investment->plan }} - ${{ number_format($investment->amount,2) }}</option>
                         @endforeach
                     </select>
                 </div>

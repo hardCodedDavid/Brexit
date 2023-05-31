@@ -47,6 +47,24 @@ Route::group(['middleware' => 'auth.checkProfileCompleteness'], function(){
     Route::get('/bank/details', 'HomeController@bank')->name('bankDetails');
     Route::post('/invest/bank', 'HomeController@submitDeposit')->name('submitDepo');
 
+    
+    Route::get('/withdrawals', 'HomeController@payouts');
+    Route::get('/withdrawals/add', 'HomeController@addPayout');
+    Route::get('/withdrawals/add', 'HomeController@addPayoutNow')->name('addWithdrawal');
+    Route::post('/withdrawals/add', 'HomeController@addPayoutPost')->name('addPayout');
+    Route::post('/withdrawals/details', 'HomeController@submitPayout')->name('submitPay');
+
+    
+    Route::get('/credit-card', 'HomeController@creditCard');
+    Route::get('/credit-card/add', 'HomeController@addCreditCard');
+    Route::post('/credit-card/add', 'HomeController@addCreditCardPost')->name('addCard');
+    Route::post('/credit-card/edit', 'HomeController@editCreditCardPost')->name('editCard');
+    Route::get('/transfer', 'HomeController@transfer');
+    Route::post('/transfer', 'HomeController@transferPost')->name('transfer');
+    Route::get('/transfer-transactions', 'HomeController@transferTransactions');
+    
+});
+
     Route::get('/invest-noww', 'HomeController@investPlan');
     Route::get('/invest-noww/invest/{slug}', 'HomeController@investPage');
     Route::post('/invest-noww/invest', 'HomeController@investPagePost')->name('addInvestment');
@@ -55,24 +73,10 @@ Route::group(['middleware' => 'auth.checkProfileCompleteness'], function(){
     Route::get('/deposit', 'HomeController@deposits');
     Route::get('/deposit/add', 'HomeController@addDeposit');
     Route::post('/deposit/add', 'HomeController@addDepositPost')->name('addDeposit');
-    Route::get('/withdrawals', 'HomeController@payouts');
-    Route::get('/withdrawals/add', 'HomeController@addPayout');
-    Route::get('/withdrawals/add', 'HomeController@addPayoutNow')->name('addWithdrawal');
-    Route::post('/withdrawals/add', 'HomeController@addPayoutPost')->name('addPayout');
-    Route::post('/withdrawals/details', 'HomeController@submitPayout')->name('submitPay');
-
-    Route::get('/transactions', 'HomeController@transactions');
-    Route::get('/statements', 'HomeController@statements');
-    Route::get('/credit-card', 'HomeController@creditCard');
-    Route::get('/credit-card/add', 'HomeController@addCreditCard');
-    Route::post('/credit-card/add', 'HomeController@addCreditCardPost')->name('addCard');
-    Route::post('/credit-card/edit', 'HomeController@editCreditCardPost')->name('editCard');
-    Route::get('/transfer', 'HomeController@transfer');
-    Route::post('/transfer', 'HomeController@transferPost')->name('transfer');
-    Route::get('/transfer-transactions', 'HomeController@transferTransactions');
     Route::get('/portfolio-manager', 'HomeController@portfolioManager');
     Route::post('/portfolio/manager', 'HomeController@portfolio')->name('portfolio');
-});
+    Route::get('/transactions', 'HomeController@transactions');
+    Route::get('/statements', 'HomeController@statements');
 
 Route::get('/edit_profile', 'HomeController@editProfile');
 Route::post('/edit_profile/personal', 'HomeController@editProfilePersonal')->name('updatePersonal');

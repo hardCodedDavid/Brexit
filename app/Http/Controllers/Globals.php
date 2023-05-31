@@ -41,7 +41,18 @@ class Globals extends Controller
     public static function getInvestmentSum($plan){
         $investment = Investment::where(['user'=>self::getUser()->email, 'plan'=>$plan])->sum('amount');
         $withdrawals = Payout::where(['user'=>self::getUser()->email, 'plan'=>$plan, 'status' => 'pending'])->sum('amount');
-        return ($investment - $withdrawals);
+        
+        $funds = $investment - $withdrawals;
+
+        $amount = self::getUser()->staticInvestments()->where('status', 'open')->where('asset', $plan)->get();
+    
+        $totalInvestment = 0;
+
+        foreach ($amount as $investment) {
+            $totalInvestment += (int)$investment['amount_invested'];
+        }
+        
+        return ($funds - $totalInvestment);
     }
 
     public static function getInvestmentSum2($user){
@@ -61,5 +72,38 @@ class Globals extends Controller
         $user = $user?: auth()->user();
 
         return Investment::where('user', $user->email)->where('locked',  0)->sum('amount');
+    }
+
+    public static function getIndividualFunds($asset)
+    {
+        $user = self::getUser();
+
+        $amount = $user->staticInvestments()->where('status', 'open')->where('asset', $asset)->get();
+    
+        $totalInvestment = 0;
+
+        foreach ($amount as $investment) {
+            $totalInvestment += (int)$investment['amount_invested'];
+        }
+
+        return $totalInvestment;
+    }
+
+    public static function getAssetFunds()
+    {
+        $investment = Investment::where(['user'=>self::getUser()->email])->sum('amount');
+        $withdrawals = Payout::where(['user'=>self::getUser()->email, 'status' => 'pending'])->sum('amount');
+        
+        $funds = $investment - $withdrawals;
+
+        $amount = self::getUser()->staticInvestments()->where('status', 'open')->get();
+    
+        $totalInvestment = 0;
+
+        foreach ($amount as $investment) {
+            $totalInvestment += (int)$investment['amount_invested'];
+        }
+        
+        return ($funds - $totalInvestment);
     }
 }

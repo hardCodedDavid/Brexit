@@ -28,12 +28,12 @@
 
 		        <div class="c-field u-mb-small">
 		            <label class="c-field__label">Username </label>
-		            <input type="text" name="username" class="c-input" value="{{ auth()->user()->username }}" readonly="">
-		            <input type="hidden" name="id" class="c-input" value="{{ auth()->user()->id }}" readonly="">
+		            <input type="text" name="username" class="c-input">
+		            <input type="hidden" name="username" class="c-input" value="{{ auth()->user()->id }}" readonly="">
 		        </div>
 		        <div class="c-field u-mb-small">
 		            <label class="c-field__label">Email</label>
-		            <input class="c-input" type="text" name="email" required="" step="any" value="{{ auth()->user()->email }}" readonly="">
+		            <input class="c-input" type="text" name="email" required="" step="any">
 		        </div>
                 <div class="c-field u-mb-small" style="margin-top: 80px;">
 		            {{-- <label class="c-field__label">Disclaimer</label> --}}

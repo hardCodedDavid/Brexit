@@ -60,13 +60,13 @@
                                                 }
                                             </style>
                                             <div class="text-truncate-container">
-                                                <p>{{$blog->description}}</p>
+                                                <p>{!! $blog->description !!}</p>
                                             </div>
                                             
-                                            <div class="post-meta text-uppercase">
+                                            {{-- <div class="post-meta text-uppercase">
                                                 <a href="#"><span>By Admin</span></a>
                                                 <a href="#"><span>{{ date('d M, Y', strtotime($blog->created_at)) }}</span></a>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>

@@ -539,6 +539,58 @@ or deal with the operational headaches.</span></p>
         </div>
         <!--=============== Problem solving Section End ===============-->
 
+<div class="full-row bg-light">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-md-6">
+                        <h2 class="main-title">Blog</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mix-element row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-4">
+                            @foreach($blogs as $key => $blog)
+                                <div class="col mix house land mb-30">
+                                    <!-- Property Grid -->
+                                    <div class="property-grid-1 property-block bg-white transation-this hover-shadow">
+                                        <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
+                                            
+                                            <a href="{{ route('blogShow', $blog->id) }}"><img src="{{$blog->blog_img}}" alt="Image Not Found!"></a>
+                                        </div>
+                                        <div class="property_text p-4">
+                                            <h5 class="listing-title"><a href="{{ route('blogShow', $blog->id) }}">{{$blog->title}}</a></h5>
+                                            <style>
+                                                .text-truncate-container {
+                                                    width: 100%;
+                                                }
+                                                .text-truncate-container p {
+                                                    -webkit-line-clamp: 3;
+                                                    display: -webkit-box;
+                                                    -webkit-box-orient: vertical;
+                                                    overflow: hidden;
+                                                }
+                                            </style>
+                                            <div class="text-truncate-container">
+                                                <p>{{$blog->description}}</p>
+                                            </div>
+                                        </div>
+                                        {{-- <div class="d-flex align-items-center post-meta mt-2 py-3 px-4 border-top">
+                                            <div class="agent">
+                                                <a href="#" class="d-flex text-general align-items-center"><span>Admin</span></a>
+                                            </div>
+                                            <div class="post-date ms-auto"><span>{{ date('d M, Y', strtotime($blog->created_at)) }}</span></div>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            @endforeach
+                            @if($blogs->count() == 0)
+                                <p class="text-center">No Blog found</P>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="full-row bg-light">
             <div class="container">
@@ -550,7 +602,7 @@ or deal with the operational headaches.</span></p>
                             returns high. There are multiple ways Arrived is designed to help you mitigate risk through
                             diversification.
                         </p>
-                        <a href="/" class="btn btn-primary mt-5">Learn More <i class="flaticon-rocket flat-mini text-white"></i> </a>
+                        <a href="/learning-centre" class="btn btn-primary mt-5">Learn More <i class="flaticon-rocket flat-mini text-white"></i> </a>
                     </div>
                     <div class="col">
                         <div class="capability-avg">

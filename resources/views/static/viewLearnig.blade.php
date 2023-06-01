@@ -41,8 +41,8 @@
                                 {{-- <span class="d-inline-block text-primary">By Admin</span> --}}
                                 <h4 class="mb-3 text-secondary">{{ $blog->title }}</h4>
                                 <div class="post-meta list-color-general mb-4">
-                                    <a href="#"><i class="flaticon-user-silhouette flat-mini"></i> <span>By Admin</span></a>
-                                    <a href="#"><i class="flaticon-calendar flat-mini"></i> <span>{{ date('d M, Y', strtotime($blog->created_at)) }}</span></a>
+                                    {{-- <a href="#"><i class="flaticon-user-silhouette flat-mini"></i> <span>By Admin</span></a>
+                                    <a href="#"><i class="flaticon-calendar flat-mini"></i> <span>{{ date('d M, Y', strtotime($blog->created_at)) }}</span></a> --}}
                                     {{-- <a href="#"><i class="flaticon-comments flat-mini"></i> <span>02</span></a> --}}
                                     {{-- <a href="#"><i class="flaticon-like flat-mini"></i> <span>30</span></a> --}}
                                     {{-- <a href="#"><i class="flaticon-eye-1 flat-mini"></i> <span>731</span></a> --}}
@@ -53,7 +53,7 @@
                                 <img src="/{{$blog->blog_img}}" alt="Image not found!">
                             </div>
                             <div class="post-content pt-4 mb-5">
-                                <p>{{$blog->description}}</p>
+                                <p>{!! $blog->description !!}</p>
                             </div>
                         </div>
                     </div>

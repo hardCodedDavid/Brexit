@@ -105,7 +105,7 @@ use App\Http\Controllers\Globals as Utils;
                             <p>{{ $blog->title }}</p>
                         </td>
                         <td class="c-table__cell text-truncate-container"> 
-                            <p>{{ $blog->description }}</p>
+                            <p>{!! $blog->description !!}</p>
                         </td>
                         
                         <td class="c-table__cell">{{ date('Y-F-d', strtotime($blog->created_at)) }}</td>

@@ -67,8 +67,7 @@
                         <h5 class="text-secondary mb-2">High Revenue</h5>
                         <p>On average, a full time vacation rental can generate up to 130% more revenue than a traditional long-term rental*.2 Growing Trend</p>
                         <p>Work-from-home flexibility & increased business + leisure travel have raised the average stay from 3.5 to 4+ nights from 2019 through 2021.3</p>
-                        <a href="#" class="btn btn-primary mt-3">Download Details</a>
-                        <a href="#" class="btn btn-secondary mt-3">Submit Application</a>
+                        
                     </div>
                 </div>
             </div>
@@ -78,7 +77,7 @@
 
 
         <!--============== Banner Start ==============-->
-        <div class="full-row paraxify" style="background-image: url({{ asset('static/vacation/alpha.png') }}); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 500px;">
+        <div class="full-row paraxify" style="background-image: url({{ asset('static/vacation/landing.png') }}); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 500px;">
         </div>
         <!--============== Banner End ==============-->
 

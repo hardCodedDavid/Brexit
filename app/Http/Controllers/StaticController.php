@@ -11,9 +11,11 @@ class StaticController extends Controller
     public function index() 
     {
         $plan = Plan::latest()->paginate(6);
+        $blog = Blog::latest()->paginate(6);
         
         return view('static.index', [ 
             'plans' => $plan,
+            'blogs' => $blog,
         ]);
     }
 

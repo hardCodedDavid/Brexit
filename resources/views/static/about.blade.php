@@ -53,7 +53,7 @@
         <!--============== Features End ==============-->
 
         <!--============== Banner Start ==============-->
-        <div class="full-row paraxify" style="background-image: url({{ asset('static/about/landing.jpg') }}); background-repeat: no-repeat; background-position: center center; background-size: cover;">
+        <div class="full-row" style="background-image: url({{ asset('static/about/landing.jpg') }}); background-repeat: no-repeat; background-position: center center; background-size: cover;">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-lg-8">
@@ -117,7 +117,7 @@
                                     <div class="entry-content-wrapper">
                                         <div class="entry-header d-flex pb-2">
                                             <div class="me-auto">
-                                                <h6 class="text-dark mb-0"><a href="#">Ryan Frazier</a></h6>
+                                                <h6 class="text-dark mb-0"><a href="#">Ryan Richard</a></h6>
                                                 <span class="text-primary font-fifteen">Co-founder & CEO</span>
                                             </div>
                                         </div>
@@ -133,7 +133,7 @@
                                     <div class="entry-content-wrapper">
                                         <div class="entry-header d-flex pb-2">
                                             <div class="me-auto">
-                                                <h6 class="text-dark mb-0"><a href="#">Alejandro Chouza</a></h6>
+                                                <h6 class="text-dark mb-0"><a href="#">Chouza Eliot</a></h6>
                                                 <span class="text-primary font-fifteen">Co-founder & COO</span>
                                             </div>
                                         </div>
@@ -149,7 +149,7 @@
                                     <div class="entry-content-wrapper">
                                         <div class="entry-header d-flex pb-2">
                                             <div class="me-auto">
-                                                <h6 class="text-dark mb-0"><a href="#">Kenny Cason</a></h6>
+                                                <h6 class="text-dark mb-0"><a href="#">Cason Anderson</a></h6>
                                                 <span class="text-primary font-fifteen">Co-founder & CTO</span>
                                             </div>
                                         </div>
@@ -165,7 +165,7 @@
                                     <div class="entry-content-wrapper">
                                         <div class="entry-header d-flex pb-2">
                                             <div class="me-auto">
-                                                <h6 class="text-dark mb-0"><a href="#">Joel Mezistrano</a></h6>
+                                                <h6 class="text-dark mb-0"><a href="#">Joel Lucas</a></h6>
                                                 <span class="text-primary font-fifteen">CFO</span>
                                             </div>
                                         </div>
@@ -181,7 +181,7 @@
                                     <div class="entry-content-wrapper">
                                         <div class="entry-header d-flex pb-2">
                                             <div class="me-auto">
-                                                <h6 class="text-dark mb-0"><a href="#">Amanda LaRocca</a></h6>
+                                                <h6 class="text-dark mb-0"><a href="#">Amanda Leung</a></h6>
                                                 <span class="text-primary font-fifteen">Business Operations Manager</span>
                                             </div>
                                         </div>
@@ -197,7 +197,7 @@
                                     <div class="entry-content-wrapper">
                                         <div class="entry-header d-flex pb-2">
                                             <div class="me-auto">
-                                                <h6 class="text-dark mb-0"><a href="#">Shirley Leung</a></h6>
+                                                <h6 class="text-dark mb-0"><a href="#">Suzanne LaRocca</a></h6>
                                                 <span class="text-primary font-fifteen">Finance Director</span>
                                             </div>
                                         </div>
@@ -350,39 +350,6 @@
         </div>
         <!--============== Agents End ==============-->
         <br><br>
-
-        <!--============== Testimonials Start ==============-->
-        <div class="full-row bg-white" style="background-image: url({{ asset('static/assets/images/background/oh_bg-min.png') }}); background-size: 100%">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-9 mx-auto position-relative">
-                        <span class="tagline text-primary">Testimonial</span>
-                        <h2 class="mb-5"><span class="font-weight-bold">What People</span> Says About Us</h2>
-                        <div class="owl-carousel single-carusel testimonial-slider dot-disable position-static">
-                            <div class="testimonial-item font-medium">
-                                <span class="flaticon-right-quote quote-icon flat-medium text-primary"></span>
-                                <p>Hendrerit dapibus natoque class taciti, egestas orci dis dictumst duis platea penatibus. Pretium fusce. Nullam. Dui nec purus nam. Aenean quam nulla mauris primis mi blandit turpis nulla. Blandit suscipit eleifend dignissim
-                                    ac faucibus. Ad primis nisl scelerisque rutrum. Fusce, sapien interdum inceptos, amet maecenas augue platea Tincidunt magnis nostra, sit imperdiet porttitor consectetuer.</p>
-                                <span class="name text-secondary h6 font-weight-medium mt-4 d-table">Gilbert E. Lyons, CEO Unicoder</span>
-                            </div>
-                            <div class="testimonial-item font-medium">
-                                <span class="flaticon-right-quote quote-icon flat-medium text-primary"></span>
-                                <p>Hendrerit dapibus natoque class taciti, egestas orci dis dictumst duis platea penatibus. Pretium fusce. Nullam. Dui nec purus nam. Aenean quam nulla mauris primis mi blandit turpis nulla. Blandit suscipit eleifend dignissim
-                                    ac faucibus. Ad primis nisl scelerisque rutrum. Fusce, sapien interdum inceptos, amet maecenas augue platea Tincidunt magnis nostra, sit imperdiet porttitor consectetuer.</p>
-                                <span class="name text-secondary h6 font-weight-medium mt-4 d-table">Gilbert E. Lyons, CEO Unicoder</span>
-                            </div>
-                            <div class="testimonial-item font-medium">
-                                <span class="flaticon-right-quote quote-icon flat-medium text-primary"></span>
-                                <p>Hendrerit dapibus natoque class taciti, egestas orci dis dictumst duis platea penatibus. Pretium fusce. Nullam. Dui nec purus nam. Aenean quam nulla mauris primis mi blandit turpis nulla. Blandit suscipit eleifend dignissim
-                                    ac faucibus. Ad primis nisl scelerisque rutrum. Fusce, sapien interdum inceptos, amet maecenas augue platea Tincidunt magnis nostra, sit imperdiet porttitor consectetuer.</p>
-                                <span class="name text-secondary h6 font-weight-medium mt-4 d-table">Gilbert E. Lyons, CEO Unicoder</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--============== Testimonials End ==============-->
 
 </div>
 

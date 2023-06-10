@@ -560,18 +560,22 @@ or deal with the operational headaches.</span></p>
                                         <div class="property_text p-4">
                                             <h5 class="listing-title"><a href="{{ route('blogShow', $blog->id) }}">{{$blog->title}}</a></h5>
                                             <style>
-                                                .text-truncate-container {
-                                                    width: 100%;
+                                                .editor-wrapper {
+                                                    max-height: 5.2em; /* Three lines with line height */
+                                                    overflow: hidden;
                                                 }
-                                                .text-truncate-container p {
-                                                    -webkit-line-clamp: 3;
+
+                                                .editor-content {
                                                     display: -webkit-box;
+                                                    -webkit-line-clamp: 3; /* Number of lines to display */
                                                     -webkit-box-orient: vertical;
                                                     overflow: hidden;
                                                 }
                                             </style>
-                                            <div class="text-truncate-container">
-                                                <p>{{$blog->description}}</p>
+                                            <div class="editor-wrapper">
+                                                <div class="editor-content">
+                                                    {!! $blog->description !!}
+                                                </div>
                                             </div>
                                         </div>
                                         {{-- <div class="d-flex align-items-center post-meta mt-2 py-3 px-4 border-top">

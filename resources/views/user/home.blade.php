@@ -21,7 +21,6 @@ use App\Http\Controllers\Globals as Utils;
 	<div class="col-xl-12 u-text-danger u-text-center">
 		<h4>Your investment portfolio summary</h4>
 		<span>Account Number: {{ auth()->user()->bx_account_number }}</span><br><br>
-		{{-- <span>Account Number: BX657489-352467</span><br><br> --}}
 	</div>
 	<div class="col-xl-4">
 		<div class="c-graph-card" data-mh="secondary-graphs">
@@ -38,17 +37,17 @@ use App\Http\Controllers\Globals as Utils;
 				</h3>
 			</div>
 			<div class="c-graph-card__chart u-flex u-justify-center">
-				<canvas id="js-chart-customers" width="150" height="150"></canvas>
+				<canvas id="js-chart-customers" width="200" height="200"></canvas>
 			</div>
 			<div class="o-line u-ph-medium u-pv-small u-border-top">
 				<span class="u-color-primary u-text-xsmall u-mr-xsmall">
-				<i class="fa fa-circle-o u-mr-xsmall u-color-info"></i> Individual
+				<i class="fa fa-circle-o u-mr-xsmall u-color-warning"></i> Individual
 				</span>
 				<span class="u-color-primary u-text-xsmall u-mr-xsmall">
 				<i class="fa fa-circle-o u-mr-xsmall u-color-primary"></i> Entity
 				</span>
 				<span class="u-color-primary u-text-xsmall u-mr-xsmall">
-				<i class="fa fa-circle-o u-mr-xsmall u-color-warning"></i> Retirement
+				<i class="fa fa-circle-o u-mr-xsmall u-color-info"></i> Retirement
 				</span>
 			</div>
 		</div>
@@ -64,7 +63,7 @@ use App\Http\Controllers\Globals as Utils;
 	<div class="col-lg-8">
 		<div class="c-card c-card--responsive u-mb-medium">
 			<div class="c-card__header c-card__header--transparent o-line">
-			    <small>MOVEMENT ON CURRENT HOLDINGS: PROFIT & LOSS VALUE</small>
+			    <small>MOVEMENT OF CURRENT HOLDINGS: PROFIT & LOSS VALUE</small>
 				<div class="c-card__meta">
 				    <h5 class="c-card__title u-text-danger">${{ number_format($investments,2) }}</h5>
 				</div>
@@ -113,59 +112,59 @@ use App\Http\Controllers\Globals as Utils;
 		</div>
 
 		<div class="c-table-responsive@desktop">
-				<table class="c-table c-table--zebra u-mb-small" id="datatable2">
-					<thead class="c-table__head">
-						<tr class="c-table__row">
-						    <th class="c-table__cell c-table__cell--head">Property Image</th>
-						    <th class="c-table__cell c-table__cell--head">Property Name</th>
-    						<th class="c-table__cell c-table__cell--head">Invested Amount</th>
-    						<th class="c-table__cell c-table__cell--head">Assets</th>
-                            <th class="c-table__cell c-table__cell--head">Roi</th>
-                            <th class="c-table__cell c-table__cell--head">Status</th>
-						</tr>
-					</thead>
-					<tbody>
-					    @php
-    					$i = 1;
-    					@endphp
-    					@foreach($transactions as $transaction)
-                            @php
-                                $plan = \App\Plan::where('slug', $transaction->plan)->first();
-                                $property_img = \App\PropertyImage::where('plan_id', $plan->id)->first();
-                            @endphp
-    					<tr class="c-table__row c-table__row--danger">
+			<table class="c-table c-table--zebra u-mb-small" id="datatable2">
+				<thead class="c-table__head">
+					<tr class="c-table__row">
+						<th class="c-table__cell c-table__cell--head">Property Image</th>
+						<th class="c-table__cell c-table__cell--head">Property Name</th>
+						<th class="c-table__cell c-table__cell--head">Invested Amount</th>
+						<th class="c-table__cell c-table__cell--head">Account Type</th>
+						<th class="c-table__cell c-table__cell--head">Roi</th>
+						<th class="c-table__cell c-table__cell--head">Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					@php
+					$i = 1;
+					@endphp
+					@foreach($transactions as $transaction)
+						@php
+							$plan = \App\Plan::where('slug', $transaction->plan)->first();
+							$property_img = \App\PropertyImage::where('plan_id', $plan->id)->first();
+						@endphp
+					<tr class="c-table__row c-table__row--danger">
 
-    						<td class="c-table__cell">
-                            @if($property_img->img_url)
-                                <img class="c-avatar__img" style="width: 60px; height: 60px;" src="{{ $property_img->img_url }}" alt="...">
-                            @endif
-                                
-                            </td>
+						<td class="c-table__cell">
+						@if($property_img->img_url)
+							<img class="c-avatar__img" style="width: 60px; height: 60px;" src="{{ $property_img->img_url }}" alt="...">
+						@endif
+							
+						</td>
 
-    						<td class="c-table__cell">{{ $plan->name }}</td>
+						<td class="c-table__cell">{{ $plan->name }}</td>
 
-                            {{-- <td class="c-table__cell">{{ date('Y-F-d', strtotime($transaction->created_at)) }}</td> --}}
-                            
-                            <td class="c-table__cell">${{ number_format($transaction->amount_invested,2) }}</td>
+						{{-- <td class="c-table__cell">{{ date('Y-F-d', strtotime($transaction->created_at)) }}</td> --}}
+						
+						<td class="c-table__cell">${{ number_format($transaction->amount_invested,2) }}</td>
 
-    						<td class="c-table__cell">{{ ucwords($transaction->asset) }}</td>
-    						<td class="c-table__cell">${{ number_format($transaction->roi) }}</td>
-    						<td class="c-table__cell">
-                                @if( $transaction->status == 'open')
-                                    <div class="c-btn--small c-btn c-btn--success">
-                                        Owned
-                                    </div>
-                                @elseif($transaction->status == 'close')
-                                    <div class="c-btn--small c-btn c-btn--danger">
-                                        Closed
-                                    </div>
-                                @endif
-                            </td>
-    					</tr>
-    					@endforeach
-					</tbody>
-				</table>
-			</div>
+						<td class="c-table__cell">{{ ucwords($transaction->asset) }}</td>
+						<td class="c-table__cell">${{ number_format($transaction->roi) }}</td>
+						<td class="c-table__cell">
+							@if( $transaction->status == 'open')
+								<div class="c-btn--small c-btn c-btn--success">
+									Owned
+								</div>
+							@elseif($transaction->status == 'close')
+								<div class="c-btn--small c-btn c-btn--danger">
+									Closed
+								</div>
+							@endif
+						</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
 	</div>
 	@if(isset($static) && $static->id != null)
 	<div class="col-xl-6">
@@ -196,6 +195,7 @@ use App\Http\Controllers\Globals as Utils;
                     $result = $investments - $deposits;
                 @endphp
 				<span class="u-text-small u-text-mute">${{ number_format($result > 0 ? $result : 0, 2) }}</span>
+				{{-- <span class="u-text-small u-text-mute">${{ $result }}</span> --}}
 			</div>
 		</div>
 	</div>
@@ -203,7 +203,7 @@ use App\Http\Controllers\Globals as Utils;
 	    <div class="c-card u-p-medium u-mb-small">
 			<div class="o-line u-mb-xsmall">
 				<p class="u-text-small">Withdrawable Funds</p>
-				<span class="u-text-small u-text-mute">${{ number_format(Utils::getWithdrawableFunds(),2) }}</span>
+				<span class="u-text-small u-text-mute">${{ number_format(Utils::getAssetFunds(),2) }}</span>
 			</div>
 			<div class="o-line u-mb-xsmall">
 				<p class="u-text-small">Bonus</p>

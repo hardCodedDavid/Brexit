@@ -44,15 +44,16 @@ class Globals extends Controller
         
         $funds = $investment - $withdrawals;
 
-        $amount = self::getUser()->staticInvestments()->where('status', 'open')->where('asset', $plan)->get();
+        $amount = self::getUser()->staticInvestments()->where('status', 'open')->where('asset', $plan)->sum('amount_invested');
+        $roi = self::getUser()->staticInvestments()->where('status', 'close')->where('asset', $plan)->sum('roi');
     
-        $totalInvestment = 0;
+        // $totalInvestment = 0;
 
-        foreach ($amount as $investment) {
-            $totalInvestment += (int)$investment['amount_invested'];
-        }
+        // foreach ($amount as $investment) {
+        //     $totalInvestment += (int)$investment['amount_invested'];
+        // }
         
-        return ($funds - $totalInvestment);
+        return ($funds - $amount + $roi);
     }
 
     public static function getInvestmentSum2($user){
@@ -61,10 +62,22 @@ class Globals extends Controller
 
     public static function getLockedFunds($user = null)
     {
-        $user = $user?: auth()->user();
+        // $user = $user?: auth()->user();
 
-        return Investment::where('user', $user->email)->where('locked',  1)->sum('amount');
+        // return Investment::where('user', $user->email)->where('locked',  1)->sum('amount');
 
+
+        $user = self::getUser();
+
+        $amount = $user->staticInvestments()->where('status', 'open')->get();
+    
+        $totalInvestment = 0;
+
+        foreach ($amount as $investment) {
+            $totalInvestment += (int)$investment['amount_invested'];
+        }
+
+        return $totalInvestment;
     }
 
     public static function getWithdrawableFunds($user = null)

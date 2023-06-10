@@ -77,7 +77,7 @@
 
 
         <!--============== Banner Start ==============-->
-        <div class="full-row paraxify" style="background-image: url({{ asset('static/vacation/landing.png') }}); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 500px;">
+        <div class="full-row" style="background-image: url({{ asset('static/vacation/landing.png') }}); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 500px;">
         </div>
         <!--============== Banner End ==============-->
 

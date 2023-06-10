@@ -876,13 +876,6 @@ class AdminController extends Controller
                 'type'=>'transfer',
                 'account_type' => $transfer->to,
             ]);
-            $title= ' ';
-            $name = $transfer->user->firstname.' '.$transfer->user->surname;
-            $content = 'Your inter-account transfer from '.ucwords($transfer->from).' to '. ucwords($transfer->to) .' was successful.';
-            $button = false;
-            $button_text = '';
-            $subject = "Transfer Successful";
-            Mail::to($transfer->user->email)->send(new Messaging($title,$name,$content,$button,$button_text,$subject));
 
             if(isset($investmentTo) && $investmentTo->id != null){
                 $newTo = $investmentTo->amount + $transfer->amount;
@@ -909,6 +902,14 @@ class AdminController extends Controller
                 ]);
             }
             $transfer->update(['status' => 'approved']);
+
+            $title= ' ';
+            $name = $transfer->user->firstname.' '.$transfer->user->surname;
+            $content = 'Your inter-account transfer from '.ucwords($transfer->from).' to '. ucwords($transfer->to) .' was successful.';
+            $button = false;
+            $button_text = '';
+            $subject = "Transfer Successful";
+            Mail::to($transfer->user->email)->send(new Messaging($title,$name,$content,$button,$button_text,$subject));
 
             return redirect()->back()->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>Transfer has been confirmed successfully.</div>');
         }

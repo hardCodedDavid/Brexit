@@ -52,11 +52,11 @@
                                 @enderror
                             </div>
                             <div class="form-group col-12">
-                                <label>Plan</label>
+                                <label>Account Type</label>
                                 <select class="form-control" name="plan" required>
                                     <option value="">Please select...</option>
-                                    @foreach($plans as $plan)
-                                        <option value="{{ $plan->slug }}" @if($deposit->plan == $plan->slug) selected @endif>{{ ucwords($plan->name) }}</option>
+                                    @foreach(['Individual', 'Entity', 'Retirement'] as $plan)
+                                        <option value="{{ $plan }}" @if($deposit->plan == $plan) selected @endif>{{ ucwords($plan) }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -113,11 +113,11 @@
                                 @enderror
                             </div>
                             <div class="form-group col-12">
-                                <label>Plan</label>
+                                <label>Account Type</label>
                                 <select class="form-control @error('plan') is-invalid @enderror" name="plan">
                                     <option value="">Please select...</option>
-                                    @foreach($plans as $plan)
-                                        <option value="{{ $plan->slug }}">{{ ucwords($plan->name) }}</option>
+                                    @foreach(['Individual', 'Entity', 'Retirement'] as $plan)
+                                        <option value="{{ $plan }}">{{ ucwords($plan) }}</option>
                                     @endforeach
                                 </select>
                                 @error('plan')

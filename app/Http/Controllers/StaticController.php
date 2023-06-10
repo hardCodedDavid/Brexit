@@ -45,6 +45,13 @@ class StaticController extends Controller
         ]);
     }
 
+    public function propertyShow($id)
+    {
+        $property = Plan::findOrFail($id);
+
+        return view('static.viewProperty', [ 'property' => $property ]);
+    }
+
     public function contact() 
     {
         return view('static.contact');

@@ -21,6 +21,7 @@ Route::get('/about', 'StaticController@about')->name('about');
 Route::get('/faq', 'StaticController@faq')->name('faq');
 Route::get('/how-it-works', 'StaticController@howItWorks')->name('how-it-works');
 Route::get('/properties', 'StaticController@list')->name('listProperty');
+Route::get('/properties/{id}', 'StaticController@propertyShow')->name('showProperty');
 Route::get('/contact-us', 'StaticController@contact')->name('contact');
 Route::get('/vacation-rentals', 'StaticController@vacation')->name('vacation');
 Route::get('/historical-performance', 'StaticController@historical')->name('historical');

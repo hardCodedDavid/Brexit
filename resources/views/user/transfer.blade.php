@@ -18,8 +18,8 @@ use App\Http\Controllers\Globals as Utils;
                     <label class="c-field__label">FROM</label>
                     <select class="c-select has-search" name="from" required="">
                         <option value="">Please select....</option>
-                        @foreach($investments as $investment)
-                        <option value="{{ $investment->id }}">{{ $investment->plan }} - ${{ number_format($investment->amount,2) }}</option>
+                        @foreach(['Individual', 'Entity', 'Retirement'] as $investment)
+                        <option value="{{ $investment }}">{{ $investment }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -28,8 +28,8 @@ use App\Http\Controllers\Globals as Utils;
                     <label class="c-field__label">TO</label>
                     <select class="c-select has-search" name="plan" required="">
                         <option value="">Please select....</option>
-                        @foreach($plans as $plan)
-                        <option value="{{ $plan->slug }}">{{ ucwords($plan->name) }}</option>
+                        @foreach(['Individual', 'Entity', 'Retirement'] as $investment)
+                        <option value="{{ $investment }}">{{ $investment }}</option>
                         @endforeach
                     </select>
                 </div>

@@ -49,24 +49,23 @@
                                                 <a href="{{ route('blogShow', $blog->id) }}" class="transation text-dark hover-text-primary">{{$blog->title}}</a>
                                             </h5>
                                             <style>
-                                                .text-truncate-container {
-                                                    width: 100%;
+                                                .editor-wrapper {
+                                                    max-height: 5.2em; /* Three lines with line height */
+                                                    overflow: hidden;
                                                 }
-                                                .text-truncate-container p {
-                                                    -webkit-line-clamp: 3;
+
+                                                .editor-content {
                                                     display: -webkit-box;
+                                                    -webkit-line-clamp: 3; /* Number of lines to display */
                                                     -webkit-box-orient: vertical;
                                                     overflow: hidden;
                                                 }
                                             </style>
-                                            <div class="text-truncate-container">
-                                                <p>{!! $blog->description !!}</p>
+                                            <div class="editor-wrapper">
+                                                <div class="editor-content">
+                                                    {!! $blog->description !!}
+                                                </div>
                                             </div>
-                                            
-                                            {{-- <div class="post-meta text-uppercase">
-                                                <a href="#"><span>By Admin</span></a>
-                                                <a href="#"><span>{{ date('d M, Y', strtotime($blog->created_at)) }}</span></a>
-                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>

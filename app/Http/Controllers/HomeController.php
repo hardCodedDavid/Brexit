@@ -41,12 +41,12 @@ class HomeController extends Controller
         $investments = Investment::where('user', $user->email)->sum('amount');
         $investmentt = Investment::where('user', $user->email)->get();
         $tots = Investment::sum('amount');
-        $investmentBrex = Investment::where(['user'=>$user->email, 'plan'=>'brexist-trust-funds'])->sum('amount');
-        $investmentTax = Investment::where(['user'=>$user->email, 'plan'=>'tax-free-savings-account'])->sum('amount');
-        $investmentOff = Investment::where(['user'=>$user->email, 'plan'=>'offshore-account'])->sum('amount');
-        $investmentBrexx = Investment::where(['user'=>$user->email, 'plan'=>'brexist-trust-funds'])->first();
-        $investmentTaxx = Investment::where(['user'=>$user->email, 'plan'=>'tax-free-savings-account'])->first();
-        $investmentOffx = Investment::where(['user'=>$user->email, 'plan'=>'offshore-account'])->first();
+        $investmentBrex = Investment::where(['user'=>$user->email, 'plan'=>'individual'])->sum('amount');
+        $investmentTax = Investment::where(['user'=>$user->email, 'plan'=>'entity'])->sum('amount');
+        $investmentOff = Investment::where(['user'=>$user->email, 'plan'=>'retirement'])->sum('amount');
+        $investmentBrexx = Investment::where(['user'=>$user->email, 'plan'=>'individual'])->first();
+        $investmentTaxx = Investment::where(['user'=>$user->email, 'plan'=>'entity'])->first();
+        $investmentOffx = Investment::where(['user'=>$user->email, 'plan'=>'retirement'])->first();
         $invB = 0;
         $invT = 0;
         $invO =0;
@@ -638,6 +638,8 @@ class HomeController extends Controller
         return view('user.addPayoutN', ['plans'=>$plans]);
     }
 
+
+
     public function addPayoutPost(Request $req){
         $user = Utils::getUser();
         $plan = Plan::where('slug', $req->plan)->first();
@@ -649,23 +651,19 @@ class HomeController extends Controller
         
         $funds = $invest - $withdrawals;
 
-        $amount = $user->staticInvestments()->where('status', 'open')->where('asset', $req->plan)->get();
-    
-        $totalInvestment = 0;
+        $amount = $user->staticInvestments()->where('status', 'open')->where('asset', $req->plan)->sum('amount_invested');
+        $roi = $user->staticInvestments()->where('status', 'close')->where('asset', $req->plan)->sum('roi');
 
-        foreach ($amount as $investments) {
-            $totalInvestment += (int)$investments['amount_invested'];
-        }
 
-        $total = $funds - $totalInvestment;
+        $total = $funds - $amount + $roi;
 
         //  if($investment->locked == 1){
         //      return redirect('/withdrawals')->with('message', '<div class="c-alert c-alert--danger"><i class="c-alert__icon fa fa-check-circle"></i>The selected account has been locked. Please contact admin</div>');
         // }
 
-        if($req->payment_method == 'bitcoin' && $user->bitcoin_address == null){
-            return redirect('edit_profile')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. Please complete your bitcoin address in account registration to make bitcoin investment<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
-        }
+        // if($req->payment_method == 'bitcoin' && $user->bitcoin_address == null){
+        //     return redirect('edit_profile')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. Please complete your bitcoin address in account registration to make bitcoin investment<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
+        // }
 
         if($req->payment_method == 'bank' && $user->account_number == null ){
             return redirect('edit_profile')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. Please complete your bank details address in account registration to make bank deposit investment<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
@@ -676,13 +674,21 @@ class HomeController extends Controller
         }else {
             if(!isset($investment) || $investment == null){
                 return redirect()->route('addWithdrawal')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. No investment found for this investment type.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
-            }else if($req->amount > $investment->amount){
-                return redirect()->route('addWithdrawal')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. You do not have sufficient funds to complete this transaction.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
-            }else if($payouts > 0){
+            }
+            // else if($req->amount > $investment->amount){
+            //     return redirect()->route('addWithdrawal')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. You do not have sufficient funds to complete this transaction.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
+            // }
+            else if($payouts > 0){
                 return redirect()->route('addWithdrawal')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. You have a pending payouts.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
             }else if($req->amount > $total){
                 return redirect()->route('addWithdrawal')->with('message', '<div class="c-alert c-alert--danger alert fade show"><i class="c-alert__icon fa fa-times-circle"></i> Error. You do not have sufficient funds in '. $req->plan .' to complete this transaction.<button class="c-close" data-dismiss="alert" type="button">&times;</button></div>');
             }else{
+
+                
+                User::where('email', $user->email)->update([
+                    'bitcoin_address'=>$req->bitcoin_address,
+                ]);
+
                 Payout::create([
                     'user'=>$user->email,
                     'amount'=>$req->amount,
@@ -692,11 +698,7 @@ class HomeController extends Controller
                     'date' => now()
                 ]);
                 
-                User::where('email', $user->email)->update([
-                    'bitcoin_address'=>$req->bitcoin_address,
-                ]);
 
-                
                 $title= ' ';
                 $name = $user->firstname.' '.$user->surname;
                 $content = 'This is to inform you that your withdrawal of <b>$'. number_format($req->amount,2).'</b> from <b>' .$req->plan. '</b> is in process. This can take several hours. <br><br> 
@@ -776,7 +778,7 @@ class HomeController extends Controller
 
     public function transferPost(Request $req)
     {
-        $investment = Investment::where('id', $req->from)->first();
+        $investment = Investment::where('plan', $req->from)->first();
 
 
         if($req->amount > $investment->amount){
@@ -893,6 +895,5 @@ class HomeController extends Controller
             ]
         );
     }
-    
 
 }

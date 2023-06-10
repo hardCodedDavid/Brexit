@@ -243,14 +243,14 @@
 
                                             </div>
                                         <div class="property_text p-3">
-                                            <span class="listing-price">${{ number_format($property->price, 2) }}<small> ( {{ $property->rental }} )</small></span>
-                                            <h5 class="listing-title"><a href="property-single-v1.html">{{ $property->name }}</a></h5>
+                                            <span class="listing-price">${{ number_format($property->shares, 2) }}<small> /share</small></span>
+                                            <h5 class="listing-title"><a href="{{ route('showProperty', $property->id) }}">{{ $property->name }}</a></h5>
                                             <span class="listing-location"><i class="fas fa-map-marker-alt"></i> {{ $property->location }}</span>
                                             <ul class="d-flex quantity font-fifteen">
-                                                <li title="Leverage"><span><i class="fa-solid fa-house"></i></span>{{ $property->leverage }}</li>
+                                                <li title="Leverage"><span><i class="fa-solid fa-house"></i></span>{{ $property->rental }}</li>
                                                 <li title="Shares"><span><i class="fa-solid fa-house-circle-check"></i></span>{{ $property->shares }}</li>
                                                 <li title="Investors"><span><i class="fa-solid fa-users"></i></span>{{ $property->investors }}</li>
-                                                <li title="funding"><span><i class="fa-solid fa-money-check-dollar"></i></span>{{ $property->funding }}</li>
+                                                <li title="funding"><span><i class="fa-solid fa-money-check-dollar"></i></span>${{ number_format($property->price, 2) }}</li>
                                             </ul>
                                             <p>
                                                 {{ $property->body }}  
@@ -261,7 +261,7 @@
                                                     <a href="/invest-noww/invest/{{ $property->slug }}" class="btn btn-primary">Invest Now <i class="fas fa-arrow-right-long me-1"></i></a>
 
                                                 </div>
-                                                <div class="post-date ms-auto"><span>{{ date('d M, Y', strtotime($property->created_at)) }}</span></div>
+                                                {{-- <div class="post-date ms-auto"><span>{{ date('d M, Y', strtotime($property->created_at)) }}</span></div> --}}
                                             </div>
                                         </div>
                                     </div>

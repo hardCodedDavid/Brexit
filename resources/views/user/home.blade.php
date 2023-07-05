@@ -194,8 +194,8 @@ use App\Http\Controllers\Globals as Utils;
                     //$withdrawals = App\Payout::where('user', $user->email)->sum('amount');
                     $result = $investments - $deposits;
                 @endphp
-				<span class="u-text-small u-text-mute">${{ number_format($result > 0 ? $result : 0, 2) }}</span>
-				{{-- <span class="u-text-small u-text-mute">${{ $result }}</span> --}}
+				{{-- <span class="u-text-small u-text-mute">${{ number_format($result > 0 ? $result : 0, 2) }}</span> --}}
+				<span class="u-text-small u-text-mute">${{ number_format(Utils::getTotalROI(),2) }}</span>
 			</div>
 		</div>
 	</div>

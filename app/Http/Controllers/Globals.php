@@ -104,19 +104,16 @@ class Globals extends Controller
 
     public static function getAssetFunds()
     {
-        $investment = Investment::where(['user'=>self::getUser()->email])->sum('amount');
-        $withdrawals = Payout::where(['user'=>self::getUser()->email, 'status' => 'pending'])->sum('amount');
+        $totalInvestment = self::getInvestmentSum('individual') + self::getInvestmentSum('entity') + self::getInvestmentSum('retirement');
         
-        $funds = $investment - $withdrawals;
+        return $totalInvestment;
+    }
 
-        $amount = self::getUser()->staticInvestments()->where('status', 'open')->get();
-    
-        $totalInvestment = 0;
+    public static function getTotalROI()
+    {
+        $user = self::getUser();
+        $roi = $user->staticInvestments()->where('status', 'open')->latest()->paginate(12)->sum('roi');
 
-        foreach ($amount as $investment) {
-            $totalInvestment += (int)$investment['amount_invested'];
-        }
-        
-        return ($funds - $totalInvestment);
+        return $roi;
     }
 }

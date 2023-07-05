@@ -55,7 +55,7 @@
 						</div>
 						{{-- <img style="border-radius: 10px; padding: 5px" src="{{ $property->property_img }}" class="card-img-top" alt="..."> --}}
 						<div class="card-body" style="padding: 10px;">
-							<h5 class="card-title pb-1">{{ $property->name }}</h5>
+							<h5 class="card-title pb-1"><a href="{{ route('showProperty', $property->id) }}" style="color: inherit; text-decoration: none;">{{ $property->name }}</a></h5>
 							<p class="card-text pb-2">{{ $property->body }}</p>
 							<div class="row">
 								<div class="col-6">

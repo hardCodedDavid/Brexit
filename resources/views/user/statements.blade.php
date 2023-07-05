@@ -19,7 +19,7 @@
 						    <th class="c-table__cell c-table__cell--head">Property Name</th>
 						    <th class="c-table__cell c-table__cell--head">Date</th>
     						<th class="c-table__cell c-table__cell--head">Invested Amount</th>
-    						<th class="c-table__cell c-table__cell--head">Assets</th>
+    						<th class="c-table__cell c-table__cell--head">Investment Type</th>
                             <th class="c-table__cell c-table__cell--head">Roi</th>
                             <th class="c-table__cell c-table__cell--head">Status</th>
 						</tr>

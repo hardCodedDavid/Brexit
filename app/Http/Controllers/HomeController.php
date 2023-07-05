@@ -95,27 +95,28 @@ class HomeController extends Controller
 
     public function editProfilePersonal(Request $req)
     {
-        // User::where('email', $req->email)->update([
-        //     'firstname'=>$req->firstname,
-        //     'surname'=>$req->lastname,
-        //     'username'=>$req->username,
-        //     'dob'=>$req->dob,
-        //     'id_type'=>$req->id_type,
-        //     'id_number'=>$req->id_number,
-        //     'email'=>$req->email,
-        //     'gender'=>$req->gender,
-        //     'phone'=>$req->phone,
-        //     'work_number'=>$req->work_number,
-        //     'country_birth'=>$req->country_birth,
-        //     'city_birth'=>$req->city,
-        //     'country_residence'=>$req->country_residence,
-        //     'marital_status'=>$req->marital_status,
-        //     'nationality'=>$req->nationality,
+        User::where('email', $req->email)->update([
+            'firstname'=>$req->firstname,
+            'surname'=>$req->lastname,
+            'username'=>$req->username,
+            'dob'=>$req->dob,
+            'id_type'=>$req->id_type,
+            'id_number'=>$req->id_number,
+            'email'=>$req->email,
+            'gender'=>$req->gender,
+            'phone'=>$req->phone,
+            'work_number'=>$req->work_number,
+            'country_birth'=>$req->country_birth,
+            'city_birth'=>$req->city,
+            'country_residence'=>$req->country_residence,
+            'marital_status'=>$req->marital_status,
+            'nationality'=>$req->nationality,
 
-        //     'status'=>'completed',
-        //     'approved'=> 1,
+            'status'=>'completed',
+            // 'approved'=> 1,
 
-        // ]);
+        ]);
+
         if ($req->hasfile('img')) {
             $files = $req->file('img');
             $destinationPath = 'user_img';
@@ -126,8 +127,10 @@ class HomeController extends Controller
                 'user_img' => $destinationPath."/".$residenceImage,
             ]);
             return redirect()->back()->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>   Personal details updated successfully.</div>');
+        } else {
+            return redirect()->back()->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>   Personal details updated successfully.</div>');
         }
-        // return redirect()->back()->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>   Personal details updated successfully.</div>');
+        // 
     }
 
     public function editProfilePersonalMinr(Request $req)
@@ -686,7 +689,7 @@ class HomeController extends Controller
 
                 
                 User::where('email', $user->email)->update([
-                    'bitcoin_address'=>$req->bitcoin_address,
+                    'bitcoin_address'=>$req->bitcoin,
                 ]);
 
                 Payout::create([
@@ -701,13 +704,22 @@ class HomeController extends Controller
 
                 $title= ' ';
                 $name = $user->firstname.' '.$user->surname;
-                $content = 'This is to inform you that your withdrawal of <b>$'. number_format($req->amount,2).'</b> from <b>' .$req->plan. '</b> is in process. This can take several hours. <br><br> 
+                if ($req->payment_method == 'bitcoin') {
+                    $content = 'This is to inform you that your withdrawal of <b>$'. number_format($req->amount,2).'</b> from <b>' .$req->plan. '</b> is in process. This can take several hours. <br><br> 
+                        <p>Payment Method:  <b> Bitcoin </b></p>
+                        <p>Wallet Address:  <b> ' .$req->bitcoin. ' </b></p>
+                        <br><br>
+                        A notification will be sent when successful ';
+                } else {
+                    $content = 'This is to inform you that your withdrawal of <b>$'. number_format($req->amount,2).'</b> from <b>' .$req->plan. '</b> is in process. This can take several hours. <br><br> 
                         <p>Account Name:  <b> ' .$user->account_holder. ' </b></p>
                         <p>Bank Name:  <b> ' .$user->bank_name. '</b></p>
                         <p>Account Number:  <b> ' .$user->account_number. '</b></p>
                         <p>Routing Number:  <b> ' .$user->branch_code. '</b></p>
                         <br><br>
                         A notification will be sent when successful ';
+                }
+                
                 $button = false;
                 $button_text = '';
                 $subject = "Withdrawal Booked";

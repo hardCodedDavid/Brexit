@@ -87,6 +87,7 @@
 						<tr class="c-table__row">
 						    <th class="c-table__cell c-table__cell--head">SN</th>
 							<th class="c-table__cell c-table__cell--head">Amount</th>
+							<th class="c-table__cell c-table__cell--head">Payment Method</th>
 							<th class="c-table__cell c-table__cell--head">Status</th>
 							<th class="c-table__cell c-table__cell--head">Date Deposit</th>
 							<th class="c-table__cell c-table__cell--head">Date Reviewed</th>
@@ -100,6 +101,7 @@
 						<tr class="c-table__row c-table__row--danger">
 							<td class="c-table__cell">{{ $i++ }}</td>
 							<td class="c-table__cell">${{ number_format($deposit->amount,2) }}</td>
+							<td class="c-table__cell">{{ $deposit->payment_method }}</td>
 							<td class="c-table__cell">{{ $deposit->status }}</td>
 							<td class="c-table__cell">{{ date('Y-F-d', strtotime($deposit->created_at)) }}</td>
 							<td class="c-table__cell"> @if($deposit->status == 'pending') Pending Approval @else {{ date('Y-F-d', strtotime($deposit->updated_at)) }} @endif </td>

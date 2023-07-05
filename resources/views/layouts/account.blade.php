@@ -39,7 +39,7 @@ s0.parentNode.insertBefore(s1,s0);
         <div class="o-page__sidebar js-page-sidebar">
             <div class="c-sidebar">
                 <a class="c-sidebar__brand" href="/">
-                <img class="c-sidebar__brand-img" src="{{ asset('static/assets/images/logo/Vantage-horizon-logo-large.png') }}" alt="Logo">
+                    <img class="c-sidebar__brand-img" src="{{ asset('static/assets/images/logo/Vantage-horizon-logo-large.png') }}" alt="Logo">
                 </a>
                 <h4 class="c-sidebar__title">Overview</h4>
                 <ul class="c-sidebar__list">
@@ -134,7 +134,7 @@ s0.parentNode.insertBefore(s1,s0);
                 <div class="c-dropdown dropdown">
                     <a  class="c-avatar c-avatar--xsmall dropdown dropdown-toggle" href="#" id="dropdwonMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @if($me->user_img)
-                        <img class="c-avatar__img" src="{{ $me->user_img }}" alt="Avatar">
+                        <img class="c-avatar__img" src="/{{ $me->user_img }}" alt="Avatar">
                     @else
                         <img class="c-avatar__img" src="{{ asset('brexits-user-avatar-2.png') }}" alt="User's Profile Picture">
                     @endif

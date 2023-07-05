@@ -47,6 +47,14 @@
                     <td class="c-table__cell">Bank Country:</td>
                     <td class="c-table__cell">{{$settings->bank_country}}</td>
                 </tr>
+                <tr class="c-table__row">
+                    <td class="c-table__cell">Swift Code:</td>
+                    <td class="c-table__cell">{{$settings->swift}}</td>
+                </tr>
+                <tr class="c-table__row">
+                    <td class="c-table__cell">Routing Number:</td>
+                    <td class="c-table__cell">{{$settings->routing_number}}</td>
+                </tr>
                 <input style="opacity: 0" id="bank-copy" value="Bank Name: {{$settings->bank_name}} , Bank Account Name: {{$settings->account_holder}}, Bank Account Number: {{$settings->account_number}}, Bank Country: {{$settings->bank_country}}">
             </tbody>
         </table>
@@ -158,7 +166,7 @@
 
                     <div class="c-field u-mb-small">
                         <label class="c-field__label">Wallet Address:</label>
-                        <input class="c-input" type="text" name="bitcoin_address" value="{{$user->bitcoin_address}}" step="any">
+                        <input class="c-input" type="text" name="bitcoin" value="{{$user->bitcoin_address}}" step="any">
                     </div>
 
                     <div class="c-field u-mb-small">

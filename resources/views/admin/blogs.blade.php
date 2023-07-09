@@ -13,12 +13,16 @@ use App\Http\Controllers\Globals as Utils;
 <link rel="stylesheet" type="text/css" href="{{ asset('plugins/table/datatable/dt-global_style.css') }}">
 
 <style>
-    .text-truncate-container {
-        width: 50%;
+    .editor-wrapper {
+        max-height: 5.2em; /* Three lines with line height */
+        overflow: hidden;
+        margin-bottom: 20px;
+        max-width: 800px;
     }
-    .text-truncate-container p {
-        -webkit-line-clamp: 1;
+
+    .editor-content {
         display: -webkit-box;
+        -webkit-line-clamp: 3; /* Number of lines to display */
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -104,8 +108,13 @@ use App\Http\Controllers\Globals as Utils;
                         <td class="c-table__cell">
                             <p>{{ $blog->title }}</p>
                         </td>
-                        <td class="c-table__cell text-truncate-container"> 
-                            <p>{!! $blog->description !!}</p>
+                        <td class="c-table__cell"> 
+                            <!-- <p>{!! $blog->description !!}</p> -->
+                            <div class="editor-wrapper">
+                                <div class="editor-content">
+                                    {!! $blog->description !!}
+                                </div>
+                            </div>
                         </td>
                         
                         <td class="c-table__cell">{{ date('Y-F-d', strtotime($blog->created_at)) }}</td>

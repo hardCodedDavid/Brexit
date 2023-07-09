@@ -5,7 +5,17 @@
 @section('content')
 
 
-
+<style>
+    .text-truncate-container {
+        width: 50%;
+    }
+    .text-truncate-container p {
+        -webkit-line-clamp: 1;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
 <div id="page_wrapper" class="bg-light">
 
 @include('components.header')
@@ -248,14 +258,29 @@
                                             <span class="listing-location"><i class="fas fa-map-marker-alt"></i> {{ $property->location }}</span>
                                             <ul class="d-flex quantity font-fifteen">
                                                 <li title="Leverage"><span><i class="fa-solid fa-house"></i></span>{{ $property->rental }}</li>
-                                                <li title="Shares"><span><i class="fa-solid fa-house-circle-check"></i></span>{{ $property->shares }}</li>
+                                                <li title="Funding Percent"><span><i class="fa-solid fa-percentage"></i></span>{{ $property->funding }}</li>
                                                 <li title="Investors"><span><i class="fa-solid fa-users"></i></span>{{ $property->investors }}</li>
-                                                <li title="funding"><span><i class="fa-solid fa-money-check-dollar"></i></span>${{ number_format($property->price, 2) }}</li>
+                                                <li title="Price"><span><i class="fa-solid fa-money-check-dollar"></i></span>${{ number_format($property->price, 2) }}</li>
                                             </ul>
-                                            <p>
-                                                {{ $property->body }}  
-                                                {{-- <a href="#" class="btn-link">More Info...</a> --}}
-                                            </p>
+                                            <style>
+                                                .editor-wrapper {
+                                                    max-height: 5.2em; /* Three lines with line height */
+                                                    overflow: hidden;
+                                                    margin-bottom: 20px;
+                                                }
+
+                                                .editor-content {
+                                                    display: -webkit-box;
+                                                    -webkit-line-clamp: 3; /* Number of lines to display */
+                                                    -webkit-box-orient: vertical;
+                                                    overflow: hidden;
+                                                }
+                                            </style>
+                                            <div class="editor-wrapper">
+                                                <div class="editor-content">
+                                                {{ $property->body }}
+                                                </div>
+                                            </div>
                                             <div class="d-flex align-items-center post-meta mt-2">
                                                 <div class="agent">
                                                     <a href="/invest-noww/invest/{{ $property->slug }}" class="btn btn-primary">Invest Now <i class="fas fa-arrow-right-long me-1"></i></a>

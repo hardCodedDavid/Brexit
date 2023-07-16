@@ -19,8 +19,9 @@ use App\Staticinvestment;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\In;
-use Intervention\Image\ImageManagerStatic as Image;
 use App\Http\Controllers\Globals as Util;
+use Illuminate\Support\Facades\Validator;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class AdminController extends Controller
 {
@@ -970,6 +971,29 @@ class AdminController extends Controller
 
     public function createProperty(Request $req){
 
+        $validator = Validator::make($req->all(), [
+            'name' => 'required|string|max:255',
+            'location' => 'required',
+            'price' => 'required',
+            'type' => 'required',
+            'leverage' => 'required',
+            'rental' => 'required',
+            'shares' => 'required',
+            'investors' => 'required',
+            'funding' => 'required',
+            'body' => 'required',
+            'img' => 'required|array', // Ensure it's an array
+            'img.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validate each image in the array
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+
         $plan = Plan::create([
             'name' => $req->name,
             'location' => $req->location,
@@ -1006,6 +1030,29 @@ class AdminController extends Controller
     }
 
     public function updateProperty(Request $req, $id){
+
+        $validator = Validator::make($req->all(), [
+            'name' => 'required|string|max:255',
+            'location' => 'required',
+            'price' => 'required',
+            'type' => 'required',
+            'leverage' => 'required',
+            'rental' => 'required',
+            'shares' => 'required',
+            'investors' => 'required',
+            'funding' => 'required',
+            'body' => 'required',
+            'img' => 'required|array', // Ensure it's an array
+            'img.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validate each image in the array
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $plan = Plan::findOrFail($id);
 
         $plan->update([

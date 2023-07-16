@@ -3,23 +3,19 @@
 @section('title', __('Properties'))
 
 @section('content')
-
-
 <style>
-    .text-truncate-container {
-        width: 50%;
-    }
-    .text-truncate-container p {
-        -webkit-line-clamp: 1;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
+.text-truncate-container {
+    width: 50%;
+}
+.text-truncate-container p {
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 </style>
 <div id="page_wrapper" class="bg-light">
-
 @include('components.header')
-
         <!--============== Page title Start ==============-->
         <div class="full-row py-5" style="margin-top: 30px;">
             <div class="container">
@@ -254,7 +250,7 @@
                                             </div>
                                         <div class="property_text p-3">
                                             <span class="listing-price">${{ number_format($property->shares, 2) }}<small> /share</small></span>
-                                            <h5 class="listing-title"><a href="{{ route('showProperty', $property->id) }}">{{ $property->name }}</a></h5>
+                                            <h5 class="listing-title"><a href="{{ route('showProperty', $property->id) }}" target="_blank">{{ $property->name }}</a></h5>
                                             <span class="listing-location"><i class="fas fa-map-marker-alt"></i> {{ $property->location }}</span>
                                             <ul class="d-flex quantity font-fifteen">
                                                 <li title="Leverage"><span><i class="fa-solid fa-house"></i></span>{{ $property->rental }}</li>
@@ -310,7 +306,5 @@
             </div>
         </div>
         <!--============== Property Grid View End ==============-->
-        
-
     </div>
 @endsection

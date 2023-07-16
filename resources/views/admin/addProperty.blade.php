@@ -47,6 +47,17 @@
                 @endphp
                 <form method="post" action="{{ route('updateProperty', $plan->id) }}" enctype="multipart/form-data">
                     @csrf
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="row">
                         <div class="form-group col-12">
                             <label>Property Name</label>
@@ -122,6 +133,17 @@
 			@else
 			    <form method="post" action="{{ route('createProperty') }}" enctype="multipart/form-data">
                     @csrf
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="row">
                         <div class="form-group col-12">
                             <label>Property Name</label>

@@ -36,7 +36,7 @@ class StaticController extends Controller
 
     public function list() 
     {
-        $plan = Plan::latest()->paginate(20);
+        $plan = Plan::latest()->paginate(10);
         $count = Plan::latest()->count();
         
         return view('static.properties', [ 
@@ -74,7 +74,7 @@ class StaticController extends Controller
 
     public function learning() 
     {
-        $blog = Blog::latest()->paginate(20);
+        $blog = Blog::latest()->paginate(10);
         
         return view('static.learning', [ 
             'blogs' => $blog,
@@ -95,23 +95,6 @@ class StaticController extends Controller
     {
         return view('static.privacy');
     }
-
-    // public function search(Request $request)
-    // {
-    //     $keyword = $request->keyword;
-
-    //     $results = Plan::when($keyword, function ($query) use ($keyword) 
-    //         {
-    //             return $query->where('name', 'like', '%' . $keyword . '%');
-    //         })
-    //         ->get();
-
-    //     $count = Plan::latest()->count();
-    //     return view('static.properties', [ 
-    //         'plans' => $results,
-    //         'count' => $count,
-    //     ]);
-    // }
 
     public function search()
     {

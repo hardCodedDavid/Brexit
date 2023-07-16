@@ -5259,7 +5259,7 @@ input[type=button].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #3490dc;
+  color: #0aadb3;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
@@ -10942,3 +10942,44 @@ a.text-dark:focus {
   }
 }
 
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.custom-pagination ul.pagination {
+  list-style-type: none;
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-pagination li.page-item {
+  margin: 0 5px;
+}
+
+.custom-pagination li.page-item.disabled .page-link {
+  color: #bbb;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.custom-pagination li.page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.custom-pagination a.page-link,
+.custom-pagination span.page-link {
+  color: #007bff;
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+}
+
+.custom-pagination a.page-link:hover {
+  background-color: #007bff;
+  color: #fff;
+}

@@ -4,6 +4,14 @@
 
 @section('content')
 <style>
+.custom-pagination {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+}
+.page-link {
+    color: #0aadb3;
+}
 .text-truncate-container {
     width: 50%;
 }
@@ -279,7 +287,7 @@
                                             </div>
                                             <div class="d-flex align-items-center post-meta mt-2">
                                                 <div class="agent">
-                                                    <a href="/invest-noww/invest/{{ $property->slug }}" class="btn btn-primary">Invest Now <i class="fas fa-arrow-right-long me-1"></i></a>
+                                                    <a href="{{ route('showProperty', $property->id) }}" class="btn btn-primary" target="_blank">View Property <i class="fas fa-arrow-right-long me-1"></i></a>
 
                                                 </div>
                                                 {{-- <div class="post-date ms-auto"><span>{{ date('d M, Y', strtotime($property->created_at)) }}</span></div> --}}
@@ -292,14 +300,29 @@
                                 <p class="text-center">No result found</P>
                             @endif
                         </div>
-                        <div class="row">
-                            <div class="col mt-5">
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination pagination-dotted-active justify-content-center">
-                                        {{ $plans }}
-                                    </ul>
-                                </nav>
-                            </div>
+
+                        <div class="custom-pagination">
+                            <ul class="pagination">
+                                @if ($plans->onFirstPage())
+                                    <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                                @else
+                                    <li class="page-item"><a class="page-link" href="{{ $plans->previousPageUrl() }}">Previous</a></li>
+                                @endif
+
+                                @foreach ($plans->getUrlRange(1, $plans->lastPage()) as $page => $url)
+                                    @if ($page == $plans->currentPage())
+                                        <li class="page-item active"><span class="page-link">{{ $page }}</span></li>
+                                    @else
+                                        <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                                    @endif
+                                @endforeach
+
+                                @if ($plans->hasMorePages())
+                                    <li class="page-item"><a class="page-link" href="{{ $plans->nextPageUrl() }}">Next</a></li>
+                                @else
+                                    <li class="page-item disabled"><span class="page-link">Next</span></li>
+                                @endif
+                            </ul>
                         </div>
                     </div>
                 </div>

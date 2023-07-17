@@ -1095,7 +1095,10 @@ class AdminController extends Controller
     }
 
     public function destroyProperty($id){
-        Plan::findOrFail($id)->delete();
+        $plan = Plan::findOrFail($id);
+        Staticinvestment::where('plan', $plan->slug)->delete();
+
+        $plan->delete();
         // Plan::findOrFail($id)->property_images()->delete();
         return redirect()->back()->with('message', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong><i class="lni-checkmark"></i> Success!</strong> Property has been deleted.<button type="button" class="close" data-dismiss="alert" aria-lSource Sans Pro="Close"><span aria-hidden="true">&times;</span></button></div>');
     }

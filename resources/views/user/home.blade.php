@@ -130,10 +130,12 @@ use App\Http\Controllers\Globals as Utils;
 					@foreach($transactions as $transaction)
 						@php
 							$plan = \App\Plan::where('slug', $transaction->plan)->first();
+						@endphp
+					@if($plan)
+					<tr class="c-table__row c-table__row--danger">
+						@php
 							$property_img = \App\PropertyImage::where('plan_id', $plan->id)->first();
 						@endphp
-					<tr class="c-table__row c-table__row--danger">
-
 						<td class="c-table__cell">
 						@if($property_img->img_url)
 							<img class="c-avatar__img" style="width: 60px; height: 60px;" src="{{ $property_img->img_url }}" alt="...">
@@ -161,6 +163,7 @@ use App\Http\Controllers\Globals as Utils;
 							@endif
 						</td>
 					</tr>
+					@endif
 					@endforeach
 				</tbody>
 			</table>
@@ -308,7 +311,27 @@ use App\Http\Controllers\Globals as Utils;
 					{{-- <img style="border-radius: 10px; padding: 5px" src="{{ $property->property_img }}" class="card-img-top" alt="..."> --}}
 					<div class="card-body" style="padding: 10px;">
 							<h5 class="card-title pb-1">{{ $property->name }}</h5>
-							<p class="card-text pb-2">{{ $property->body }}</p>
+
+							<style>
+								.editor-wrapper {
+									max-height: 5.2em; /* Three lines with line height */
+									overflow: hidden;
+									margin-bottom: 20px;
+								}
+
+								.editor-content {
+									display: -webkit-box;
+									-webkit-line-clamp: 3; /* Number of lines to display */
+									-webkit-box-orient: vertical;
+									overflow: hidden;
+								}
+							</style>
+							<div class="editor-wrapper">
+								<div class="editor-content">
+								{{ $property->body }}
+								</div>
+							</div>
+
 							<div class="row">
 								<div class="col-6">
 									<div class="row" style="margin-top: 5px;">

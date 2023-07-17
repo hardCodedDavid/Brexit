@@ -56,7 +56,26 @@
 						{{-- <img style="border-radius: 10px; padding: 5px" src="{{ $property->property_img }}" class="card-img-top" alt="..."> --}}
 						<div class="card-body" style="padding: 10px;">
 							<h5 class="card-title pb-1"><a href="{{ route('showProperty', $property->id) }}" style="color: inherit; text-decoration: none;">{{ $property->name }}</a></h5>
-							<p class="card-text pb-2">{{ $property->body }}</p>
+							<!-- <p class="card-text pb-2">{{ $property->body }}</p> -->
+							<style>
+								.editor-wrapper {
+									max-height: 5.2em; /* Three lines with line height */
+									overflow: hidden;
+									margin-bottom: 20px;
+								}
+
+								.editor-content {
+									display: -webkit-box;
+									-webkit-line-clamp: 3; /* Number of lines to display */
+									-webkit-box-orient: vertical;
+									overflow: hidden;
+								}
+							</style>
+							<div class="editor-wrapper">
+								<div class="editor-content">
+								{{ $property->body }}
+								</div>
+							</div>
 							<div class="row">
 								<div class="col-6">
 									<div class="row" style="margin-top: 5px;">

@@ -120,7 +120,7 @@ class StaticController extends Controller
 
         $count = Plan::latest()->count();
 
-        return view('static.properties', [ 
+        return view('static.properties', [
             'plans' => $results,
             'count' => $count,
         ]);

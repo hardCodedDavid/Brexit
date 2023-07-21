@@ -240,11 +240,13 @@
                                                     </div>
                                                     <div class="carousel-inner">
                                                     @foreach($property_img as $key => $image)
-                                                    <a href="{{ route('showProperty', $property->id) }}" target="_blank">
+                                                    
                                                         <div class="carousel-item @if($key==0) active @endif">
-                                                            <img src="{{ $image->img_url }}" alt="{{ $image->title }}" class="d-block w-100" alt="...">
+                                                            <a href="{{ route('showProperty', $property->id) }}" target="_blank">
+                                                                <img src="{{ $image->img_url }}" alt="{{ $image->title }}" class="d-block w-100" alt="...">
+                                                            </a>
                                                         </div>
-                                                    </a>
+                                                    
                                                     @endforeach
                                                     </div>
                                                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators{{ $property->id }}" data-bs-slide="prev">

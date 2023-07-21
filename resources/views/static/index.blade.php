@@ -115,7 +115,7 @@ or deal with the operational headaches.</span></p>
                     <div class="col">
                         <div class="mb-4"><i class="flaticon-id-card text-primary flat-medium"></i></div>
                         <h4 class="mb-3 font-400">Save Time & Energy</h4>
-                        <p>Kick back and relax! Arrived acquires & manages your properties</p>
+                        <p>Save time and energy with our third party professional management feature</p>
                     </div>
                 </div>
 

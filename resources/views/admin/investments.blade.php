@@ -97,7 +97,11 @@ use App\Http\Controllers\Globals as Utils;
                     @endphp
                     <tr class="c-table__row c-table__row--danger">
                         <td class="c-table__cell">{{ $i++ }}</td>
-                        <td class="c-table__cell">{{ $transaction->user->username }}</td>
+                        <td class="c-table__cell">
+                            @if($transaction->user)
+                                {{ $transaction->user->username }}
+                            @endif
+                        </td>
                         <td class="c-table__cell">{{ ucwords($transaction->asset) }}</td>
                         <td class="c-table__cell">${{ number_format($transaction->amount_invested, 2) }}</td>
 

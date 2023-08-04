@@ -54,7 +54,7 @@
                             <li title="funding"><span><i class="fa-solid fa-money-check-dollar"></i></span> ${{ number_format($property->price, 2) }}</li>
                         </ul>
                     </div>
-                        <p>{{ $property->body }} </p>
+                        <p>{!! $property->body !!} </p>
                     </div>
                     <div class="d-flex align-items-center post-meta mt-2">
                         <div class="agent">

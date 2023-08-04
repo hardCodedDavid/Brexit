@@ -104,8 +104,11 @@ use App\Http\Controllers\Globals as Utils;
                         </td>
                         <td class="c-table__cell">{{ ucwords($transaction->asset) }}</td>
                         <td class="c-table__cell">${{ number_format($transaction->amount_invested, 2) }}</td>
-
-                        <td class="c-table__cell">{{ $plan->name }}</td>
+                        <td class="c-table__cell">
+                            @if($plan)
+                                {{ $plan->name }}
+                            @endif
+                        </td>
                         <td class="c-table__cell">${{ number_format($transaction->roi, 2) }}</td>
                         <td class="c-table__cell">
                             @if($transaction->status == 'open')
@@ -124,10 +127,13 @@ use App\Http\Controllers\Globals as Utils;
                                     </svg>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuReference1">
-                                    <a class="dropdown-item" href="/admin/users/view/{{ auth()->id() }}">View User</a>
+                                    <!-- <a class="dropdown-item" href="/admin/users/view/{{ auth()->id() }}">View User</a> -->
                                     <a class="dropdown-item" href="{{route('editInvestmentAdmin', $transaction->id)}}">Edit</a>
-                                    <a class="dropdown-item" href="{{route('updateInvestmentAdmin', [$transaction->id, 'close'])}}">Make Closed</a>
-                                    <a class="dropdown-item" href="{{route('updateInvestmentAdmin', [$transaction->id, 'open'])}}">Make Open</a>
+                                    @if($transaction->status == 'open')
+                                        <a class="dropdown-item" href="{{route('updateInvestmentAdmin', [$transaction->id, 'close'])}}">Make Closed</a>
+                                    @elseif($transaction->status == 'close')
+                                        <a class="dropdown-item" href="{{route('updateInvestmentAdmin', [$transaction->id, 'open'])}}">Make Open</a>
+                                    @endif
                                     <a class="dropdown-item" href="{{route('deleteInvestmentAdmin', $transaction->id)}}">Delete</a>
                                 </div>
                             </div>

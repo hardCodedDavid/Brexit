@@ -73,7 +73,7 @@
 							</style>
 							<div class="editor-wrapper">
 								<div class="editor-content">
-								{{ $property->body }}
+								{!! $property->body !!}
 								</div>
 							</div>
 							<div class="row">

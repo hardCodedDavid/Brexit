@@ -53,6 +53,7 @@
                                         <a href="{{ route('login') }}" class="btn">Login</a>
                                         <a href="{{ route('account.type') }}" class="btn btn-primary add-listing-btn">Register</a>
                                     @else
+                                        <a href="/logout" class="btn">Logout</a>
                                         <a href="{{ route('home') }}" class="btn btn-primary add-listing-btn">Dashboard</a>
                                     @endif
                                     

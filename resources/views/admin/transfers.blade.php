@@ -91,7 +91,9 @@ use App\Http\Controllers\Globals as Utils;
                         <tr>
                             <td>{{ $i++ }}</td>
                             <td>
+                                @if($transaction->user)
                                 <a href="/admin/users/view/{{ $transaction->user->id }}" target="_blank">{{ $transaction->user->username }}</a>
+                                @endif
                             </td>
                             <td>{{ $transaction->from}}</td>
                             <td>{{ $transaction->to}}</td>

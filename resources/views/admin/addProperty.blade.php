@@ -14,6 +14,10 @@
 
 @section('breadcrumb')
 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
 <script src="/path/or/uri/to/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     tinymce.init({
@@ -106,7 +110,7 @@
                         </div>
                         <div class="form-group col-12">
                             <label>Body</label>
-                            <textarea id="myTextarea" name="body" class="form-control">{{ $plan->body }}</textarea>
+                            <textarea  id="summernote" name="body" class="form-control">{{ $plan->body }}</textarea>
                         </div>
                         <div class="form-group col-12">
                             <label>Property Image</label>
@@ -192,7 +196,7 @@
                         </div>
                         <div class="form-group col-12">
                             <label>Body</label>
-                            <textarea id="myTextarea" name="body" class="form-control"></textarea>
+                            <textarea  id="summernote" name="body" class="form-control"></textarea>
                         </div>
                         <div class="form-group col-12">
                             <label>Property Image</label>
@@ -212,6 +216,18 @@
 	</div>
 </div>
 <script>
+     $('#summernote').summernote({
+        placeholder: 'Start typing...',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+        ]
+      });
+
     const imageInput = document.getElementById('imageInput');
     imageInput.addEventListener('change', previewImages);
     function previewImages() {

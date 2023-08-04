@@ -775,11 +775,6 @@ class HomeController extends Controller
         return redirect('/credit-card')->with('message', '<div class="c-alert c-alert--success"><i class="c-alert__icon fa fa-check-circle"></i>Your card has been edited successfully.</div>');
     }
 
-    public function logout(){
-        auth()->logout();
-        return redirect('/login');
-    }
-
     public function transfer(){
         $user = Utils::getUser();
         $users = User::get();

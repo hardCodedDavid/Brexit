@@ -194,7 +194,8 @@ class AdminController extends Controller
             'amount_invested'=>$request->amount_invested,
             'status'=>$request->status,
             'plan' => $request->plan,
-            'asset' => $request->asset
+            'asset' => $request->asset,
+            'created_at' => $request->created_at
         ]);
 
 

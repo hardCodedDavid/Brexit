@@ -286,7 +286,7 @@
                                             </style>
                                             <div class="editor-wrapper">
                                                 <div class="editor-content">
-                                                {{ $property->body }}
+                                                {!! $property->body !!}
                                                 </div>
                                             </div>
                                             <div class="d-flex align-items-center post-meta mt-2">

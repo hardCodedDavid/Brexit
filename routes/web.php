@@ -16,6 +16,8 @@ use Intervention\Image\Facades\Image;
 
 Auth::routes(['verify' => true]);
 
+Route::get('/logout', 'StaticController@logout');
+
 Route::get('/', 'StaticController@index')->name('index');
 Route::get('/about', 'StaticController@about')->name('about');
 Route::get('/faq', 'StaticController@faq')->name('faq');
@@ -102,8 +104,6 @@ Route::post('/edit_profile/address/othrs', 'HomeController@editProfileAddressOth
 Route::post('/edit_profile/bank/othrs', 'HomeController@editProfileBankOthrs')->name('updateBankOthrs');
 Route::post('/edit_profile/guardian/othrs', 'HomeController@editProfileGuardianOthrs')->name('updateGuardianDetailsOthrs');
 Route::post('/edit_profile/tax/othrs', 'HomeController@editProfileTaxOthrs')->name('updateTaxOthrs');
-
-Route::get('/logout', 'HomeController@logout');
 
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm');
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login');

@@ -87,6 +87,11 @@
                                 @endforeach
                             </select>
                         </div>
+
+                        <div class="form-group col-12">
+                            <label>Investment Date</label>
+                            <input type="text" name="created_at" class="form-control" required step="any" value="{{$investment->created_at}}">
+                        </div>
                     </div>
                     <button class="btn btn-success btn-lg btn-block" type="submit">Update</button>
                 </form>

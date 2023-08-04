@@ -12,11 +12,31 @@ use App\Http\Controllers\Globals as Utils;
 
 @section('content')
 @php
-	$plans = \App\Plan::where('featured', 1)->orderBy('id', 'desc')->get();
+	$plans = \App\Plan::where('featured', 1)->orderBy('id', 'desc')->paginate(6);
 
 	$user = Utils::getUser();
     $transactions = $user->staticInvestments()->where('status', 'open')->latest()->paginate(12);
 @endphp
+
+<style>
+	.custom-pagination {
+		display: flex;
+		margin-top: 50px;
+		justify-content: center;
+	}
+	.page-link {
+		color: #0aadb3;
+	}
+	.c-progress--dark .c-progress__bar {
+        background: #40557D;
+        background: linear-gradient(180deg, #40557D, #2b3e7d);
+    }
+
+    .c-progress--blue .c-progress__bar {
+        background: #289DF5;
+        background: linear-gradient(180deg, #289DF5, #126df5);
+    }
+</style>
 <div class="row">
 	<div class="col-xl-12 u-text-danger u-text-center">
 		<h4>Your investment portfolio summary</h4>
@@ -328,7 +348,7 @@ use App\Http\Controllers\Globals as Utils;
 							</style>
 							<div class="editor-wrapper">
 								<div class="editor-content">
-								{{ $property->body }}
+								{!! $property->body !!}
 								</div>
 							</div>
 
@@ -397,6 +417,30 @@ use App\Http\Controllers\Globals as Utils;
 				</div>
 			</div>
 		@endforeach
+
+		<div class="custom-pagination" style="display: flex; justify-content: center; margin: 20px auto 40px auto;">
+			<ul class="pagination">
+				@if ($plans->onFirstPage())
+					<li class="page-item disabled"><span class="page-link">Previous</span></li>
+				@else
+					<li class="page-item"><a class="page-link" href="{{ $plans->previousPageUrl() }}">Previous</a></li>
+				@endif
+
+				@foreach ($plans->getUrlRange(1, $plans->lastPage()) as $page => $url)
+					@if ($page == $plans->currentPage())
+						<li class="page-item active"><span class="page-link" style="background: #0aadb3; border-color: #0aadb3;">{{ $page }}</span></li>
+					@else
+						<li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+					@endif
+				@endforeach
+
+				@if ($plans->hasMorePages())
+					<li class="page-item"><a class="page-link" href="{{ $plans->nextPageUrl() }}">Next</a></li>
+				@else
+					<li class="page-item disabled"><span class="page-link">Next</span></li>
+				@endif
+			</ul>
+		</div>
 	</div>
 </div>
 @endsection
@@ -434,17 +478,4 @@ use App\Http\Controllers\Globals as Utils;
             }
         });
 </script>
-
-<style>
-
-    .c-progress--dark .c-progress__bar {
-        background: #40557D;
-        background: linear-gradient(180deg, #40557D, #2b3e7d);
-    }
-
-    .c-progress--blue .c-progress__bar {
-        background: #289DF5;
-        background: linear-gradient(180deg, #289DF5, #126df5);
-    }
-</style>
 @endsection

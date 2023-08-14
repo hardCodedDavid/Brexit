@@ -106,7 +106,7 @@ or deal with the operational headaches.</span></p>
                     <div class="col">
                         <div class="mb-4"><i class="flaticon-life-insurance text-primary flat-medium"></i></div>
                         <h4 class="mb-3 font-400">Consistent Passive Income</h4>
-                        <p>Earn rental income and receive deposits quarterly</p>
+                        <p>Earn rental income and receive deposits Monthly. We have provided funding for a significant portion of all properties on the platform and will receive twenty percent of all rental revenue distribution, leaving investors with eighty percent of the rental dividends to share.</p>
                     </div>
                     <div class="col">
                         <div class="mb-4"><i class="flaticon-data text-primary flat-medium"></i></div>

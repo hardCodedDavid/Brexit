@@ -541,7 +541,7 @@ class HomeController extends Controller
     }
 
     public function investPlan(){
-        $plans = Plan::orderBy('id', 'desc')->get();
+        $plans = Plan::orderBy('id', 'desc')->paginate(10);
         return view('user.investPlan', ['plans'=>$plans]);
     }
 

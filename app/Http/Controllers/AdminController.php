@@ -1043,7 +1043,7 @@ class AdminController extends Controller
             'investors' => 'required',
             'funding' => 'required',
             'body' => 'required',
-            'img' => 'required|array', // Ensure it's an array
+            'img' => 'array', // Ensure it's an array
             'img.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validate each image in the array
         ]);
 

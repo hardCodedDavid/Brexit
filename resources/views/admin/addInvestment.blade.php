@@ -147,6 +147,10 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="form-group col-12">
+                        <label>Investment Date</label>
+                        <input type="text" name="created_at" class="form-control" required step="any" value="" id="dateInput">
+                    </div>
 				</div>
 				<button class="btn btn-success btn-lg btn-block" type="submit">ADD</button>
 			</form>
@@ -154,4 +158,9 @@
 		</div>
 	</div>
 </div>
+<script>
+  const now = new Date();
+  const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+  document.getElementById('dateInput').value = formattedDate;
+</script>
 @endsection

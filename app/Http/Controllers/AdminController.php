@@ -114,7 +114,8 @@ class AdminController extends Controller
                 'amount_invested' => $req->amount_invested,
                 'status' => $req->status,
                 'plan' => $req->plan,
-                'asset' => $req->asset
+                'asset' => $req->asset,
+                'created_at' => $req->created_at
             ]);
 
         }else {
@@ -136,7 +137,8 @@ class AdminController extends Controller
                 'amount_invested'=>$req->amount_invested,
                 'status'=>$req->status,
                 'plan' => $req->plan,
-                'asset' => $req->asset
+                'asset' => $req->asset,
+                'created_at' => $req->created_at
             ]);
 
 //            Transaction::create([
@@ -952,7 +954,7 @@ class AdminController extends Controller
     }
 
     public function viewProperty(){
-        $plan = Plan::latest()->paginate(12);
+        $plan = Plan::all();
         return view('admin.properties', [ 'plans' => $plan ]);
     }
 

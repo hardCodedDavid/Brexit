@@ -36,7 +36,10 @@
                         <div class="mb-3">
                             <ul>
                                 <li class="mb-3">
-                                    <h6 class="mb-0">Office Address :</h6> 525 Green Place, Woodmere, NY 11598. 
+                                    <h6 class="mb-0">Office Address :</h6> 
+                                    308 E 38th St, New York, NY 10016, United States
+                                    <br>
+                                    308 Clyde St, Glasgow G1 4NP, United Kingdom
                                 </li>
                                 <li class="mb-3">
                                     <h6>Contact Number :</h6> +1 (559) 717-8091

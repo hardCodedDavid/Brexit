@@ -86,7 +86,11 @@ use App\Http\Controllers\Globals as Utils;
 					@endphp
 					<tr>
 						<td>{{ $i++ }}</td>
-						<td><a href="/admin/users/view/{{ $user->id }}" target="_blank">{{ $user->username }}</td>
+						<td>
+							@if($user)
+								<a href="/admin/users/view/{{ $user->id }}" target="_blank">{{ $user->username }} </a>
+							@endif
+							</td>
 						<td>${{ number_format($transaction->amount,2) }}</td>
 						<td>
 							@if($transaction->status == 'approved')
@@ -95,7 +99,11 @@ use App\Http\Controllers\Globals as Utils;
 							<div class="badge badge-danger px-2 py-2"> {{ $transaction->status }}</div>
 							@endif
 						</td>
-						<td>{{ $transaction->type }}</td>
+						<td>@if($transaction->type == 'transfer')
+									{{ $transaction->from }}
+								@else
+									{{ $transaction->plan }}
+								@endif</td>
 						<td>{{ date('Y-F-d', strtotime($transaction->created_at)) }}</td>
                         <td><button class="btn btn-danger" onclick="if (confirm('Are you sure you want to delete this transaction?')) document.getElementById('deleteForm{{ $transaction->id }}').submit()">Delete</button></td>
                         <form action="{{ route('deleteTransaction', $transaction->id) }}" method="POST" class="d-none" id="deleteForm{{ $transaction->id }}">@csrf @method('DELETE')</form>

@@ -206,7 +206,24 @@ class AdminController extends Controller
     }
 
     public function transactions(){
-        $transactions = Transaction::orderBy('id', 'desc')->get();
+        // $transactions = Transaction::orderBy('id', 'desc')->get();
+        $payouts = Payout::orderBy('date', 'desc')
+            ->orderBy('updated_at', 'desc')
+            ->get();
+
+        $deposits = Deposit::orderBy('date', 'desc')
+            ->orderBy('updated_at', 'desc')
+            ->get();
+
+        $transfers = Transfer::latest()
+            ->get();
+
+        // Merge the collections into a single collection
+        $data = $payouts->merge($deposits)->merge($transfers);
+
+        // You can sort the final merged collection by date
+        $transactions = $data->sortByDesc('date');
+        
         return view('admin.transactions', ['transactions'=>$transactions]);
     }
 
@@ -612,6 +629,7 @@ class AdminController extends Controller
                         'status'=>'approved',
                         'type'=>'deposit',
                         'account_type' => $deposit->plan,
+                        'created_at' => $req->date_deposited,
                     ]);
 
                     if($static){

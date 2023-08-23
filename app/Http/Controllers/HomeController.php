@@ -731,7 +731,40 @@ class HomeController extends Controller
 
     public function transactions(){
         $user = Utils::getUser();
-        $transactions = Transaction::where('user', $user->email)->where('type', '!=', 'investment')->latest()->paginate(10);
+        // $transactions = Transaction::where('user', $user->email)->where('type', '!=', 'investment')->latest()->paginate(10);
+
+        $payouts = Payout::orderBy('date', 'desc')
+            ->orderBy('updated_at', 'desc')
+            ->where('user', $user->email)
+            ->where('plan', '!=', 'investment')
+            ->get()
+            ->map(function ($item) {
+                $item->type = 'payout';
+                return $item;
+            });
+
+        $deposits = Deposit::orderBy('date', 'desc')
+            ->orderBy('updated_at', 'desc')
+            ->where('user', $user->email)
+            ->where('plan', '!=', 'investment')
+            ->get()
+            ->map(function ($item) {
+                $item->type = 'deposit';
+                return $item;
+            });
+
+        $transfers = Transfer::latest()
+            ->where('user_id', $user->id)
+            ->get()
+            ->map(function ($item) {
+                $item->type = 'transfer';
+                return $item;
+            });
+
+        $data = $payouts->merge($deposits)->merge($transfers);
+
+        $transactions = $data->sortByDesc('date');
+
         return view('user.transactions', ['user'=>$user, 'transactions'=>$transactions]);
     }
 

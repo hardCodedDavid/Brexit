@@ -31,7 +31,13 @@
     					<tr class="c-table__row c-table__row--danger">
     						{{-- <td class="c-table__cell">{{ $i++ }}</td> --}}
     						<td class="c-table__cell">{{ date('Y-F-d', strtotime($transaction->created_at)) }}</td>
-    					    <td class="c-table__cell">{{ $transaction->account_type }}</td>
+    					    <td class="c-table__cell">
+								@if($transaction->type == 'transfer')
+									{{ $transaction->from }}
+								@else
+									{{ $transaction->plan }}
+								@endif
+							</td>
     					    <td class="c-table__cell">{{ $transaction->type }}</td>
     						<td class="c-table__cell">${{ number_format($transaction->amount,2) }}</td>
 							<td class="c-table__cell">
@@ -48,7 +54,7 @@
 				</table>
 			</div>
 		</div>
-        <nav class="c-pagination u-mt-small u-justify-between">
+        {{-- <nav class="c-pagination u-mt-small u-justify-between">
 
             @if($transactions->previousPageUrl() != null)
                 <a class="c-pagination__control" href="{{$transactions->previousPageUrl()}}">
@@ -69,7 +75,7 @@
                 <a class="" href="">
                 </a>
             @endif
-        </nav>
+        </nav> --}}
 
     </div>
 </div>

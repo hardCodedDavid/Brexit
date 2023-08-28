@@ -223,7 +223,7 @@ class AdminController extends Controller
 
         // You can sort the final merged collection by date
         $transactions = $data->sortByDesc('date');
-        
+
         return view('admin.transactions', ['transactions'=>$transactions]);
     }
 
@@ -995,7 +995,7 @@ class AdminController extends Controller
         $validator = Validator::make($req->all(), [
             'name' => 'required|string|max:255',
             'location' => 'required',
-            'price' => 'required',
+            'price' => 'required|number',
             'type' => 'required',
             'leverage' => 'required',
             'rental' => 'required',
@@ -1055,7 +1055,7 @@ class AdminController extends Controller
         $validator = Validator::make($req->all(), [
             'name' => 'required|string|max:255',
             'location' => 'required',
-            'price' => 'required',
+            'price' => 'required|number',
             'type' => 'required',
             'leverage' => 'required',
             'rental' => 'required',

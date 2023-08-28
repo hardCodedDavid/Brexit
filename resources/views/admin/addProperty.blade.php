@@ -82,7 +82,7 @@
                         </div>
                         <div class="form-group col-12">
                             <label>Price</label>
-                            <input type="text" name="price" class="form-control" value="{{ $plan->price }}" step="any" required>
+                            <input type="number" name="price" class="form-control" value="{{ $plan->price }}" step="any" required>
                         </div>
                         <div class="form-group col-12">
                             <label>Property Leverage</label>
@@ -168,7 +168,7 @@
                         </div>
                         <div class="form-group col-12">
                             <label>Price</label>
-                            <input type="text" name="price" class="form-control" step="any" required>
+                            <input type="number" name="price" class="form-control" step="any" required>
                         </div>
                         <div class="form-group col-12">
                             <label>Property Leverage</label>

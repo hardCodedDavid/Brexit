@@ -41,9 +41,9 @@
                                     <br>
                                     308 Clyde St, Glasgow G1 4NP, United Kingdom
                                 </li>
-                                <!-- <li class="mb-3">
-                                    <h6>Contact Number :</h6> +1 (559) 717-8091
-                                </li> -->
+                                <li class="mb-3">
+                                    <h6>Contact Us :</h6> On the home page, you can schedule a call with our team using the live chat feature
+                                </li>
                                 <li class="mb-3">
                                     <h6>Email Address :</h6> info@vantagehorizon.com, support@vantagehorizon.com
                                 </li>

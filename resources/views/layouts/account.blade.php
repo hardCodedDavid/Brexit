@@ -222,7 +222,7 @@ s0.parentNode.insertBefore(s1,s0);
                             <div class="c-state-card" data-mh="state-cards">
                                 <div class="c-state-card__content">
                                     <p style="text-align: center; font-size: 12px">
-                                        All right Reserved Vantage Horizon 2023
+                                        © 2023 Vantage Horizon, All Rights Reserved
                                     </p>
                                 </div>
                             </div>

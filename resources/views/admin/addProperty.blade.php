@@ -71,7 +71,7 @@
                             <label>Property Type</label>
                             <select class="form-control" name="type" required>
                                 <option value="{{ $plan->type }}">{{ $plan->type }}</option>
-                                @foreach(['Vacation rental','Web3 properties', 'Single family residential'] as $type)
+                                @foreach(['Vacation rental','Web3 properties', 'Single family residential', 'Commercial properties'] as $type)
                                     <option value="{{ $type }}">{{ ucwords($type) }}</option>
                                 @endforeach
                             </select>
@@ -157,7 +157,7 @@
                             <label>Property Type</label>
                             <select class="form-control" name="type" required>
                                 <option value="">Please select...</option>
-                                @foreach(['Vacation rental','Web3 properties', 'Single family residential'] as $type)
+                                @foreach(['Vacation rental','Web3 properties', 'Single family residential', 'Commercial properties'] as $type)
                                     <option value="{{ $type }}">{{ ucwords($type) }}</option>
                                 @endforeach
                             </select>

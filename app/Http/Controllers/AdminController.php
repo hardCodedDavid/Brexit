@@ -995,7 +995,7 @@ class AdminController extends Controller
         $validator = Validator::make($req->all(), [
             'name' => 'required|string|max:255',
             'location' => 'required',
-            'price' => 'required|number',
+            'price' => 'required|integer|min:0',
             'type' => 'required',
             'leverage' => 'required',
             'rental' => 'required',
@@ -1055,7 +1055,7 @@ class AdminController extends Controller
         $validator = Validator::make($req->all(), [
             'name' => 'required|string|max:255',
             'location' => 'required',
-            'price' => 'required|number',
+            'price' => 'required|integer|min:0',
             'type' => 'required',
             'leverage' => 'required',
             'rental' => 'required',
